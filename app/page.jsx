@@ -25,8 +25,7 @@ export default async function Home() {
       </header>
 
       <div className="flex-grow flex flex-col items-center justify-center p-10">
-        <DemoClientComponent />
-        <HeaderComponent user={data?.user}/>
+        <DemoClientComponent />        
       </div>
 
       <footer className="bg-gray-800 text-white py-4">
