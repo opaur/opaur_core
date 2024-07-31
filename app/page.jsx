@@ -1,8 +1,13 @@
 import Image from "next/image";
 import { logout } from "./logout/actions";
 import DemoClientComponent from "./components/OpaurClientComponent";
+import { createClient } from '@/utils/supabase/server';
+import HeaderComponent from "./components/HeaderComponent";
 
-export default function Home() {
+export default async function Home() {
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+
   return (
     <main className="flex min-h-screen flex-col">
       <header className="bg-gray-800 text-white py-4 px-6 flex justify-between items-center">
@@ -14,20 +19,14 @@ export default function Home() {
           <a href="/" className="hover:underline">Home</a>
           <a href="/about" className="hover:underline">About</a>
           <a href="/contact" className="hover:underline">Contact</a>
-          <a href="/login" className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Login</a>
-          <form action={logout} className="inline">
-            <button
-              type="submit"
-              className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded"
-            >
-              Logout
-            </button>
-          </form>
+          <HeaderComponent user={data?.user}/>
+          
         </nav>
       </header>
 
       <div className="flex-grow flex flex-col items-center justify-center p-10">
         <DemoClientComponent />
+        <HeaderComponent user={data?.user}/>
       </div>
 
       <footer className="bg-gray-800 text-white py-4">
