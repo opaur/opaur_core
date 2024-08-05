@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
-import HeaderComponent from '../components/FooterComponent';
+import HeaderComponent from '../components/HeaderComponent';
 
 export default async function PrivatePage() {
   const supabase = createClient();
@@ -18,11 +18,7 @@ export default async function PrivatePage() {
         <p>Hello {data.user.email}</p>
       </div>
 
-      <footer className="bg-gray-800 text-white py-4">
-        <div className="max-w-5xl mx-auto flex justify-center items-center">
-          <p className="text-sm">By OpAur Test</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
