@@ -1,7 +1,7 @@
 import { createClient } from '@/utils/supabase/server';
 import HeaderComponent from "./components/HeaderComponent";
 import Footer from "./components/FooterComponent";
-import { Landingpage } from './components/landingpage';
+import { Landingpage } from './components/LandingPage';
 
 export default async function Home() {
   const supabase = createClient();
