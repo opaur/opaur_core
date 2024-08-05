@@ -1,6 +1,7 @@
-import DemoClientComponent from "./components/OpaurClientComponent";
 import { createClient } from '@/utils/supabase/server';
 import HeaderComponent from "./components/HeaderComponent";
+import Footer from "./components/FooterComponent";
+import { Landingpage } from './components/landingpage';
 
 export default async function Home() {
   const supabase = createClient();
@@ -9,18 +10,10 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col">
       <HeaderComponent user={data?.user} />
-   
-  
-    <div className="flex-grow flex flex-col items-center justify-center p-10">
-      <DemoClientComponent />        
-    </div>
-  
-    <footer className="bg-gray-800 text-white py-4">
-      <div className="max-w-5xl mx-auto flex justify-center items-center">
-        <p className="text-sm">By OpAur Test</p>
+      <div className="flex-grow">
+        <Landingpage />
       </div>
-    </footer>
-  </main>
-  
+      <Footer />
+    </main>
   );
 }

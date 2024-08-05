@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 import { createClient } from '@/utils/supabase/server';
-import HeaderComponent from '../components/HeaderComponent';
+import HeaderComponent from '../components/FooterComponent';
 
 export default async function PrivatePage() {
   const supabase = createClient();

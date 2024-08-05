@@ -4,7 +4,7 @@ import { logout } from "../logout/actions";
 
 export default function AuthValidation({ user }) {
     return (
-        <header className="bg-gray-800 text-white p-4 dark:bg-gray-900 dark:text-gray-200">
+        <header className="bg-card text-card-foreground p-4 dark:bg-card dark:text-card-foreground">
             <nav className="container mx-auto flex items-center justify-between">
                 <div className="text-lg font-bold">
                     <span className="text-xl">OpAur</span>
@@ -14,14 +14,22 @@ export default function AuthValidation({ user }) {
                         <>
                             <a
                                 href="/private"
-                                className="bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800 text-white px-4 py-2 rounded transition"
+                                className="px-4 py-2 rounded transition rounded-lg"
+                                style={{
+                                    backgroundColor: 'hsl(var(--primary))',
+                                    color: 'hsl(var(--primary-foreground))'
+                                }}
                             >
                                 Dashboard
                             </a>
                             <form action={logout} className="inline">
                                 <button
                                     type="submit"
-                                    className="bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800 text-white px-4 py-2 rounded transition"
+                                    className="px-4 py-2 rounded transition rounded-lg"
+                                    style={{
+                                        backgroundColor: 'hsl(var(--destructive))',
+                                        color: 'hsl(var(--destructive-foreground))'
+                                    }}
                                 >
                                     Logout
                                 </button>
@@ -30,7 +38,11 @@ export default function AuthValidation({ user }) {
                     ) : (
                         <a
                             href="/login"
-                            className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white px-4 py-2 rounded transition"
+                            className="px-4 py-2 rounded transition rounded-lg"
+                            style={{
+                                backgroundColor: 'hsl(var(--primary))',
+                                color: 'hsl(var(--primary-foreground))'
+                            }}
                         >
                             Login
                         </a>
