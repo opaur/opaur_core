@@ -4,7 +4,7 @@ import { logout } from "../logout/actions";
 
 export default function AuthValidation({ user }) {
     return (
-        <header className="bg-card text-card-foreground p-4 dark:bg-card dark:text-card-foreground">
+        <header className="bg-card text-card-foreground p-4 dark:bg-muted dark:text-card-foreground">
             <nav className="container mx-auto flex items-center justify-between">
                 <div className="text-lg font-bold">
                     <span className="text-xl">OpAur</span>
