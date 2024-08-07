@@ -14,6 +14,8 @@ module.exports = {
       },
     },
       colors: {
+        'custom-purple': '#695cff',
+        'custom-purple-dark': '#5648cc',
             "border": "hsl(var(--border))",
             "input": "hsl(var(--input))",
             "ring": "hsl(var(--ring))",

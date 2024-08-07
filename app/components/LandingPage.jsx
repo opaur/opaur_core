@@ -116,7 +116,7 @@ export function Landingpage() {
             </div>
             <div className="bg-card p-6 rounded-md shadow-md">
               <h3 className="text-2xl font-bold mb-2 text-primary">Enterprise</h3>
-              <p className="text-muted-foreground mb-6">Tailored for large businesses and organizations.</p>
+              <p className="text-muted-foreground mb-6">Tailored for large organizations.</p>
               <div className="flex items-baseline mb-4">
                 <span className="text-4xl font-bold text-primary">$99</span>
                 <span className="text-muted-foreground">/month</span>
