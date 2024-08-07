@@ -5,11 +5,6 @@ import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
 
-
-export async function handleRedirectLogin() {
-    redirect('../login')
-}
-
 export async function signup(formData) {
   const supabase = createClient()
 

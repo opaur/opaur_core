@@ -1,6 +1,14 @@
-import { login, signup } from './actions'
+'use client'
+import { login } from './actions'
+import { useRouter } from 'next/navigation'
 
 export default function LoginPage() {
+
+  const router = useRouter();
+
+  const handleSignUpRedirect = () => {
+    router.push('../signup');
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background-start to-background-end">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
@@ -35,8 +43,8 @@ export default function LoginPage() {
               Log in
             </button>
             <button
-              type="submit"
-              formAction={signup}
+              type="button"
+              onClick={handleSignUpRedirect}
               className="w-full ml-2 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 dark:bg-green-500 dark:hover:bg-green-600"
             >
               Sign up

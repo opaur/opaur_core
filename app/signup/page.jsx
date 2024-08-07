@@ -1,6 +1,14 @@
-import { signup,handleRedirectLogin } from './actions'
-
+'use client'
+import { signup } from './actions'
+import { useRouter } from 'next/navigation'
 export default function SignUpPage() {
+
+    const router = useRouter();
+
+    const handleRedirectLogin = () => {
+      router.push('../login');
+    }
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-background-start to-background-end">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8">
@@ -59,8 +67,8 @@ export default function SignUpPage() {
 
           <div className="flex justify-between">
             <button
-              type="submit"
-              formAction={handleRedirectLogin}
+              type="button"
+              onClick={handleRedirectLogin}
               className="w-full mr-2 flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600"
             >
               Log in
