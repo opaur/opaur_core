@@ -10,7 +10,7 @@ export default function Footer() {
                 <div className="flex space-x-4">
                     <a
                         href="/about"
-                        className="px-4 py-2 rounded transition rounded-lg"
+                        className="px-3  py-2 text-sm rounded transition rounded-lg"
                         style={{
                             backgroundColor: 'hsl(var(--primary))',
                             color: 'hsl(var(--primary-foreground))'
@@ -20,7 +20,7 @@ export default function Footer() {
                     </a>
                     <a
                         href="/contact"
-                        className="px-4 py-2 rounded transition rounded-lg"
+                        className="px-3  py-2 text-sm rounded transition rounded-lg"
                         style={{
                             backgroundColor: 'hsl(var(--primary))',
                             color: 'hsl(var(--primary-foreground))'

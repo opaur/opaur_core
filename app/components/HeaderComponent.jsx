@@ -14,7 +14,7 @@ export default function AuthValidation({ user }) {
                         <>
                             <a
                                 href="/private"
-                                className="px-4 py-2 rounded transition rounded-lg"
+                                className="px-3  py-2 text-sm rounded transition rounded-lg"
                                 style={{
                                     backgroundColor: 'hsl(var(--primary))',
                                     color: 'hsl(var(--primary-foreground))'
@@ -25,7 +25,7 @@ export default function AuthValidation({ user }) {
                             <form action={logout} className="inline">
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 rounded transition rounded-lg"
+                                    className="px-3 py-2 text-sm rounded transition rounded-lg"
                                     style={{
                                         backgroundColor: 'hsl(var(--destructive))',
                                         color: 'hsl(var(--destructive-foreground))'
