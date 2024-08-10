@@ -2,6 +2,7 @@
 
 import { login } from './actions'
 import { useRouter } from 'next/navigation'
+import Footer from "../components/FooterComponent";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -11,6 +12,7 @@ export default function LoginPage() {
   }
 
   return (
+    <main className="flex min-h-screen flex-col">
     <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 space-y-8">
         <div className="space-y-2 text-center">
@@ -62,6 +64,10 @@ export default function LoginPage() {
           </p>
         </div>
       </div>
+      
     </div>
+    <Footer />
+    </main>
+    
   )
 }

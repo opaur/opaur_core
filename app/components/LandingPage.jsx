@@ -2,9 +2,9 @@
 import Link from "next/link"
 export function Landingpage() {
   return (
-    (<div className="flex flex-col min-h-[100dvh]">
-      <section className="bg-primary dark:bg-muted py-20 md:py-32 lg:py-40">
-        <div className="container mx-auto px-4 md:px-6 text-center">
+    (<div className="flex flex-col min-h-[100dvh] ">
+      <section className="bg-primary dark:bg-muted py-20 md:py-32 lg:py-40 ">
+        <div className="container mx-auto px-4 md:px-6 text-center ">
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground dark:text-primary mb-4 ">
             Unlock Your Business Potential
@@ -21,7 +21,7 @@ export function Landingpage() {
         </div>
       </section>
       <section className="py-20 md:py-32 lg:py-40">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6 max-w-[1000px]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">Features That Matter</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             <div className="bg-card p-6 rounded-md shadow-md">
@@ -83,7 +83,7 @@ export function Landingpage() {
         </div>
       </section>
       <section className="bg-muted py-20 md:py-32 lg:py-40">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6 max-w-[1000px]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 text-primary">Pricing</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             <div className="bg-card p-6 rounded-md shadow-md">
@@ -132,7 +132,7 @@ export function Landingpage() {
         </div>
       </section>
       <section className="py-20 md:py-32 lg:py-40">
-        <div className="container mx-auto px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6 max-w-[1000px]">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12">What Our Customers Say</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             <div className="bg-card p-6 rounded-md shadow-md">
