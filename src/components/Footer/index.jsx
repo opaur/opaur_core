@@ -8,7 +8,7 @@ export default function Footer() {
                
             <nav className="container mx-auto flex items-center justify-between max-w-screen-lg">
                 <div className="text-lg font-bold">
-                    <span className="text-xl">OpAur</span>
+                    <span className="text-xl text-black dark:text-white">OpAur</span>
                 </div>
                 <div className="flex space-x-4">
                     <a
