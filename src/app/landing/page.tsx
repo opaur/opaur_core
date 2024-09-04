@@ -1,14 +1,14 @@
+"use client";
 import { Metadata } from "next";
+import HeaderComp from "@/components/Headerc/index";
+import Footer from "@/components/Footer/index";
 
-export const metadata: Metadata = {
-  title: "Next.js Calendar | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Calendar page for TailAdmin Tailwind CSS Admin Dashboard Template",
-};
 
 const LandingPage = () => {
   return (
+
     <div className="flex min-h-screen flex-col">
+      <HeaderComp/>
       <section className="bg-blue-600 py-20 md:py-32 lg:py-40">
         <div className="container mx-auto px-4 text-center md:px-6">
           <h1 className="mb-4 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
@@ -154,6 +154,7 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };
