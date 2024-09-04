@@ -1,16 +1,27 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Metadata } from "next";
+import Footer from "@/components/Footer";
+import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 
-export const metadata: Metadata = {
-  title: "Next.js SignIn Page | TailAdmin - Next.js Dashboard Template",
-  description: "This is Next.js Signin Page TailAdmin Dashboard Template",
-};
 
 const SignIn: React.FC = () => {
   return (
-      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+    <div className="flex min-h-screen flex-col">
+<header className="p-4">
+      <nav className="container mx-auto flex items-center justify-between max-w-screen-lg">
+        <div className="text-lg font-bold">
+          <span className="text-xl">OpAur</span>
+        </div>
+        <ul className="flex items-center gap-2 2xsm:gap-4">
+        <DarkModeSwitcher />
+          </ul>
+            
+      </nav>
+     
+  </header>
+      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mx-auto max-w-screen-xl ">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
             <div className="px-26 py-17.5 text-center">
@@ -292,6 +303,8 @@ const SignIn: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+      <Footer />
       </div>
   );
 };
