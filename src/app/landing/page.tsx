@@ -1,24 +1,35 @@
 "use client";
 import HeaderComp from "@/components/Headerc/index";
 import Footer from "@/components/Footer/index";
-
+import Image from "next/image";
 
 const LandingPage = () => {
   return (
 
     <div className="flex min-h-screen flex-col">
       <HeaderComp/>
-      <section className="py-20 md:py-32 lg:py-40">
-        <div className="container mx-auto px-4 text-center md:px-6">
-          <h1 className="mb-4 text-4xl font-bold text-black dark:text-white  md:text-5xl lg:text-6xl">
-            Unlock Your Business Potential
-          </h1>
-          <p className="mb-8 text-lg md:text-xl lg:text-2xl">
-            Our all-in-one platform helps you streamline your operations and
-            drive growth.
-          </p>
-        </div>
-      </section>
+      <section className="py-18 md:py-26 lg:py-32">
+  <div className="container mx-auto max-w-5xl px-4 text-center md:px-6">
+    <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
+      <div className="text-center md:text-left md:w-1/2">
+        <h1 className="mb-4 text-4xl font-bold text-black dark:text-white md:text-5xl lg:text-6xl">
+          Unlock Your Business Potential
+        </h1>
+        <p className="mb-8 text-lg md:text-xl lg:text-2xl">
+          Our all-in-one platform helps you streamline your operations and
+          drive growth.
+        </p>
+      </div>
+      <Image
+              width={450}
+              height={300}
+              src={"/images/illustration/composition-5.svg"}
+              alt="Logo"
+              priority
+            />
+    </div>
+  </div>
+</section>
 
       <section className="py-20 md:py-32 lg:py-40">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
@@ -78,8 +89,11 @@ const LandingPage = () => {
                 <p className="">{feature.description}</p>
               </div>
             ))}
+            
           </div>
+         
         </div>
+        
       </section>
 
       <section className="bg-gray-100 py-20 md:py-32 lg:py-40">
