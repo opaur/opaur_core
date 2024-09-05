@@ -27,7 +27,6 @@ export default function NotFound() {
   </div>
 </div>
 
-    <Footer/>
     </div>
   );
 }
