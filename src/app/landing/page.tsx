@@ -13,7 +13,7 @@ const LandingPage = () => {
     <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
       <div className="text-center md:text-left md:w-1/2">
         <h1 className="mb-4 text-4xl font-bold text-black dark:text-white md:text-5xl lg:text-6xl">
-          Unlock Your Business Potential
+          Unlock Your Business Potential!
         </h1>
         <p className="mb-8 text-lg md:text-xl lg:text-2xl">
           Our all-in-one platform helps you streamline your operations and
