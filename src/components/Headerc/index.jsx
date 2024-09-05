@@ -25,7 +25,7 @@ const HeaderComp = () => {
           {/* User Area */}
           <DropdownUser />
           <a
-            href="/private"
+            href="/dashboard"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8 "
           >
             Get Started

@@ -66,9 +66,10 @@ const Header = (props: {
           </Link>
         </div>
 
-        <div className="hidden sm:block">
+        <div className="hidden  sm:block">
           <form action="https://formbold.com/s/unique_form_id" method="POST">
-            <div className="relative">
+            {/* <!-- Esta escondido para limpiar el UI--> */}
+            <div className="relative hidden">
               <button className="absolute left-0 top-1/2 -translate-y-1/2">
                 <svg
                   className="fill-body hover:fill-primary dark:fill-bodydark dark:hover:fill-primary"
