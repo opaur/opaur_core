@@ -8,7 +8,7 @@ const HeaderComp = () => {
     <header className="p-4">
       <nav className="container mx-auto flex max-w-screen-lg items-center justify-between">
         <div className="text-lg font-bold text-black dark:text-white">
-          <span className="text-xl">OpAur</span>
+          <span className="text-xl ">OpAur</span>
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">

@@ -365,7 +365,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             />
           </Link> 
 
-       <div className="text-lg font-bold text-black dark:text-white px-1 py-2">
+       <div className="text-lg font-bold text-black dark:text-white dark:text-white px-1 py-2">
           <span className="text-xl">OpAur</span>
         </div>
 
