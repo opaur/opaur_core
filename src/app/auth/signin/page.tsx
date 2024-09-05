@@ -10,11 +10,11 @@ const SignIn: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col">
 <header className="p-4">
-      <nav className="container mx-auto flex items-center justify-between max-w-screen-lg">
+      <nav className="container mx-auto flex text-black dark:text-white items-center justify-between max-w-screen-lg">
         <div className="text-lg font-bold">
           <span className="text-xl">OpAur</span>
         </div>
-        <ul className="flex items-center gap-2 2xsm:gap-4">
+        <ul className="flex hidden items-center gap-2 2xsm:gap-4">
         <DarkModeSwitcher />
           </ul>
             
@@ -24,20 +24,20 @@ const SignIn: React.FC = () => {
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mx-auto max-w-screen-xl ">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
-            <div className="px-26 py-17.5 text-center">
+            <div className="px-26 py-13 text-center">
               <Link className="mb-5.5 inline-block" href="/">
                 <Image
                   className="hidden dark:block"
                   src={"/images/logo/logo.svg"}
                   alt="Logo"
-                  width={176}
+                  width={85}
                   height={32}
                 />
                 <Image
                   className="dark:hidden"
                   src={"/images/logo/logo-dark.svg"}
                   alt="Logo"
-                  width={176}
+                  width={85}
                   height={32}
                 />
               </Link>
@@ -174,9 +174,8 @@ const SignIn: React.FC = () => {
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
-              <span className="mb-1.5 block font-medium">Start for free</span>
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                Sign In to TailAdmin
+                Sign In to OpAur
               </h2>
 
               <form>
