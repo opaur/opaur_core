@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import {LoginServer} from "./components/login-supabase-server";
 import {cookies} from 'next/headers'
 import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import LandingPage from "./landing/page";
@@ -11,11 +10,12 @@ export const metadata: Metadata = {
 };
 
 
-export default function Home() {
+export default async function Home() {
 const supabase = createServerComponentClient({cookies});
+const {data:{user}}= await supabase.auth.getUser()
   return (
   
-              <LandingPage/>       
+              <LandingPage user={user}/>       
     
   );
 }
