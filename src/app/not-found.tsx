@@ -7,7 +7,11 @@ import Image from "next/image";
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col ">
-     <HeaderComp/>
+      {/*
+      <HeaderComp/>
+      */}
+      
+     
     <div className="flex flex-col items-center justify-center h-[76vh] bg-gray-100">
   <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center w-full max-w-5xl">
     <div className="flex flex-col items-center justify-center">
