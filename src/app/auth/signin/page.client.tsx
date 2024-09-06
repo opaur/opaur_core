@@ -3,20 +3,47 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Footer from "@/components/Footer";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
+export default function SignInClient() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const router = useRouter();
+    const supabase = createClientComponentClient();
+    const handleSignIn = async () => {
+        const { error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
+        if (error) {
+            toast.error(error.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } else {
+            router.push('/dashboard');
+          }
+      };
 
-const SignInClient: React.FC = () => {
   return (
+    
     <div className="flex min-h-screen flex-col">
 <header className="p-4">
+<ToastContainer />
       <nav className="container mx-auto flex text-black dark:text-white items-center justify-between max-w-screen-lg">
         <div className="text-lg font-bold">
           <span className="text-xl">OpAur</span>
         </div>
-        <ul className="flex hidden items-center gap-2 2xsm:gap-4">
-        <DarkModeSwitcher />
-          </ul>
             
       </nav>
      
@@ -171,14 +198,13 @@ const SignInClient: React.FC = () => {
               </span>
             </div>
           </div>
-
+          
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 Sign In to OpAur
               </h2>
-
-              <form>
+              
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Email
@@ -187,6 +213,9 @@ const SignInClient: React.FC = () => {
                     <input
                       type="email"
                       placeholder="Enter your email"
+                      name="email"
+                      onChange={(e) => setEmail(e.target.value)}
+                      value={email}
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 
@@ -217,6 +246,9 @@ const SignInClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="password"
+                      name="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
                       placeholder="6+ Characters, 1 Capital letter"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
@@ -246,11 +278,11 @@ const SignInClient: React.FC = () => {
                 </div>
 
                 <div className="mb-5">
-                  <input
+                  <button
                     type="submit"
                     value="Sign In"
                     className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                  />
+                    onClick={handleSignIn}>Sign in</button>
                 </div>
 
                 <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
@@ -297,8 +329,7 @@ const SignInClient: React.FC = () => {
                       Sign Up
                     </Link>
                   </p>
-                </div>
-              </form>
+                </div>              
             </div>
           </div>
         </div>
@@ -307,5 +338,3 @@ const SignInClient: React.FC = () => {
       </div>
   );
 };
-
-export default SignInClient;

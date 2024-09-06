@@ -14,9 +14,6 @@ const SignUpClient: React.FC = () => {
         <div className="text-lg font-bold">
           <span className="text-xl">OpAur</span>
         </div>
-        <ul className="flex hidden items-center gap-2 2xsm:gap-4">
-        <DarkModeSwitcher />
-          </ul>
       </nav>
   </header>
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mx-auto max-w-screen-xl ">
