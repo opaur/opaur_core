@@ -2,12 +2,12 @@
 import React, { useState, ReactNode } from "react";
 import Sidebar from "@/components/Sidebar";
 import Header from "@/components/Header";
+import {
+  type User,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
 
-export default function DefaultLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DefaultLayout({children,}: {children: React.ReactNode;},{user}:{user: User|null}) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <>
