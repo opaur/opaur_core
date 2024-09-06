@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 const SignIn = async() => {
   const supabase= createServerComponentClient({cookies})
-  const {data:{session}}= await supabase.auth.getSession()
-  if(session){
+  const { data: { user },} = await supabase.auth.getUser();
+  if(user){
 redirect('/dashboard')
   }
   return (    

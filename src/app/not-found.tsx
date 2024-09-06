@@ -1,14 +1,14 @@
 "use client";
 import Footer from "@/components/Footer";
-import HeaderComp from "@/components/Headerc";
+import HeaderComp from "@/components/Headerc/index";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col ">
-    <HeaderComp/>
-    <div className="flex flex-col items-center justify-center h-[76vh] md:h-[78vh] md:h-[80vh] bg-gray-100">
+     <HeaderComp/>
+    <div className="flex flex-col items-center justify-center h-[76vh] bg-gray-100">
   <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center w-full max-w-5xl">
     <div className="flex flex-col items-center justify-center">
       <h1 className="text-6xl font-bold text-red-600 animate-bounce py-2">404</h1>

@@ -1,16 +1,24 @@
 import ECommerce from "@/components/Dashboard/E-commerce";
 import { Metadata } from "next";
 import DefaultLayout from "@/components/Layouts/DefaultLayout";
-
+import {cookies} from 'next/headers'
+import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
+import {redirect} from 'next/navigation'
 
 export const metadata: Metadata = {
   title:
-    "Next.js E-commerce Dashboard | TailAdmin - Next.js Dashboard Template",
-  description: "This is Next.js Home for TailAdmin Dashboard Template",
+    "Opaur-Dashboard",
+  description: "Opaur-Dashboard",
 };
 
 
-const Dashboard = () => {
+const Dashboard = async () => {
+  const supabase = createServerComponentClient({cookies});
+const {data:{user}}= await supabase.auth.getUser()
+if(!user){
+  redirect('/')
+  
+}
     return (
            
   <DefaultLayout>
