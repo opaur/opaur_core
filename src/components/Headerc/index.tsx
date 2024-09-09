@@ -2,6 +2,8 @@ import DarkModeSwitcher from "../Header/DarkModeSwitcher";
 import DropdownMessage from "../Header/DropdownMessage";
 import DropdownNotification from "../Header/DropdownNotification";
 import DropdownUser from "../Header/DropdownUser";
+import Image from "next/image";
+
 import {
   type User,
   createClientComponentClient,
@@ -9,10 +11,15 @@ import {
 const HeaderComp = ({ user }: { user: User | null }) => {
   const isLoggedIn = user != null;
   return (
-    <header className="p-4">
+    <header className="p-4 sticky top-0 bg-white dark:border-strokedark dark:bg-boxdark shadow-md">
       <nav className="container mx-auto flex max-w-screen-lg items-center justify-between">
         <div className="text-lg font-bold text-black dark:text-white">
-          <span className="text-xl ">OpAur</span>
+          <Image
+                width={140}
+                height={45}
+                src={"/images/logo/logo_opaur_aurora.svg"}
+                alt="Logo"
+                priority />
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">
