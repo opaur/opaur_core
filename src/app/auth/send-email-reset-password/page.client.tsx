@@ -63,7 +63,7 @@ export default function ResetPasswordSendEmailClient() {
       } else {
 
         Swal.fire({
-          title: "Link send",
+          title: "Link sent",
           text: "Please check your email and reset you password",
           icon: "success",
           iconColor:"#695CFF",
