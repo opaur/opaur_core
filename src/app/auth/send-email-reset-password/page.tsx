@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ResetPasswordClient from "./page.client";
+import ResetPasswordSendEmailClient from "./page.client";
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation';
@@ -9,19 +9,15 @@ export const metadata: Metadata = {
   description: "Opaur - Build Your Brand Aura",
 };
 
-const ResetPassword = async() => {  
-  
+const ResetPasswordSendEmail = async() => {
   const supabase= createServerComponentClient({cookies})
   const { data: { user },} = await supabase.auth.getUser();
-
-
-
   if(user){
 redirect('/dashboard')
   }
   return (    
-      <ResetPasswordClient />    
+      <ResetPasswordSendEmailClient />    
   );
 };
 
-export default ResetPassword;
+export default ResetPasswordSendEmail;
