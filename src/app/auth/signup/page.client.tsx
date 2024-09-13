@@ -1,14 +1,13 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {  type Session,  createClientComponentClient} from "@supabase/auth-helpers-nextjs";
+import {  createClientComponentClient} from "@supabase/auth-helpers-nextjs";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 
@@ -74,6 +73,7 @@ const SignUpClient: React.FC = () => {
             title: "Successful sign up",
             text: "Please check your email and confirm sign up",
             icon: "success",
+            iconColor:"#695CFF",
             confirmButtonText: "OK",
             confirmButtonColor: "#695CFF",
           });
@@ -347,7 +347,7 @@ const SignUpClient: React.FC = () => {
                 <div className="mt-6 text-center">
                   <p>
                     Already have an account?{" "}
-                    <Link href="/auth/signin" className="text-primary">
+                    <Link href="/auth/signin" className="text-primary cursor-pointer hover:underline">
                       Sign in
                     </Link>
                   </p>

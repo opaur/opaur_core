@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -181,13 +180,21 @@ export default function SignInClient() {
                 </button>
 
                 <div className="mt-6 text-center">
-                  <p>
+                <p>
                     Don’t have any account?{" "}
-                    <Link href="/auth/signup" className="text-primary">
+                    <Link href="/auth/signup" className="text-primary cursor-pointer hover:underline">
                       Sign Up
                     </Link>
                   </p>
-                </div>              
+                </div>
+                <div className="mt-6 text-center">
+                <p >
+                  Forgot your password?{" "}
+                    <Link  href="/auth/send-email-reset-password" className="text-primary cursor-pointer hover:underline">
+                      Reset my password
+                    </Link>
+                  </p>
+                </div>         
             </div>
           </div>
         </div>
