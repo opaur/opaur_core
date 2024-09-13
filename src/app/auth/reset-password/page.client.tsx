@@ -9,7 +9,7 @@ import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import LogoAuth from "@/app/components/logo-auth";
+import LogoAuth from "@/app/components/logo-auth"
 
 export default function SignInClient() {
     const [email, setEmail] = useState("");
@@ -52,9 +52,9 @@ export default function SignInClient() {
       <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mx-auto max-w-screen-xl ">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
-          
-            <LogoAuth/>            
-          
+            
+
+<LogoAuth/>
           </div>
           
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
