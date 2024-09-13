@@ -9,7 +9,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
-
+import Swal from "sweetalert2";
 export default function ResetPasswordSendEmailClient() {
   const [email, setEmail] = useState("");
   const router = useRouter();
@@ -61,6 +61,15 @@ export default function ResetPasswordSendEmailClient() {
           progress: undefined,
         });
       } else {
+
+        Swal.fire({
+          title: "Link send",
+          text: "Please check your email and reset you password",
+          icon: "success",
+          iconColor:"#695CFF",
+          confirmButtonText: "OK",
+          confirmButtonColor: "#695CFF",
+        });
         router.push("/dashboard");
       }
     }
