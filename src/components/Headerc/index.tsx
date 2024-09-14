@@ -15,7 +15,7 @@ const HeaderComp = ({ user }: { user: User | null }) => {
       <nav className="container mx-auto flex max-w-screen-lg items-center justify-between">
         <div className="text-lg font-bold text-black dark:text-white">
           <Image
-                width={140}
+                width={100}
                 height={45}
                 src={"/images/logo/logo_opaur_aurora.svg"}
                 alt="Logo"
