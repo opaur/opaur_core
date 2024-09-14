@@ -47,10 +47,10 @@ const LandingPage = ({ user }: { user: User | null }) => {
             Innovation that Transforms
           </h2>
           <p className="mb-8 text-lg md:text-xl lg:text-2xl">
-            We combine advanced software with human creativity to
-            deliver fast, personalized branding strategies. Our vision is clear:
-            to redefine how brands connect with their audience, offering
-            innovative solutions that inspire growth and engagement.
+            We combine advanced software with human creativity to deliver fast,
+            personalized branding strategies. Our vision is clear: to redefine
+            how brands connect with their audience, offering innovative
+            solutions that inspire growth and engagement.
           </p>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
@@ -87,7 +87,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="rounded-lg bg-white p-6 shadow-md dark:border-strokedark dark:bg-boxdark transform transition-transform duration-300 hover:scale-105"
+                className="transform rounded-lg bg-white p-6 shadow-md transition-transform duration-300 hover:scale-105 dark:border-strokedark dark:bg-boxdark"
               >
                 <div className="mb-2 inline-block rounded-md p-3">
                   {" "}
@@ -114,7 +114,28 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </div>
         </div>
       </section>
-
+      <section className="py-10 md:py-15 lg:py-20">
+        <div className="container mx-auto max-w-5xl px-4 md:px-6">
+          <h2 className="mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
+            Be Part of the Change: Join as an Early Adopter
+          </h2>
+          <p className="mb-8 text-lg md:text-xl lg:text-2xl">
+            We are looking for visionary startups and e-commerce businesses to
+            be the first to try Opaur. As an early adopter, you will receive
+            exclusive access, personalized support, and the opportunity to
+            become an ambassador for a disruptive solution.
+          </p>
+          <div className="text-center">
+            <a
+              href="#"
+              className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
+            >
+              Reserve Your Spot Now
+              <span className="ml-1 text-lg">&#8594;</span>
+            </a>
+          </div>
+        </div>
+      </section>
       <section className="bg-gray-100 py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="text-gray-800 mb-12  text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
@@ -141,7 +162,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
             ].map((plan, index) => (
               <div
                 key={index}
-                className="rounded-lg bg-white p-6 shadow-md dark:border-strokedark dark:bg-boxdark transform transition-transform duration-300 hover:scale-105"
+                className="transform rounded-lg bg-white p-6 shadow-md transition-transform duration-300 hover:scale-105 dark:border-strokedark dark:bg-boxdark"
               >
                 <h3 className="mb-2 text-2xl font-bold text-black dark:text-white">
                   {plan.title}
@@ -187,7 +208,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
             ].map((testimonial, index) => (
               <div
                 key={index}
-                className="rounded-lg bg-white p-6 shadow-md dark:border-strokedark dark:bg-boxdark transform transition-transform duration-300 hover:scale-105"
+                className="transform rounded-lg bg-white p-6 shadow-md transition-transform duration-300 hover:scale-105 dark:border-strokedark dark:bg-boxdark"
               >
                 <blockquote>
                   <p className=" mb-4">&quot;{testimonial.quote}&quot;</p>
