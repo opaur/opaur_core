@@ -34,7 +34,24 @@ export default function SignInClient() {
             router.push('/dashboard');
           }
       };
-
+      const handleGoogleSignIn = async () => {
+        const { error } = await supabase.auth.signInWithOAuth({
+          provider: 'google',
+        });
+        if (error) {
+            toast.error(error.message, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } else {
+            router.push('/dashboard');
+          }
+      };
   return (
     
     <div className="flex min-h-screen flex-col">
@@ -142,7 +159,9 @@ export default function SignInClient() {
                     onClick={handleSignIn}>Sign in</button>
                 </div>
 
-                <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+                <button 
+                className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
+                onClick={handleGoogleSignIn}>
                   <span>
                     <svg
                       width="20"
