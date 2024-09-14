@@ -18,17 +18,16 @@ const LandingPage = ({user}:{user: User|null}) => {
     <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
       <div className="text-center md:text-left md:w-1/2">
         <h1 className="mb-4 text-4xl font-bold text-black dark:text-white md:text-5xl lg:text-6xl">
-          Unlock Your Business Potential!
+        We revolutionize Branding and Human Creativity
         </h1>
         <p className="mb-8 text-lg md:text-xl lg:text-2xl">
-          Our all-in-one platform helps you streamline your operations and
-          drive growth.
+        Tailored Branding Solutions Delivered in Under 48 Hours
         </p>
         <a
             href="/private"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8 "
           >
-            Start Now
+            Join Now
             <span className="ml-1 text-lg">&#8594;</span>
           </a>
       </div>
@@ -46,8 +45,11 @@ const LandingPage = ({user}:{user: User|null}) => {
       <section className="py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="mb-12 text-center text-black dark:text-white text-3xl font-bold md:text-4xl lg:text-5xl">
-            Features That Matter
+          Innovation that Transforms
           </h2>
+          <p className="mb-8 text-lg md:text-xl lg:text-2xl">
+          At Opaur, we combine advanced software with human creativity to deliver fast, personalized branding strategies. Our vision is clear: to redefine how brands connect with their audience, offering innovative solutions that inspire growth and engagement.
+        </p>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
