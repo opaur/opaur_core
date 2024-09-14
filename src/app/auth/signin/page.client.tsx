@@ -9,8 +9,10 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
+import { NextRequest, NextResponse } from 'next/server'
 
 export default function SignInClient() {
+  const request=NextRequest
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
@@ -37,6 +39,9 @@ export default function SignInClient() {
       const handleGoogleSignIn = async () => {
         const { error } = await supabase.auth.signInWithOAuth({
           provider: 'google',
+          options:{
+            redirectTo: `${window.location.origin}/auth/callback`
+          }
         });
         if (error) {
             toast.error(error.message, {
