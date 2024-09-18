@@ -1,4 +1,4 @@
-'use server'
+'use client'
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import { toast, ToastContainer } from "react-toastify";
 import Swal from "sweetalert2";
