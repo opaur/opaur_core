@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import { NextRequest, NextResponse } from 'next/server'
+import Swal from "sweetalert2";
 
 export default function SignInClient() {
   const request=NextRequest
@@ -23,15 +24,15 @@ export default function SignInClient() {
           password,
         });
         if (error) {
-            toast.error(error.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
+          
+          Swal.fire({
+            title: "Error",
+            text: ` ${error.message}. Nearly done, your evolution is just one step away!`,
+            icon: "error",
+            iconColor: "#695CFF",
+            confirmButtonText: "OK",            
+            confirmButtonColor: "#695CFF",            
+          });            
           } else {
             router.push('/dashboard');
           }
