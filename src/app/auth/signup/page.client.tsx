@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {  createClientComponentClient} from "@supabase/auth-helpers-nextjs";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 
@@ -19,16 +19,17 @@ const SignUpClient: React.FC = () => {
   const [last_name, setLastName] = useState("");
   const router = useRouter();
   const supabase = createClientComponentClient();
-  
-  const checkIfEmailExists = async (email: string): Promise<boolean> => {
-    const { data, error } = await supabase
-    .rpc('check_if_email_exists', { email_to_check: email })
 
-  if (error) {
-    await writeToastError(error.message)    
-    throw error
-  }
-  return data as boolean
+  const checkIfEmailExists = async (email: string): Promise<boolean> => {
+    const { data, error } = await supabase.rpc("check_if_email_exists", {
+      email_to_check: email,
+    });
+
+    if (error) {
+      await writeToastError(error.message);
+      throw error;
+    }
+    return data as boolean;
   };
 
   const writeToastError = async (error: string) => {
@@ -70,12 +71,15 @@ const SignUpClient: React.FC = () => {
           await writeToastError(error.message);
         } else {
           Swal.fire({
-            title: "Successful sign up",
-            text: "Please check your email and confirm sign up",
-            icon: "success",
-            iconColor:"#695CFF",
-            confirmButtonText: "OK",
+            title: "Your transformation journey begins now!",
+            text: "Check your email and confirm your sign-up to continue the path toward a new brand identity.",
+            //icon: "success",
+            //iconColor: "#695CFF",
+            confirmButtonText: "OK",            
             confirmButtonColor: "#695CFF",
+            imageUrl: "/images/logo/logo-icon.svg", 
+            imageWidth: 200, 
+            imageHeight: 100, 
           });
           router.push("/dashboard");
         }
@@ -96,7 +100,7 @@ const SignUpClient: React.FC = () => {
       <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
-            <LogoAuth/>            
+            <LogoAuth />
           </div>
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
@@ -347,7 +351,10 @@ const SignUpClient: React.FC = () => {
                 <div className="mt-6 text-center">
                   <p>
                     Already have an account?{" "}
-                    <Link href="/auth/signin" className="text-primary cursor-pointer hover:underline">
+                    <Link
+                      href="/auth/signin"
+                      className="cursor-pointer text-primary hover:underline"
+                    >
                       Sign in
                     </Link>
                   </p>
