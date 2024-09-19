@@ -10,7 +10,7 @@ import { redirect, useSearchParams, useRouter} from 'next/navigation';
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
-import {ResetPassword,writeToastError} from "../actions"
+import {writeToastError} from "../actions"
 export default function ResetPasswordClient() {
   const [password, setPassword] = useState("");
   const [re_type_password, setReTypePassword] = useState("");
@@ -36,15 +36,7 @@ redirect('/')
       )
   
       if (error) {
-        toast.error(error.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
+        await writeToastError(error.message);        
       } else {
         Swal.fire({
           title: "Password updated successfully",          

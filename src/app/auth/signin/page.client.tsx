@@ -2,89 +2,60 @@
 import React from "react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
-import { NextRequest, NextResponse } from 'next/server'
-import Swal from "sweetalert2";
+import { NextRequest, NextResponse } from "next/server";
+import { handleSignIn,handleGoogleSignIn } from "../actions";
 
 export default function SignInClient() {
-  const request=NextRequest
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const router = useRouter();
-    const supabase = createClientComponentClient();
-    const handleSignIn = async () => {
-        const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-        if (error) {
-          
-          Swal.fire({
-            title: "Error",
-            text: ` ${error.message}. Nearly done, your evolution is just one step away!`,
-            icon: "error",
-            iconColor: "#695CFF",
-            confirmButtonText: "OK",            
-            confirmButtonColor: "#695CFF",            
-          });            
-          } else {
-            router.push('/dashboard');
-          }
-      };
-      const handleGoogleSignIn = async () => {
-        const { error } = await supabase.auth.signInWithOAuth({
-          provider: 'google',
-          options:{
-            redirectTo: `${window.location.origin}/auth/callback`
-          }
-        });
-        if (error) {
-            toast.error(error.message, {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-            });
-          } else {
-            router.push('/dashboard');
-          }
-      };
+  const request = NextRequest;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+  const supabase = createClientComponentClient();
+  
+  
+  const SignIn = async (event: React.FormEvent<HTMLFormElement>) => { 
+    event.preventDefault();   
+    const redirectSignIn = await handleSignIn(email, password);    
+    if (redirectSignIn) {
+      router.push(redirectSignIn);
+    }
+  };
+
+  const SignInGoogle = async () => {
+    const redirectGoogleSignIn = await handleGoogleSignIn();    
+    if (redirectGoogleSignIn) {
+      router.push(redirectGoogleSignIn);
+    }
+  };
   return (
-    
     <div className="flex min-h-screen flex-col">
-<header className="p-4">
-<ToastContainer />
-      <nav className="container mx-auto flex text-black dark:text-white items-center justify-between max-w-screen-lg">
-        <div className="text-lg font-bold">
-          <span className="text-xl">OpAur</span>
-        </div>
-            
-      </nav>
-     
-  </header>
-      <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mx-auto max-w-screen-xl ">
+      <header className="p-4">
+        <ToastContainer />
+        <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
+          <div className="text-lg font-bold">
+            <span className="text-xl">OpAur</span>
+          </div>
+        </nav>
+      </header>
+      <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
-          
-            <LogoAuth/>            
-          
+            <LogoAuth />
           </div>
-          
+
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 Sign In to OpAur
               </h2>
-              
+              <form onSubmit={SignIn}>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Email
@@ -161,13 +132,16 @@ export default function SignInClient() {
                   <button
                     type="submit"
                     value="Sign In"
-                    className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                    onClick={handleSignIn}>Sign in</button>
+                    className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"                    
+                  >
+                    Sign in
+                  </button>
                 </div>
 
-                <button 
-                className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
-                onClick={handleGoogleSignIn}>
+                <button
+                  className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
+                  onClick={SignInGoogle}
+                >
                   <span>
                     <svg
                       width="20"
@@ -205,26 +179,33 @@ export default function SignInClient() {
                 </button>
 
                 <div className="mt-6 text-center">
-                <p>
+                  <p>
                     Don’t have any account?{" "}
-                    <Link href="/auth/signup" className="text-primary cursor-pointer hover:underline">
+                    <Link
+                      href="/auth/signup"
+                      className="cursor-pointer text-primary hover:underline"
+                    >
                       Sign Up
                     </Link>
                   </p>
                 </div>
                 <div className="mt-6 text-center">
-                <p >
-                  Forgot your password?{" "}
-                    <Link  href="/auth/send-email-reset-password" className="text-primary cursor-pointer hover:underline">
+                  <p>
+                    Forgot your password?{" "}
+                    <Link
+                      href="/auth/send-email-reset-password"
+                      className="cursor-pointer text-primary hover:underline"
+                    >
                       Reset my password
                     </Link>
                   </p>
-                </div>         
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
       <Footer />
-      </div>
+    </div>
   );
-};
+}

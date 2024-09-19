@@ -39,16 +39,16 @@ export default function ResetPasswordSendEmailClient() {
     });
   };
 
-  const handleResetPassword = async (
-    event: React.FormEvent<HTMLFormElement>,
-  ) => {
+  const handleResetPassword = async (event: React.FormEvent<HTMLFormElement>,) => {
     event.preventDefault();
     const emailExists = await checkIfEmailExists(email);
 
     if (!emailExists) {
       await writeToastError("Email does not exists");
     } else {
-      const { data, error } = await supabase.auth.resetPasswordForEmail(email);
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email,
+        {redirectTo: `${window.location.origin}`}
+      );
 
       if (error) {
         toast.error(error.message, {
