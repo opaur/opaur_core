@@ -5,20 +5,15 @@ import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
-import { NextRequest, NextResponse } from "next/server";
 import { handleSignIn,handleGoogleSignIn } from "../actions";
 
 export default function SignInClient() {
-  const request = NextRequest;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const supabase = createClientComponentClient();
-  
   
   const SignIn = async (event: React.FormEvent<HTMLFormElement>) => { 
     event.preventDefault();   
@@ -28,12 +23,6 @@ export default function SignInClient() {
     }
   };
 
-  const SignInGoogle = async () => {
-    const redirectGoogleSignIn = await handleGoogleSignIn();    
-    if (redirectGoogleSignIn) {
-      router.push(redirectGoogleSignIn);
-    }
-  };
   return (
     <div className="flex min-h-screen flex-col">
       <header className="p-4">
@@ -137,10 +126,10 @@ export default function SignInClient() {
                     Sign in
                   </button>
                 </div>
-
-                <button
+              </form>
+              <button
                   className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50"
-                  onClick={SignInGoogle}
+                  onClick={handleGoogleSignIn}
                 >
                   <span>
                     <svg
@@ -200,7 +189,6 @@ export default function SignInClient() {
                     </Link>
                   </p>
                 </div>
-              </form>
             </div>
           </div>
         </div>
