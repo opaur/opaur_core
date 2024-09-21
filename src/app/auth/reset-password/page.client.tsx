@@ -10,7 +10,7 @@ import { redirect, useSearchParams, useRouter} from 'next/navigation';
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
-import {ResetPassword,writeToastError} from "../actions"
+import {writeToastError,handleResetPassword} from "../actions"
 export default function ResetPasswordClient() {
   const [password, setPassword] = useState("");
   const [re_type_password, setReTypePassword] = useState("");
@@ -23,41 +23,17 @@ redirect('/')
   const supabase = createClientComponentClient();
 
 
-  const handleResetPassword = async (event: React.FormEvent<HTMLFormElement>) => {
+  const ResetPassword = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (password != re_type_password) {
-      await writeToastError("Passwords do not match");
-    }
-    else{
-      const { error } = await supabase.auth.updateUser(
-        {
-          password        
-        }
-      )
-  
-      if (error) {
-        toast.error(error.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      } else {
-        Swal.fire({
-          title: "Password updated successfully",          
-          icon: "success",
-          iconColor:"#695CFF",
-          confirmButtonText: "OK",
-          confirmButtonColor: "#695CFF",
-        });
-        router.push("/auth/signin");
-      }
-    }
-    
+    const redirectResetPassword = await handleResetPassword(
+      {
+        password:password,
+        re_type_password:re_type_password
+      });
 
+    if (redirectResetPassword) {
+      router.push(redirectResetPassword);
+    }
   };
 
 
@@ -84,7 +60,7 @@ redirect('/')
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 Reset password
               </h2>
-              <form onSubmit={handleResetPassword}>
+              <form onSubmit={ResetPassword}>
               <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                    Enter new password

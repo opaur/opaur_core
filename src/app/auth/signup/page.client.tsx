@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
+import {handleSignUp} from "../actions"
 
 const SignUpClient: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -20,70 +21,21 @@ const SignUpClient: React.FC = () => {
   const router = useRouter();
   const supabase = createClientComponentClient();
 
-  const checkIfEmailExists = async (email: string): Promise<boolean> => {
-    const { data, error } = await supabase.rpc("check_if_email_exists", {
-      email_to_check: email,
-    });
 
-    if (error) {
-      await writeToastError(error.message);
-      throw error;
-    }
-    return data as boolean;
-  };
 
-  const writeToastError = async (error: string) => {
-    toast.error(error, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
+  const SignUp = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();    
+    const redirectGoogleSignIn = await handleSignUp(
+      {
+        email,
+        password,
+        re_type_password,
+        first_name,
+        last_name
+      });
 
-  const handleSignUp = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    // verify if email alredy exist
-
-    if (password != re_type_password) {
-      await writeToastError("Passwords do not match");
-    } else {
-      const emailExists = await checkIfEmailExists(email);
-
-      if (emailExists) {
-        await writeToastError("Email already exists");
-        return;
-      } else {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-          options: {
-            data: {
-              first_name,
-              last_name,
-            },
-          },
-        });
-        if (error) {
-          await writeToastError(error.message);
-        } else {
-          Swal.fire({
-            title: "Your transformation journey begins now!",
-            text: "Check your email and confirm your sign-up to continue the path toward a new brand identity.",
-            //icon: "success",
-            //iconColor: "#695CFF",
-            confirmButtonText: "OK",            
-            confirmButtonColor: "#695CFF",
-            imageUrl: "/images/logo/logo-icon.svg", 
-            imageWidth: 200, 
-            imageHeight: 100, 
-          });
-          router.push("/dashboard");
-        }
-      }
+    if (redirectGoogleSignIn) {
+      router.push(redirectGoogleSignIn);
     }
   };
 
@@ -109,7 +61,7 @@ const SignUpClient: React.FC = () => {
                 Sign Up to Opaur
               </h2>
 
-              <form onSubmit={handleSignUp}>
+              <form onSubmit={SignUp}>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     First Name
