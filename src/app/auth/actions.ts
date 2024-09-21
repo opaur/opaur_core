@@ -93,33 +93,35 @@ export async function handleSignUp(data: any) {
     if (data.password != data.re_type_password) {
       await writeErrorSwal("Passwords do not match");
     } else {
-      const emailExists = await checkIfEmailExists(data.email);
+      if (await validatePassword(data.password)) {
+        const emailExists = await checkIfEmailExists(data.email);
 
-      if (emailExists) {
-        await writeErrorSwal("Email already exists");
-        return;
-      } else {
-        const { error } = await supabase.auth.signUp({
-          email: data.email,
-          password: data.password,
-          options: {
-            emailRedirectTo:`${window.location.origin}`,    
-            data: {
-              first_name: data.first_name,
-              last_name: data.last_name,
-            },
-          },
-        });
-        if (error) {
-          await writeErrorSwal(error.message);
+        if (emailExists) {
+          await writeErrorSwal("Email already exists");
+          return;
         } else {
-          await writeSuccessSwal({
-            title: "Your transformation journey begins now!",
-            message:
-              "Check your email and confirm your sign-up to continue the path toward a new brand identity.",
+          const { error } = await supabase.auth.signUp({
+            email: data.email,
+            password: data.password,
+            options: {
+              emailRedirectTo: `${window.location.origin}`,
+              data: {
+                first_name: data.first_name,
+                last_name: data.last_name,
+              },
+            },
           });
-          //router.push("/dashboard");
-          return "/dashboard";
+          if (error) {
+            await writeErrorSwal(error.message);
+          } else {
+            await writeSuccessSwal({
+              title: "Your transformation journey begins now!",
+              message:
+                "Check your email and confirm your sign-up to continue the path toward a new brand identity.",
+            });
+            //router.push("/dashboard");
+            return "/dashboard";
+          }
         }
       }
     }
@@ -141,27 +143,27 @@ export async function checkIfEmailExists(email: string): Promise<boolean> {
   return data as boolean;
 }
 
-export async function handleResetPassword(data:any) {
+export async function handleResetPassword(data: any) {
   try {
     if (data.password != data.re_type_password) {
       await writeErrorSwal("Passwords do not match");
-    }
-    else{
-      const { error } = await supabase.auth.updateUser(
-        {
-          password :data.password       
-        }
-      )
-  
-      if (error) {
-        await writeErrorSwal(error.message);        
-      } else {
-        await writeSuccessSwal({
-          title: "Your transformation journey continue now!",
-          message:"Password updated successfully, continue the path toward a new brand identity.",
+    } else {
+      if (await validatePassword(data.password)) {
+        const { error } = await supabase.auth.updateUser({
+          password: data.password,
         });
-        //router.push("/auth/signin");
-        return "/auth/signin";
+
+        if (error) {
+          await writeErrorSwal(error.message);
+        } else {
+          await writeSuccessSwal({
+            title: "Your transformation journey continue now!",
+            message:
+              "Password updated successfully, continue the path toward a new brand identity.",
+          });
+          //router.push("/auth/signin");
+          return "/auth/signin";
+        }
       }
     }
   } catch (error) {
@@ -171,27 +173,44 @@ export async function handleResetPassword(data:any) {
   }
 }
 
-
-export async function hndleSendEmailResetPassword(email:string) {
+export async function hndleSendEmailResetPassword(email: string) {
   const emailExists = await checkIfEmailExists(email);
 
-    if (!emailExists) {
-      await writeErrorSwal("Email does not exists");
+  if (!emailExists) {
+    await writeErrorSwal("Email does not exists");
+  } else {
+    const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${window.location.origin}`,
+    });
+
+    if (error) {
+      await writeErrorSwal(error.message);
     } else {
-      const { data, error } = await supabase.auth.resetPasswordForEmail(email,
-        {redirectTo: `${window.location.origin}`}
-      );
-
-      if (error) {
-
-        await writeErrorSwal(error.message);        
-      } else {
-        await writeSuccessSwal({
-          title:"Nearly done, reset password link sent",
-          message:"Please check your email and reset you password to continue the path toward a new brand identity."
-        });
-        return "/dashboard"
-        //router.push("/dashboard");
-      }
+      await writeSuccessSwal({
+        title: "Nearly done, reset password link sent",
+        message:
+          "Please check your email and reset you password to continue the path toward a new brand identity.",
+      });
+      return "/dashboard";
+      //router.push("/dashboard");
     }
+  }
+}
+
+export async function validatePassword(password: string) {
+  // Expresión regular para validar:
+  // - Al menos 8 caracteres.
+  // - Al menos una letra mayúscula.
+  // - Al menos un número.
+  // - Al menos un carácter especial.
+  const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
+
+  if (!regex.test(password)) {
+    await writeErrorSwal(
+      "Password must be at least 8 characters long, include at least one uppercase letter, one number, and one special character.",
+    );
+    return false;
+  } else {
+    return true;
+  }
 }
