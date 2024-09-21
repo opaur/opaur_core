@@ -10,68 +10,20 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
+import {hndleSendEmailResetPassword} from "../actions"
 export default function ResetPasswordSendEmailClient() {
   const [email, setEmail] = useState("");
   const router = useRouter();
   const supabase = createClientComponentClient();
 
-  const checkIfEmailExists = async (email: string): Promise<boolean> => {
-    const { data, error } = await supabase.rpc("check_if_email_exists", {
-      email_to_check: email,
-    });
 
-    if (error) {
-      await writeToastError(error.message);
-      throw error;
-    }
-    return data as boolean;
-  };
 
-  const writeToastError = async (error: string) => {
-    toast.error(error, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-
-  const handleResetPassword = async (event: React.FormEvent<HTMLFormElement>,) => {
+  const sendEmailResetPassword = async (event: React.FormEvent<HTMLFormElement>,) => {
     event.preventDefault();
-    const emailExists = await checkIfEmailExists(email);
+    const redirectSendEmailResetPassword = await hndleSendEmailResetPassword(email);
 
-    if (!emailExists) {
-      await writeToastError("Email does not exists");
-    } else {
-      const { data, error } = await supabase.auth.resetPasswordForEmail(email,
-        {redirectTo: `${window.location.origin}`}
-      );
-
-      if (error) {
-        toast.error(error.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      } else {
-
-        Swal.fire({
-          title: "Link sent",
-          text: "Please check your email and reset you password",
-          icon: "success",
-          iconColor:"#695CFF",
-          confirmButtonText: "OK",
-          confirmButtonColor: "#695CFF",
-        });
-        router.push("/dashboard");
-      }
+    if (redirectSendEmailResetPassword) {
+      router.push(redirectSendEmailResetPassword);
     }
   };
 
@@ -96,7 +48,7 @@ export default function ResetPasswordSendEmailClient() {
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 Reset my password
               </h2>
-              <form onSubmit={handleResetPassword}>
+              <form onSubmit={sendEmailResetPassword}>
                 <div className="mb-4">
                   <label className="mb-2.5 block font-medium text-black dark:text-white">
                     Email

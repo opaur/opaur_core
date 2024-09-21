@@ -24,8 +24,7 @@ const SignUpClient: React.FC = () => {
 
 
   const SignUp = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("first")
+    event.preventDefault();    
     const redirectGoogleSignIn = await handleSignUp(
       {
         email,

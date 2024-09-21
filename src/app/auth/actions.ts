@@ -103,6 +103,7 @@ export async function handleSignUp(data: any) {
           email: data.email,
           password: data.password,
           options: {
+            emailRedirectTo:`${window.location.origin}`,    
             data: {
               first_name: data.first_name,
               last_name: data.last_name,
@@ -138,4 +139,59 @@ export async function checkIfEmailExists(email: string): Promise<boolean> {
     throw error;
   }
   return data as boolean;
+}
+
+export async function handleResetPassword(data:any) {
+  try {
+    if (data.password != data.re_type_password) {
+      await writeErrorSwal("Passwords do not match");
+    }
+    else{
+      const { error } = await supabase.auth.updateUser(
+        {
+          password :data.password       
+        }
+      )
+  
+      if (error) {
+        await writeErrorSwal(error.message);        
+      } else {
+        await writeSuccessSwal({
+          title: "Your transformation journey continue now!",
+          message:"Password updated successfully, continue the path toward a new brand identity.",
+        });
+        //router.push("/auth/signin");
+        return "/auth/signin";
+      }
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      writeToastError(error.message);
+    }
+  }
+}
+
+
+export async function hndleSendEmailResetPassword(email:string) {
+  const emailExists = await checkIfEmailExists(email);
+
+    if (!emailExists) {
+      await writeErrorSwal("Email does not exists");
+    } else {
+      const { data, error } = await supabase.auth.resetPasswordForEmail(email,
+        {redirectTo: `${window.location.origin}`}
+      );
+
+      if (error) {
+
+        await writeErrorSwal(error.message);        
+      } else {
+        await writeSuccessSwal({
+          title:"Nearly done, reset password link sent",
+          message:"Please check your email and reset you password to continue the path toward a new brand identity."
+        });
+        return "/dashboard"
+        //router.push("/dashboard");
+      }
+    }
 }
