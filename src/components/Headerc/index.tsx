@@ -11,7 +11,7 @@ import {
 const HeaderComp = ({ user }: { user: User | null }) => {
   const isLoggedIn = user != null;
   return (
-    <header className="p-4 sticky top-0 bg-white dark:border-strokedark dark:bg-boxdark shadow-md">
+    <header className="p-4 sticky top-0 bg-white dark:border-strokedark dark:bg-boxdark shadow-md z-10">
       <nav className="container mx-auto flex max-w-screen-lg items-center justify-between">
         <div className="text-lg font-bold text-black dark:text-white">
           <Image
