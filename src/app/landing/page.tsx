@@ -17,27 +17,38 @@ const LandingPage = ({ user }: { user: User | null }) => {
           <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
             <div className="text-center md:w-1/2 md:text-left">
               <h1 className="mb-4 text-4xl font-bold text-black dark:text-white md:text-5xl lg:text-6xl">
-                We revolutionize Branding and Human Creativity
+                Revolutionize your brand with speed and precision
               </h1>
-              <p className="mb-8 text-lg md:text-xl lg:text-2xl">
-                Tailored Branding Solutions Delivered in Under 48 Hours
+              <p className="mb-8 py-3 text-lg md:text-xl lg:text-2xl">
+                Join our growing family of brands that trust Opaur to bring life
+                to their identity, enhance their presence, and elevate their
+                vision. Together, we'll turn your ideas into reality in under 48
+                hours.
               </p>
-              <a
-                href="/private"
-                className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8 "
-              >
-                Join Now
-                <span className="ml-1 text-lg">&#8594;</span>
-              </a>
+              <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="border-gray-300 text-gray-800 placeholder-gray-500 h-12 w-full max-w-xs rounded-md border px-4 py-3 text-sm transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <a
+                  href="#"
+                  className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-1 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
+                >
+                  Start Now
+                  <span className="ml-2 text-lg">&#8594;</span>
+                </a>
+              </div>
             </div>
             <Image
               width={450}
               height={300}
-              src={"/images/illustration/composition-5.svg"}
+              src={"/images/illustration/composition-6.svg"}
               alt="Logo"
               priority
             />
           </div>
+         
         </div>
       </section>
 
@@ -57,54 +68,38 @@ const LandingPage = ({ user }: { user: User | null }) => {
               {
                 title: "Blazing Fast",
                 description:
-                  "Our platform is optimized for lightning-fast performance, ensuring your customers have a seamless experience.",
-              },
-              {
-                title: "Secure & Reliable",
-                description:
-                  "Your data is safe with us. We employ the latest security measures to protect your business.",
-              },
-              {
-                title: "Highly Customizable",
-                description:
-                  "Tailor our platform to your unique business needs and preferences.",
+                  "Experience quick turnaround times without sacrificing quality. We bring your vision to life swiftly and effectively.",
               },
               {
                 title: "Enterprise-Grade",
                 description:
-                  "Our platform is trusted by leading businesses and enterprises worldwide.",
+                  "Join a community of brands and enterprises that rely on us.",
+              },
+              {
+                title: "Highly Customizable",
+                description:
+                  "Tailor our platform to perfectly fit your brand’s unique identity and objectives.",
+              },
+              {
+                title: "Secure & Reliable",
+                description:
+                  "Your brand’s data is our priority. We use the latest security technologies to keep your information safe.",
               },
               {
                 title: "Advanced Analytics",
                 description:
-                  "Gain deep insights into your business performance with our powerful analytics tools.",
+                  "Unlock insights into your brand’s performance with our advanced analytics tools, helping you make informed decisions.",
               },
               {
                 title: "Effortless Automation",
                 description:
-                  "Streamline your workflows and eliminate manual tasks with our powerful automation tools.",
+                  "Enhance efficiency by automating workflows and reducing manual tasks, so you can focus on growing your brand.",
               },
             ].map((feature, index) => (
               <div
                 key={index}
                 className="transform rounded-lg bg-white p-6 shadow-md transition-transform duration-300 hover:scale-105 dark:border-strokedark dark:bg-boxdark"
               >
-                <div className="mb-2 inline-block rounded-md p-3">
-                  {" "}
-                  <svg
-                    className="fill-current"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M15.7499 2.9812H14.2874V2.36245C14.2874 2.02495 14.0062 1.71558 13.6405 1.71558C13.2749 1.71558 12.9937 1.99683 12.9937 2.36245V2.9812H4.97803V2.36245C4.97803 2.02495 4.69678 1.71558 4.33115 1.71558C3.96553 1.71558 3.68428 1.99683 3.68428 2.36245V2.9812H2.2499C1.29365 2.9812 0.478027 3.7687 0.478027 4.75308V14.5406C0.478027 15.4968 1.26553 16.3125 2.2499 16.3125H15.7499C16.7062 16.3125 17.5218 15.525 17.5218 14.5406V4.72495C17.5218 3.7687 16.7062 2.9812 15.7499 2.9812ZM1.77178 8.21245H4.1624V10.9968H1.77178V8.21245ZM5.42803 8.21245H8.38115V10.9968H5.42803V8.21245ZM8.38115 12.2625V15.0187H5.42803V12.2625H8.38115ZM9.64678 12.2625H12.5999V15.0187H9.64678V12.2625ZM9.64678 10.9968V8.21245H12.5999V10.9968H9.64678ZM13.8374 8.21245H16.228V10.9968H13.8374V8.21245ZM2.2499 4.24683H3.7124V4.83745C3.7124 5.17495 3.99365 5.48433 4.35928 5.48433C4.7249 5.48433 5.00615 5.20308 5.00615 4.83745V4.24683H13.0499V4.83745C13.0499 5.17495 13.3312 5.48433 13.6968 5.48433C14.0624 5.48433 14.3437 5.20308 14.3437 4.83745V4.24683H15.7499C16.0312 4.24683 16.2562 4.47183 16.2562 4.75308V6.94683H1.77178V4.75308C1.77178 4.47183 1.96865 4.24683 2.2499 4.24683ZM1.77178 14.5125V12.2343H4.1624V14.9906H2.2499C1.96865 15.0187 1.77178 14.7937 1.77178 14.5125ZM15.7499 15.0187H13.8374V12.2625H16.228V14.5406C16.2562 14.7937 16.0312 15.0187 15.7499 15.0187Z"
-                      fill=""
-                    />
-                  </svg>
-                </div>
                 <h3 className="mb-2 text-xl font-semibold text-black dark:text-white">
                   {feature.title}
                 </h3>
@@ -114,6 +109,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </div>
         </div>
       </section>
+      
       <section className="py-10 md:py-15 lg:py-20">
   <div className="container mx-auto max-w-5xl px-4 md:px-6">
     <h2 className="mb-8 text-center text-4xl font-bold text-black dark:text-white md:text-5xl lg:text-6xl">
@@ -121,7 +117,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
     </h2>
 
     <p className="mb-8 text-lg md:text-xl lg:text-2xl">
-      We are looking for businesses of all kinds to be the first to experience Opaur. As an early adopter, you will gain exclusive access, receive personalized support, and have the opportunity to become an ambassador for a groundbreaking solution.
+    We invite businesses of all kinds to experience the Opaur advantage. By subscribing, you’ll gain exclusive access to updates, receive personalized support, and have the chance to become an ambassador for our groundbreaking solution.
     </p>
 
     <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
@@ -134,7 +130,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
         href="#"
         className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
       >
-        Reserve Your Spot Now
+        Join for Free
         <span className="ml-2 text-lg">&#8594;</span>
       </a>
     </div>
@@ -144,7 +140,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
     </h3>
   </div>
 </section>
-
+{/* 
       <section className="bg-gray-100 py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="text-gray-800 mb-12  text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
@@ -187,9 +183,9 @@ const LandingPage = ({ user }: { user: User | null }) => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="py-20 md:py-32 lg:py-40">
+      {/* <section className="py-20 md:py-32 lg:py-40">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
             What Our Customers Say
@@ -234,7 +230,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
       <Footer />
     </div>
   );
