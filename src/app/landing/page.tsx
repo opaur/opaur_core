@@ -22,7 +22,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
               <p className="mb-8 py-3 text-lg md:text-xl lg:text-2xl">
                 Join our growing family of brands that trust Opaur to bring life
                 to their identity, enhance their presence, and elevate their
-                vision. Together, we'll turn your ideas into reality in under 48
+                vision. Together, we will turn your ideas into reality in under 48
                 hours.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
@@ -78,17 +78,17 @@ const LandingPage = ({ user }: { user: User | null }) => {
               {
                 title: "Highly Customizable",
                 description:
-                  "Tailor our platform to perfectly fit your brand’s unique identity and objectives.",
+                  "Tailor our platform to perfectly fit your brand&rsquo;s unique identity and objectives.",
               },
               {
                 title: "Secure & Reliable",
                 description:
-                  "Your brand’s data is our priority. We use the latest security technologies to keep your information safe.",
+                  "Your brand&rsquo;s data is our priority. We use the latest security technologies to keep your information safe.",
               },
               {
                 title: "Advanced Analytics",
                 description:
-                  "Unlock insights into your brand’s performance with our advanced analytics tools, helping you make informed decisions.",
+                  "Unlock insights into your brand&rsquo;s performance with our advanced analytics tools, helping you make informed decisions.",
               },
               {
                 title: "Effortless Automation",
@@ -117,7 +117,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
     </h2>
 
     <p className="mb-8 text-lg md:text-xl lg:text-2xl">
-    We invite businesses of all kinds to experience the Opaur advantage. By subscribing, you’ll gain exclusive access to updates, receive personalized support, and have the chance to become an ambassador for our groundbreaking solution.
+    We invite businesses of all kinds to experience the Opaur advantage. By subscribing, you&rsquo;ll gain exclusive access to updates, receive personalized support, and have the chance to become an ambassador for our groundbreaking solution.
     </p>
 
     <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
