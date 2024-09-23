@@ -14,12 +14,14 @@ const HeaderComp = ({ user }: { user: User | null }) => {
     <header className="p-4 sticky top-0 bg-white dark:border-strokedark dark:bg-boxdark shadow-md z-10">
       <nav className="container mx-auto flex max-w-screen-lg items-center justify-between">
         <div className="text-lg font-bold text-black dark:text-white">
-          <Image
+           <picture>
+            {/* Imagen para modo oscuro */}
+            <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+            {/* Imagen para modo claro */}
+            <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
                 width={100}
-                height={45}
-                src={"/images/logo/logo_opaur_aurora.svg"}
-                alt="Logo"
-                priority />
+                height={45} />
+          </picture>
         </div>
 
         <div className="flex items-center gap-3 2xsm:gap-7">
