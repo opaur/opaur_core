@@ -3,6 +3,7 @@ import DropdownMessage from "../Header/DropdownMessage";
 import DropdownNotification from "../Header/DropdownNotification";
 import DropdownUser from "../Header/DropdownUser";
 import Image from "next/image";
+import useColorMode from "@/hooks/useColorMode";
 
 import {
   type User,
@@ -10,6 +11,7 @@ import {
 } from "@supabase/auth-helpers-nextjs";
 const HeaderComp = ({ user }: { user: User | null }) => {
   const isLoggedIn = user != null;
+  const [colorMode] = useColorMode();
   return (
     <header className="p-4 sticky top-0 bg-white dark:border-strokedark dark:bg-boxdark shadow-md z-10">
       <nav className="container mx-auto flex max-w-screen-lg items-center justify-between">
@@ -17,7 +19,7 @@ const HeaderComp = ({ user }: { user: User | null }) => {
           <Image
                 width={100}
                 height={45}
-                src={"/images/logo/logo_opaur_aurora.svg"}
+                src={colorMode === "dark" ? "/images/logo/logo_opaur_blanco.svg" : "/images/logo/logo_opaur_aurora.svg"}
                 alt="Logo"
                 priority />
         </div>

@@ -33,7 +33,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
                 />
                 <a
                   href="#"
-                  className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-1 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
+                  className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
                 >
                   Start Now
                   <span className="ml-2 text-lg">&#8594;</span>
@@ -78,17 +78,17 @@ const LandingPage = ({ user }: { user: User | null }) => {
               {
                 title: "Highly Customizable",
                 description:
-                  "Tailor our platform to perfectly fit your brand&rsquo;s unique identity and objectives.",
+                  "Tailor our platform to perfectly fit your brand's unique identity and objectives.",
               },
               {
                 title: "Secure & Reliable",
                 description:
-                  "Your brand&rsquo;s data is our priority. We use the latest security technologies to keep your information safe.",
+                  "Your brand's data is our priority. We use the latest security technologies to keep your information safe.",
               },
               {
                 title: "Advanced Analytics",
                 description:
-                  "Unlock insights into your brand&rsquo;s performance with our advanced analytics tools, helping you make informed decisions.",
+                  "Unlock insights into your brand's performance with our advanced analytics tools, helping you make informed decisions.",
               },
               {
                 title: "Effortless Automation",
