@@ -59,7 +59,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </h2>
           <p className="mb-8 text-lg md:text-xl lg:text-2xl">
             We merge cutting-edge software with{" "}
-            <strong className="text-white">human creativity</strong> to craft
+            <strong className="text-black dark:text-white">human creativity</strong> to craft
             fast, personalized branding strategies. Our mission is simple: to
             transform how brands <strong className="text-black dark:text-white">connect</strong>{" "}
             with their audience by offering innovative{" "}
