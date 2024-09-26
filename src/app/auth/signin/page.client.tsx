@@ -4,7 +4,6 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";

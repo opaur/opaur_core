@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
-import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
