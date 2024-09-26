@@ -22,7 +22,7 @@ export default function ResetPasswordClient() {
 redirect('/')
   }
   const supabase = createClientComponentClient();
-  const colorMode = useColorMode();
+  
 
   const ResetPassword = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -36,9 +36,12 @@ redirect('/')
       router.push(redirectResetPassword);
     }
   };
-
+  const colorMode = useColorMode();
 
   return (
+    <body>
+      
+  
     <div className="flex min-h-screen flex-col">
       <header className="p-4">
         <ToastContainer />
@@ -164,5 +167,6 @@ redirect('/')
       </div>
       <Footer />
     </div>
+    </body>
   );
 }

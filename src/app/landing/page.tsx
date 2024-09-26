@@ -23,7 +23,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
                 Join our growing family of brands that trust Opaur to bring life
                 to their identity, enhance their presence, and elevate their
                 vision.
-                <strong className="text-white"> Together</strong>, we will turn
+                <strong className="text-black dark:text-white"> Together</strong>, we will turn
                 your ideas into reality.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
@@ -61,9 +61,9 @@ const LandingPage = ({ user }: { user: User | null }) => {
             We merge cutting-edge software with{" "}
             <strong className="text-white">human creativity</strong> to craft
             fast, personalized branding strategies. Our mission is simple: to
-            transform how brands <strong className="text-white">connect</strong>{" "}
+            transform how brands <strong className="text-black dark:text-white">connect</strong>{" "}
             with their audience by offering innovative{" "}
-            <strong className="text-white">solutions</strong> that inspire
+            <strong className="text-black dark:text-white">solutions</strong> that inspire
             growth and foster engagement.
           </p>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -120,7 +120,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </h2>
 
           <p className="mb-8 text-center  text-lg md:text-xl lg:text-2xl">
-            Join a community that&lsquos redefining branding. Subscribe to our
+            Join a community that is redefining branding. Subscribe to our
             newsletter for exclusive insights, tips, and updates that will
             elevate your brand. 
           </p>
