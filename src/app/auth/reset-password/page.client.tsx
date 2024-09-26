@@ -11,7 +11,6 @@ import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 import {writeToastError,handleResetPassword} from "../actions"
 import useColorMode from "@/hooks/useColorMode";
-import Header from "@/components/Header";
 export default function ResetPasswordClient() {
   const [password, setPassword] = useState("");
   const [re_type_password, setReTypePassword] = useState("");
@@ -44,7 +43,6 @@ redirect('/')
       <header className="p-4">
         <ToastContainer />
         <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
-        <Header/>
         </nav>
       </header>
       <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
