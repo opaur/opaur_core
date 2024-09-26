@@ -119,8 +119,8 @@ const LandingPage = ({ user }: { user: User | null }) => {
             Join the Opaur Revolution
           </h2>
 
-          <p className="mb-8  text-center text-lg md:text-xl lg:text-2xl">
-            Join a community that's redefining branding. Subscribe to our
+          <p className="mb-8 text-center  text-lg md:text-xl lg:text-2xl">
+            Join a community that&lsquos redefining branding. Subscribe to our
             newsletter for exclusive insights, tips, and updates that will
             elevate your brand. 
           </p>
