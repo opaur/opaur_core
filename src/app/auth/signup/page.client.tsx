@@ -44,9 +44,14 @@ const SignUpClient: React.FC = () => {
       <header className="p-4">
         <ToastContainer />
         <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
-          <div className="text-lg font-bold">
-            <span className="text-xl">OpAur</span>
-          </div>
+        <picture>
+            {/* Imagen para modo oscuro */}
+            <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+            {/* Imagen para modo claro */}
+            <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
+                width={100}
+                height={45} />
+          </picture>
         </nav>
       </header>
       <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">

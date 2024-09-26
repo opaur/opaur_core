@@ -9,11 +9,18 @@ const useColorMode = () => {
     const handleColorModeChange = (e: MediaQueryListEvent) => {
       const newColorMode = e.matches ? "dark" : "light";
       setColorMode(newColorMode);
+      updateBodyClass(newColorMode);
+    };
+
+    // Function to update the body class based on the color mode
+    const updateBodyClass = (mode: "light" | "dark") => {
       const className = "dark";
-      const bodyClass = window.document.body.classList;
-      newColorMode === "dark"
-        ? bodyClass.add(className)
-        : bodyClass.remove(className);
+      const bodyClass = document.body.classList;
+      if (mode === "dark") {
+        bodyClass.add(className);
+      } else {
+        bodyClass.remove(className);
+      }
     };
 
     // Check the system's color mode preference and set the initial color mode
@@ -22,11 +29,7 @@ const useColorMode = () => {
     // Set initial mode based on system preference
     const initialColorMode = mediaQuery.matches ? "dark" : "light";
     setColorMode(initialColorMode);
-    const className = "dark";
-    const bodyClass = window.document.body.classList;
-    initialColorMode === "dark"
-      ? bodyClass.add(className)
-      : bodyClass.remove(className);
+    updateBodyClass(initialColorMode);
 
     // Add listener for changes in system color mode preference
     mediaQuery.addEventListener("change", handleColorModeChange);
@@ -35,8 +38,8 @@ const useColorMode = () => {
     return () => mediaQuery.removeEventListener("change", handleColorModeChange);
   }, []);
 
-  // Return the color mode and setter (if you need to control it manually)
-  return [colorMode, setColorMode] as const;
+  // Return the current color mode
+  return colorMode;
 };
 
 export default useColorMode;

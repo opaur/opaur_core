@@ -4,24 +4,26 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import DarkModeSwitcher from "@/components/Header/DarkModeSwitcher";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect, useSearchParams, useRouter} from 'next/navigation';
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 import {writeToastError,handleResetPassword} from "../actions"
+import useColorMode from "@/hooks/useColorMode";
+import Header from "@/components/Header";
 export default function ResetPasswordClient() {
   const [password, setPassword] = useState("");
   const [re_type_password, setReTypePassword] = useState("");
   const searchParams = useSearchParams();
   const router= useRouter();
   const code = searchParams.get('code'); // Obtiene el código de recuperación de la URL
+
   if(!code){
 redirect('/')
   }
   const supabase = createClientComponentClient();
-
+  const colorMode = useColorMode();
 
   const ResetPassword = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -42,9 +44,7 @@ redirect('/')
       <header className="p-4">
         <ToastContainer />
         <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
-          <div className="text-lg font-bold">
-            <span className="text-xl">OpAur</span>
-          </div>
+        <Header/>
         </nav>
       </header>
       <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
