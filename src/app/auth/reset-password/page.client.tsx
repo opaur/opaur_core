@@ -10,7 +10,7 @@ import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 import {writeToastError,handleResetPassword} from "../actions"
-import useColorMode from "@/hooks/useColorMode";
+import useColorMode from "@/hooks/useColorMode"; 
 export default function ResetPasswordClient() {
   const [password, setPassword] = useState("");
   const [re_type_password, setReTypePassword] = useState("");
@@ -36,12 +36,8 @@ redirect('/')
       router.push(redirectResetPassword);
     }
   };
-  const colorMode = useColorMode();
-
+  const colorMode = useColorMode(); 
   return (
-    <body>
-      
-  
     <div className="flex min-h-screen flex-col">
       <header className="p-4">
         <ToastContainer />
@@ -167,6 +163,5 @@ redirect('/')
       </div>
       <Footer />
     </div>
-    </body>
   );
 }

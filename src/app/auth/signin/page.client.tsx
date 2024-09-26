@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import { handleSignIn,handleGoogleSignIn } from "../actions";
+import useColorMode from "@/hooks/useColorMode"; 
 
 export default function SignInClient() {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ export default function SignInClient() {
       router.push(redirectSignIn);
     }
   };
-
+  const colorMode = useColorMode(); 
   return (
     <div className="flex min-h-screen flex-col">
       <header className="p-4">

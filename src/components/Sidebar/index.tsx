@@ -7,6 +7,7 @@ import Image from "next/image";
 import SidebarItem from "@/components/Sidebar/SidebarItem";
 import ClickOutside from "@/components/ClickOutside";
 import useLocalStorage from "@/hooks/useLocalStorage";
+import useColorMode from "@/hooks/useColorMode"; 
 
 interface SidebarProps {
   sidebarOpen: boolean;
@@ -47,7 +48,6 @@ const menuGroups = [
         ),
         label: "Dashboard",
         route: "#",
-        children: [{ label: "eCommerce", route: "/" }],
       },
       {
         icon: (
@@ -344,7 +344,7 @@ const menuGroups = [
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const pathname = usePathname();
   const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
-
+  const colorMode = useColorMode(); // Get the current color mode
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside

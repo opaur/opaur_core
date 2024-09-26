@@ -10,6 +10,7 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 import {handleSignUp} from "../actions"
+import useColorMode from "@/hooks/useColorMode"; 
 
 const SignUpClient: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -37,7 +38,7 @@ const SignUpClient: React.FC = () => {
       router.push(redirectGoogleSignIn);
     }
   };
-
+  const colorMode = useColorMode(); 
   return (
     <div className="flex min-h-screen flex-col">
       <header className="p-4">
