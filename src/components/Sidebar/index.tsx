@@ -352,21 +352,21 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-
        
-         <div className="flex items-center px-6 py-5.5 lg:py-6.5">
-         <Link href="/">
-            <Image
-              width={56}
-              height={32}
-              src={"/images/logo/logo.svg"}
-              alt="Logo"
-              priority
-            />
-          </Link> 
+         <div className="flex items-center px-10 py-5.5 lg:py-6.5">
+         <Link href="/dashboard">
+  <picture>
+    {/* Imagen para modo oscuro */}
+    <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+    {/* Imagen para modo claro */}
+    <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
+        width={100}
+        height={45} />
+  </picture>
+</Link>
 
        <div className="text-lg font-bold text-black dark:text-white dark:text-white px-1 py-2">
-          <span className="text-xl">OpAur</span>
+       
         </div>
 
           <button

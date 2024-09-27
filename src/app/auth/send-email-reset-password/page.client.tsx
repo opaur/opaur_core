@@ -11,6 +11,7 @@ import { useState } from "react";
 import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 import {hndleSendEmailResetPassword} from "../actions"
+import useColorMode from "@/hooks/useColorMode"; 
 export default function ResetPasswordSendEmailClient() {
   const [email, setEmail] = useState("");
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function ResetPasswordSendEmailClient() {
       router.push(redirectSendEmailResetPassword);
     }
   };
-
+  const colorMode = useColorMode(); 
   return (
     <div className="flex min-h-screen flex-col">
       <header className="p-4">

@@ -55,14 +55,16 @@ const Header = (props: {  sidebarOpen: string | boolean | undefined;  setSidebar
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" href="/">
-            <Image
-              width={32}
-              height={32}
-              src={"/images/logo/logo-icon.svg"}
-              alt="Logo"
-            />
-          </Link>
+          <Link href="/dashboard">
+  <picture>
+    {/* Imagen para modo oscuro */}
+    <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+    {/* Imagen para modo claro */}
+    <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
+        width={100}
+        height={45} />
+  </picture>
+</Link>
         </div>
 
         <div className="hidden  sm:block">
