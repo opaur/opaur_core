@@ -31,7 +31,7 @@ const ContactUs = ({ user }: { user: User | null }) => {
             Contact Us
           </h2>
           <p className="mb-6 text-base text-gray-600 dark:text-gray-300">
-            Questions, bug reports, feedback — we're here for it all.
+            Questions, bug reports, feedback — we are here for it all.
           </p>
 
           {/* Topic Field as Non-Selectable Cards */}
