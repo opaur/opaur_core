@@ -3,9 +3,12 @@ import HeaderComp from "@/components/Headerc";
 import Footer from "@/components/Footer/index";
 import Image from "next/image";
 import Link from "next/link";
-import { type User } from "@supabase/auth-helpers-nextjs";
 import useColorMode from "@/hooks/useColorMode"; // Color mode hook
 import { useState } from "react"; // Import useState to handle selected topic
+import {
+  type User,
+  createClientComponentClient,
+} from "@supabase/auth-helpers-nextjs";
 
 const ContactUs = ({ user }: { user: User | null }) => {
   const colorMode = useColorMode(); // Initialize color mode
