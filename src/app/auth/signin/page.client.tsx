@@ -38,7 +38,7 @@ export default function SignInClient() {
                   Access to take your brand to the next level with AI and Human Creativity.
                 </span>
                 <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-                  Sign In to Opaur
+                  Sign In to Opaur 
                 </h2>
                 <form onSubmit={SignIn}>
                   <div className="mb-4">
