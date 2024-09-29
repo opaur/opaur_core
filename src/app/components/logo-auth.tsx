@@ -6,7 +6,7 @@ const LogoAuth = () => {
   
 
   return (
-    <div className="px-26 py-13 text-center">
+    <div className="px-26 py-13 text-center aurora_opacity">
               <Link className="mb-5.5 inline-block" href="/">
                 <picture>
                   {/* Imagen para modo oscuro */}
