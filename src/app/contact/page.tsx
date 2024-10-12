@@ -6,7 +6,7 @@ import useColorMode from "@/hooks/useColorMode"; // Color mode hook
 import { useState } from "react"; // Import useState to handle selected topic
 import { type User } from "@supabase/auth-helpers-nextjs";
 
-const ContactUs = ({ user }: { user: User | null }) => {
+export default function  ({ user }: { user: User | null }) {
   const [selectedTopic, setSelectedTopic] = useState<string | null>(null); // State for selected topic
 
   const topics = [
@@ -161,4 +161,4 @@ const ContactUs = ({ user }: { user: User | null }) => {
   );
 };
 
-export default ContactUs;
+
