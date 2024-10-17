@@ -26,7 +26,7 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
       <main className="flex-grow mx-auto w-full max-w-screen-lg p-6 md:p-10">
         <div className="mx-auto max-w-screen-xl px-10 py-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
-            Contact Us
+            Contact Us:
           </h2>
           <p className="mb-6 text-base text-gray-600 dark:text-gray-300">
             Questions, bug reports, feedback — we are here for it all.
