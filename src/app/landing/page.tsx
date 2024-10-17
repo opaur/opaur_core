@@ -2,10 +2,7 @@
 import HeaderComp from "@/components/Headerc";
 import Footer from "@/components/Footer/index";
 import Image from "next/image";
-import {
-  type User,
-  createClientComponentClient,
-} from "@supabase/auth-helpers-nextjs";
+import { type User } from "@supabase/auth-helpers-nextjs";
 
 const LandingPage = ({ user }: { user: User | null }) => {
   return (
