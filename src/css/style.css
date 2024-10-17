@@ -10,6 +10,11 @@
     }
 }
 
+.aurora_opacity
+{
+  background: rgba(105, 92, 255,0.1);
+}
+
 @layer components {
 }
 
