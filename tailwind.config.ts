@@ -22,7 +22,7 @@ const config: Config = {
       colors: {
         current: "currentColor",
         transparent: "transparent",
-        white: "#FFFFFF",
+        white: "#F2F2F2",
         black: "#1C2434",
         red: "#FB5454",
         "black-2": "#010101",
@@ -30,7 +30,7 @@ const config: Config = {
         bodydark: "#AEB7C0",
         bodydark1: "#DEE4EE",
         bodydark2: "#8A99AF",
-        primary: "#3C50E0",
+        primary: "#695CFF",
         secondary: "#80CAEE",
         stroke: "#E2E8F0",
         gray: "#EFF4FB",
