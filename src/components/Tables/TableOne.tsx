@@ -8,7 +8,7 @@ const brandData: BRAND[] = [
     visitors: "3.5",
     revenues: 5.768,
     sales: 590,
-    conversion: 4.8,
+    conversion: "3.5",
   },
   {
     logo: "/images/brand/brand-02.svg",
@@ -16,7 +16,7 @@ const brandData: BRAND[] = [
     visitors: "3.5",
     revenues: 5.768,
     sales: 467,
-    conversion: 4.3,
+    conversion: "3.5",
   },
   {
     logo: "/images/brand/brand-03.svg",
@@ -24,7 +24,7 @@ const brandData: BRAND[] = [
     visitors: "3.5",
     revenues: 5.768,
     sales: 420,
-    conversion: 3.7,
+    conversion: "3.5",
   },
   {
     logo: "/images/brand/brand-04.svg",
@@ -32,7 +32,7 @@ const brandData: BRAND[] = [
     visitors: "3.5",
     revenues: 5.768,
     sales: 389,
-    conversion: 2.5,
+    conversion: "3.5",
   },
   {
     logo: "/images/brand/brand-05.svg",
@@ -40,7 +40,7 @@ const brandData: BRAND[] = [
     visitors: "3.5",
     revenues: 5.768,
     sales: 390,
-    conversion: 4.2,
+    conversion: "3.5",
   },
 ];
 
