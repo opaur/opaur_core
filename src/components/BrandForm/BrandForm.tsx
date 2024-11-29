@@ -10,7 +10,7 @@ const BrandForm = () => {
         Create Your Brand:
       </h2>
       <p className="mb-6 text-base text-gray-600 dark:text-gray-300">
-        Let's build the foundation of your brand — from logo to voice.
+        Lets build the foundation of your brand — from logo to voice.
       </p>
 
       <form className="space-y-6">
