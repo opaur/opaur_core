@@ -38,7 +38,7 @@ const brandData: BRAND[] = [
     logo: "/images/brand/brand-05.svg",
     name: "Facebook",
     visitors: "3.5",
-    revenues: "6,768",
+    revenues: 5,768,
     sales: 390,
     conversion: 4.2,
   },
