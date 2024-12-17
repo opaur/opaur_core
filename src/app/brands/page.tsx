@@ -1,27 +1,25 @@
-import Breadcrumb from "@/components/Breadcrumbs/Breadcrumb";
-import TableOne from "@/components/Tables/BrandsTable";
-
-
 import { Metadata } from "next";
-import DefaultLayout from "@/components/Layouts/DefaultLayout";
-import BrandsTable from "@/components/Tables/BrandsTable";
+import TablesPage from "./page.client";
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
-  title: "Next.js Tables | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Tables page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
+  title:
+    "Opaur - Build Your Brand Aura",
+  description: "Opaur - Build Your Brand Aura",
 };
+const ResetPassword = async() => {  
+  
+  const supabase= createServerComponentClient({cookies})
+  const { data: { user },} = await supabase.auth.getUser();
 
-const TablesPage = () => {
-  return (
-    <DefaultLayout>
-      <Breadcrumb pageName="Tables" />
-
-      <div className="flex flex-col gap-10">
-        <BrandsTable />
-      </div>
-    </DefaultLayout>
+  if(!user){
+redirect('/auth/signin')
+  }
+  return (    
+      <TablesPage userId={user.id}/>    
   );
 };
 
-export default TablesPage;
+export default ResetPassword;
