@@ -7,7 +7,7 @@ export async function GET(request) {
     });
   }
 
-  const { data, error } = await supabase.from('brands_categories').select('*');
+  const { data, error } = await supabase.from('brands_industries').select('*');
 
   if (error) {
     return new Response(JSON.stringify({ error: error.message }), {

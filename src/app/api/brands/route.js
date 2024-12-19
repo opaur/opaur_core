@@ -30,7 +30,7 @@ export async function GET(request) {
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { name, category_id, brand_properties, user_id } = body;
+    const { name, industry_id, brand_properties, user_id } = body;
 
     // Validar los campos requeridos
     if (!name || !category_id) {
@@ -50,7 +50,7 @@ export async function POST(request) {
       .insert([
         {
           name,
-          category_id,
+          industry_id,
           brand_properties: brand_properties || {}, // JSONB opcional
         },
       ])
