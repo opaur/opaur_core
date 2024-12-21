@@ -13,7 +13,7 @@ export async function GET(request) {
   const user_id = searchParams.get("user_id");
   const { data, error } = await supabase
     .from("brands_users")
-    .select("*, brand:brands(*,category:brands_categories(*))")
+    .select("*, brand:brands(*,category:brands_industries(*))")
     .eq("user_id", user_id);
 
   if (error) {
