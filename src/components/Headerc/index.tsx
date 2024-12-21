@@ -42,6 +42,7 @@ const HeaderComp = ({ user }: { user: User | null }) => {
             <a
               href="/dashboard"
               className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
+              style={{display:"none"}}
             >
               Dashboard
               <span className="ml-1 text-lg">&#8594;</span>
@@ -50,6 +51,7 @@ const HeaderComp = ({ user }: { user: User | null }) => {
             <a
               href="/auth/signin"
               className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
+              style={{display:"none"}}
             >
               Sign In
               <span className="ml-1 text-lg">&#8594;</span>
