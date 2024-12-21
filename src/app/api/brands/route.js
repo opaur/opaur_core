@@ -34,10 +34,10 @@ export async function POST(request) {
     const { name, industry_id, brand_properties, user_id } = body;
 
     // Validar los campos requeridos
-    if (!name || !category_id) {
+    if (!name || !industry_id) {
       return new Response(
         JSON.stringify({
-          error: "The name and category_id fields are required",
+          error: "The name and industry_id fields are required",
         }),
         {
           status: 400,
