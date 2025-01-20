@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 
 const Dashboard = async () => {
-  const supabase = createServerComponentClient({cookies});
+const supabase = createServerComponentClient({cookies});
 const {data:{user}}= await supabase.auth.getUser()
 if(!user){
   redirect('/')

@@ -11,11 +11,9 @@ export const metadata: Metadata = {
 
 
 export default async function Home() {
-const supabase = createServerComponentClient({cookies});
-const {data:{user}}= await supabase.auth.getUser()
+  const supabase = createServerComponentClient({cookies});
+  const {data:{user}}= await supabase.auth.getUser()
   return (
-  
-              <LandingPage user={user}/>       
-    
+    <LandingPage user={user}/>       
   );
 }
