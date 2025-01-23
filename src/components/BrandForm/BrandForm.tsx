@@ -7,18 +7,19 @@ interface BrandsUsersClientProps {
 
 const BrandForm = ({ userId }: BrandsUsersClientProps) => {
   const [industries, setIndustries] = useState<any[]>([]);
-  const [formData, setFormData] = useState({
+  const [brandProperties, setBrandProperties] = useState<any[]>([]);
+  const [countries, setCountries] = useState<{ [key: string]: string }>({});
+  const [formData, setFormData] = useState<Record<string, string>>({
     brandName: "",
-    brandDescription: "",
-    brandVoice: "",
-    brandTagline: "",
     industry: "",
   });
+
   const [step, setStep] = useState(1); // Controla el paso actual
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
+  // Consultar industrias
   useEffect(() => {
     const fetchIndustries = async () => {
       try {
@@ -39,11 +40,66 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     fetchIndustries();
   }, []);
 
+  // Consultar Propiedades Marca
+  useEffect(() => {
+    const fetchProperties = async () => {
+      try {
+        // debugger
+        setLoading(true);
+        const response = await fetch(`../api/brands_properties?default_property=true`);
+        if (!response.ok) {
+          throw new Error("Error al cargar las propiedades de la marca");
+        }
+        const result = await response.json();
+        setBrandProperties(result);
+      } catch (error: any) {
+        setError(error.message || "Error desconocido");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProperties();
+  }, []);
+
+  // // Consultar Paises
+  // useEffect(() => {
+  //   const fetchCountries = async () => {
+  //     try {
+  //       debugger
+  //       setLoading(true);
+
+  //       const requestOptions : RequestInit = {
+  //         method: 'GET',
+  //         headers: {
+  //           'Content-Type': 'application/json', 
+  //           'Accept': 'application/json',       
+  //         },
+  //         redirect: 'follow',
+  //       };
+
+  //       const response = await fetch("https://country.io/names.json", requestOptions);
+  //       console.log(response);
+  //       if (!response.ok) {
+  //         throw new Error("Error al cargar los países");
+  //       }
+  //       const result = await response.json();
+  //       setCountries(result); 
+  //     } catch (error: any) {
+  //       setError(error.message || "Error desconocido");
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchCountries();
+  // }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const nextStep = () => setStep((prev) => Math.min(prev + 1, 5));
+  const nextStep = () => setStep((prev) => Math.min(prev + 1, steps.length));
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -51,18 +107,21 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     setLoading(true);
     setError(null);
     setSuccess(false);
-
+    debugger
     const raw = JSON.stringify({
       name: formData.brandName,
       industry_id: formData.industry,
       brand_properties: {
-        color: formData.brandTagline,
-        size: formData.brandVoice,
+        ...brandProperties.reduce((acc, property) => {
+          acc[property.name] = formData[property.name] || "";
+          return acc;
+        }, {}),
       },
       user_id: userId,
     });
 
     try {
+      debugger
       const response = await fetch("../api/brands", {
         method: "POST",
         headers: {
@@ -98,47 +157,6 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
       ),
     },
     {
-      label: "Brand Description",
-      content: (
-        <textarea
-          name="brandDescription"
-          value={formData.brandDescription}
-          onChange={handleChange}
-          className="w-full rounded-lg border py-4 px-6"
-          placeholder="Describe your brand's mission, values, and vision."
-          required
-        />
-      ),
-    },
-    {
-      label: "Brand Voice",
-      content: (
-        <input
-          type="text"
-          name="brandVoice"
-          value={formData.brandVoice}
-          onChange={handleChange}
-          className="w-full rounded-lg border py-4 px-6"
-          placeholder="How do you want your brand to speak?"
-          required
-        />
-      ),
-    },
-    {
-      label: "Brand Tagline",
-      content: (
-        <input
-          type="text"
-          name="brandTagline"
-          value={formData.brandTagline}
-          onChange={handleChange}
-          className="w-full rounded-lg border py-4 px-6"
-          placeholder="Create a catchy and memorable tagline."
-          required
-        />
-      ),
-    },
-    {
       label: "Industry",
       content: (
         <select
@@ -159,6 +177,19 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
         </select>
       ),
     },
+    ...brandProperties.map((property) => ({
+      label: property.title,
+      content: (
+        <input
+          type="text"
+          name={property.name}
+          value={formData[property.name] || ""}
+          onChange={handleChange}
+          className="w-full rounded-lg border py-4 px-6"
+          placeholder={`${property.placeholder}`}
+        />
+      ),
+    })),
   ];
 
   return (
@@ -186,7 +217,7 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
               <button
                 type="button"
                 onClick={prevStep}
-                className="px-4 py-2 bg-gray-600 text-white rounded-lg"
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg"
               >
                 Back
               </button>
@@ -205,7 +236,7 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
                 type="submit"
                 className="px-4 py-2 bg-green-600 text-white rounded-lg"
               >
-                Submit
+                {loading ? "Creating..." : "CREATE BRAND"}
               </button>
             )}
           </div>
