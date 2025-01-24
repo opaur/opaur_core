@@ -7,7 +7,7 @@ export async function GET(request) {
     });
   }
 
-  const { data, error } = await supabase.from('subscriptions_plans').select('*');
+  const { data, error } = await supabase.from('subscriptions_plans').select('countries');
 
   if (error) {
     return new Response(JSON.stringify({ error: error.message }), {
