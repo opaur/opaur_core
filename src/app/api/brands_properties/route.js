@@ -11,7 +11,8 @@ export async function GET(request) {
   const { data, error } = await supabase
   .from('brands_properties')
   .select('*')
-  .eq('default_property',default_property);
+  .eq('default_property',default_property)
+  .order('priority', { ascending: true }) ;
 
   if (error) {
     return new Response(JSON.stringify({ error: error.message }), {
