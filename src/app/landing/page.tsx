@@ -1,10 +1,69 @@
 "use client";
+import React, { useState } from "react";
 import HeaderComp from "@/components/Headerc";
 import Footer from "@/components/Footer/index";
 import Image from "next/image";
 import { type User } from "@supabase/auth-helpers-nextjs";
 
 const LandingPage = ({ user }: { user: User | null }) => {
+  const [email, setEmail] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const getIPAddress = async () => {
+    try {
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      return data.ip;
+    } catch (error) {
+      console.error("Failed to fetch IP address:", error);
+      return null;
+    }
+  };
+
+  const getBrowserMetadata = async () => {
+    const ip = await getIPAddress();
+    return {
+      ip,
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      language: navigator.language,
+      screenSize: `${window.screen.width}x${window.screen.height}`,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+    };
+  };
+
+
+  const sendMetadata = async () => {
+    setLoading(true);
+    try {
+      const metadata = await getBrowserMetadata();
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, metadata }),
+      });
+
+      const result = await response.json();
+      setLoading(false);
+
+      if (!response.ok) {
+        console.error("Error:", result.error || "Failed to send metadata");
+        alert("Failed to save your email. Please try again.");
+        return;
+      }
+
+      alert("Thank you for signing up!");
+    } catch (error) {
+      setLoading(false);
+      console.error("Unexpected error:", error);
+      alert("An unexpected error occurred. Please try again.");
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderComp user={user} />
@@ -24,19 +83,25 @@ const LandingPage = ({ user }: { user: User | null }) => {
                 your ideas into reality.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="border-gray-300 text-gray-800 placeholder-gray-500 h-12 w-full max-w-xs rounded-md border px-4 py-3 text-sm transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
-                />
-                <a
-                  href="#"
-                  className="inline-flex h-12 items-center justify-center rounded-md bg-primary px-1 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
-                >
-                  Start Now
-                  <span className="ml-2 text-lg">&#8594;</span>
-                </a>
-              </div>
+      {user && <p className="text-gray-600">Welcome, {user.email}!</p>}
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={handleInputChange}
+        className="border-gray-300 text-gray-800 placeholder-gray-500 w-full max-w-md rounded-md border px-4 py-3 text-sm transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
+      />
+      <button
+        onClick={sendMetadata}
+        disabled={loading}
+        className={`inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8 ${
+          loading ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+      >
+        {loading ? "Submitting..." : "Join for Free"}
+        <span className="ml-2 text-lg">&#8594;</span>
+      </button>
+    </div>
             </div>
             <Image
               width={450}
@@ -123,19 +188,25 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="border-gray-300 text-gray-800 placeholder-gray-500 w-full max-w-md rounded-md border px-4 py-3 text-sm transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <a
-              href="#"
-              className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8"
-            >
-              Join for Free
-              <span className="ml-2 text-lg">&#8594;</span>
-            </a>
-          </div>
+      {user && <p className="text-gray-600">Welcome, {user.email}!</p>}
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={handleInputChange}
+        className="border-gray-300 text-gray-800 placeholder-gray-500 w-full max-w-md rounded-md border px-4 py-3 text-sm transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
+      />
+      <button
+        onClick={sendMetadata}
+        disabled={loading}
+        className={`inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8 ${
+          loading ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+      >
+        {loading ? "Submitting..." : "Join for Free"}
+        <span className="ml-2 text-lg">&#8594;</span>
+      </button>
+    </div>
         </div>
       </section>
       {/* 
