@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import Select from "react-select";
 
 interface BrandsUsersClientProps {
   userId: string;
@@ -7,14 +8,15 @@ interface BrandsUsersClientProps {
 
 const BrandForm = ({ userId }: BrandsUsersClientProps) => {
   const [industries, setIndustries] = useState<any[]>([]);
-  const [brandProperties, setBrandProperties] = useState<any[]>([]);
   const [countries, setCountries] = useState<{ [key: string]: string }>({});
-  const [formData, setFormData] = useState<Record<string, string>>({
+  const [brandProperties, setBrandProperties] = useState<any[]>([]);
+  const [formData, setFormData] = useState<Record<string, any>>({
     brandName: "",
     industry: "",
+    business_model: [],
   });
 
-  const [step, setStep] = useState(1); // Controla el paso actual
+  const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -44,7 +46,6 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
   useEffect(() => {
     const fetchProperties = async () => {
       try {
-        // debugger
         setLoading(true);
         const response = await fetch(`../api/brands_properties?default_property=true`);
         if (!response.ok) {
@@ -62,41 +63,46 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     fetchProperties();
   }, []);
 
-  // // Consultar Paises
-  // useEffect(() => {
-  //   const fetchCountries = async () => {
-  //     try {
-  //       debugger
-  //       setLoading(true);
+  // Consultar Paises
+  useEffect(() => {x
+    const fetchCountries = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch(`../api/countries`);
+        if (!response.ok) {
+          throw new Error("Error al cargar los paises");
+        }
+        const result = await response.json();
+        const countriesData = result[0]?.countries;
+        if (countriesData) {
+          setCountries(countriesData);
+        } else {
+          throw new Error("Invalid JSON structure");
+        }
+      } catch (error: any) {
+        setError(error.message || "Error desconocido");
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  //       const requestOptions : RequestInit = {
-  //         method: 'GET',
-  //         headers: {
-  //           'Content-Type': 'application/json', 
-  //           'Accept': 'application/json',       
-  //         },
-  //         redirect: 'follow',
-  //       };
-
-  //       const response = await fetch("https://country.io/names.json", requestOptions);
-  //       console.log(response);
-  //       if (!response.ok) {
-  //         throw new Error("Error al cargar los países");
-  //       }
-  //       const result = await response.json();
-  //       setCountries(result); 
-  //     } catch (error: any) {
-  //       setError(error.message || "Error desconocido");
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-
-  //   fetchCountries();
-  // }, []);
+    fetchCountries();
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleBusinessModelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+    setFormData((prev) => {
+      const currentModels = prev.business_model || [];
+      if (checked) {
+        return { ...prev, business_model: [...currentModels, value] };
+      } else {
+        return { ...prev, business_model: currentModels.filter((model: string) => model !== value) };
+      }
+    });
   };
 
   const nextStep = () => setStep((prev) => Math.min(prev + 1, steps.length));
@@ -107,7 +113,6 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     setLoading(true);
     setError(null);
     setSuccess(false);
-    debugger
     const raw = JSON.stringify({
       name: formData.brandName,
       industry_id: formData.industry,
@@ -121,7 +126,6 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     });
 
     try {
-      debugger
       const response = await fetch("../api/brands", {
         method: "POST",
         headers: {
@@ -179,16 +183,54 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     },
     ...brandProperties.map((property) => ({
       label: property.title,
-      content: (
-        <input
-          type="text"
-          name={property.name}
-          value={formData[property.name] || ""}
-          onChange={handleChange}
-          className="w-full rounded-lg border py-4 px-6"
-          placeholder={`${property.placeholder}`}
-        />
-      ),
+      content:
+        property.name === "country" ? (
+          <Select
+            name={property.name}
+            options={Object.entries(countries).map(([code, name]) => ({
+              value: code,
+              label: name,
+            }))}
+            onChange={(selectedOption) => {
+              setFormData({
+                ...formData,
+                [property.name]: selectedOption?.value || "",
+              });
+            }}
+            className="w-full"
+            placeholder="Search and select a country"
+          />
+        ) : property.name === "business_model" ? (
+          <div className="flex flex-col gap-2">
+            <label>
+              <input
+                type="checkbox"
+                value="B2B"
+                checked={formData.business_model.includes("B2B")}
+                onChange={handleBusinessModelChange}
+              />
+              B2B
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                value="B2C"
+                checked={formData.business_model.includes("B2C")}
+                onChange={handleBusinessModelChange}
+              />
+              B2C
+            </label>
+          </div>
+        ) : (
+          <input
+            type="text"
+            name={property.name}
+            value={formData[property.name] || ""}
+            onChange={handleChange}
+            className="w-full rounded-lg border py-4 px-6"
+            placeholder={`${property.placeholder}`}
+          />
+        ),
     })),
   ];
 
@@ -196,7 +238,9 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     <div className="flex flex-col items-center min-h-screen">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
         <h2 className="mb-4 text-2xl font-bold">Create Your Brand</h2>
-        <p className="mb-6 text-gray-600">Step {step} of {steps.length}</p>
+        <p className="mb-6 text-gray-600">
+          Step {step} of {steps.length}
+        </p>
         <div className="w-full bg-gray-300 rounded-full h-2 mb-6">
           <div
             className="bg-blue-600 h-2 rounded-full"
