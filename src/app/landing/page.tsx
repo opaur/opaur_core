@@ -73,14 +73,11 @@ const LandingPage = ({ user }: { user: User | null }) => {
           <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
             <div className="text-center md:w-1/2 md:text-left">
               <h1 className="mb-4 text-4xl font-bold text-black dark:text-white md:text-5xl lg:text-6xl">
-                Revolutionize your brand with speed and precision
+              Get Early Access to Opaur!
               </h1>
               <p className="mb-8 py-3 text-lg md:text-xl lg:text-2xl">
-                Join our growing family of brands that trust Opaur to bring life
-                to their identity, enhance their presence, and elevate their
-                vision.
-                <strong className="text-black dark:text-white"> Together</strong>, we will turn
-                your ideas into reality.
+              We are thrilled by the overwhelming interest in Opaur! To ensure every brand receives the best experience, we are inviting a select number of early adopters to join our waitlist. Sign up now
+                <strong className="text-black dark:text-white"> Sign up now</strong> to be among the first to revolutionize your branding journey and get priority access to exclusive features.
               </p>
               <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
       {user && <p className="text-gray-600">Welcome, {user.email}!</p>}
@@ -94,11 +91,11 @@ const LandingPage = ({ user }: { user: User | null }) => {
       <button
         onClick={sendMetadata}
         disabled={loading}
-        className={`inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-6 xl:px-8 ${
+        className={`inline-flex items-center justify-center rounded-md bg-primary px-6 py-2 text-center text-sm font-medium text-white whitespace-nowrap hover:bg-opacity-90 lg:px-8 xl:px-10 ${
           loading ? "opacity-50 cursor-not-allowed" : ""
         }`}
       >
-        {loading ? "Submitting..." : "Join for Free"}
+        {loading ? "Submitting..." : "Join the Waitlist"}
         <span className="ml-2 text-lg">&#8594;</span>
       </button>
     </div>
@@ -117,7 +114,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
       <section className="py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
-            Break Free from Delays and Complications in Your Branding Journey
+          Simplify Your Branding, Amplify Your Impact
           </h2>
           <p className="mb-8 text-lg md:text-xl lg:text-2xl">
             We merge cutting-edge software with{" "}
@@ -131,34 +128,34 @@ const LandingPage = ({ user }: { user: User | null }) => {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
-                title: "Streamlined Workflow",
+                title: "Personalized Regional Insights",
                 description:
-                  "Experience a seamless process from brief to final assets.",
+                  "Leverage AI-powered branding tools tailored for unique markets.",
               },
               {
-                title: "Enterprise-Grade",
+                title: "Automated Branding Tools",
                 description:
-                  "Get a brand that's uniquely yours, crafted with precision.",
+                  "Create names, slogans, and tone strategies in minutes, not days.",
               },
               {
-                title: "Expert Guidance",
+                title: "Efficient Collaboration",
                 description:
-                  "Benefit from our team of branding experts every step of the way.",
+                  "Align your team with clear, AI-generated branding assets that match your vision.",
               },
               {
-                title: "Secure & Reliable",
+                title: "Scalable Solutions",
                 description:
-                  "We prioritize your brand's integrity. We ensure that your information remains confidential and protected at all times.",
+                  "Whether you are starting small or growing big, Opaur scales with your needs.",
               },
               {
-                title: "Insightful Analytics",
+                title: "Secure Data Management",
                 description:
-                  "Gain a deeper understanding of your brand's voice with our tone analytics tools, empowering you to choose the perfect tone for your creations and branding strategies.",
+                  "Your brand data is safe, encrypted, and used only to enhance your experience.",
               },
               {
-                title: "Effortless Automation",
+                title: "Instant Previews",
                 description:
-                  "Enhance efficiency by automating workflows and reducing manual tasks, so you can focus on growing your brand.",
+                  "See immediate results, like slogans or tone drafts, before committing further.",
               },
             ].map((feature, index) => (
               <div
@@ -182,9 +179,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </h2>
 
           <p className="mb-8 text-center  text-lg md:text-xl lg:text-2xl">
-            Join a community that is redefining branding. Subscribe to our
-            newsletter for exclusive insights, tips, and updates that will
-            elevate your brand. 
+          Get exclusive tips, actionable insights, and the latest updates to build a standout brand in competitive markets. Subscribe now and access free tools to kickstart your branding journey. 
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
