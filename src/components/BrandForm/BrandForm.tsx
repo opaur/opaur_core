@@ -64,7 +64,7 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
   }, []);
 
   // Consultar Paises
-  useEffect(() => {x
+  useEffect(() => {
     const fetchCountries = async () => {
       try {
         setLoading(true);
