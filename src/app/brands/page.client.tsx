@@ -51,7 +51,22 @@ export default function TablesPage({ userId }: BrandsUsersClientProps) {
       <Breadcrumb pageName="Tables" />
       <div></div>
       <div className="flex flex-col gap-10">
-        <BrandsTable data={data} />
+      <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+            {data.map((brand, key) => (
+              <div
+                key={brand.id}
+                className="transform rounded-lg bg-white p-6 shadow-md transition-transform duration-300 hover:scale-105 dark:border-strokedark dark:bg-boxdark"
+              >
+                <h3 className="mb-2 text-xl font-semibold text-black dark:text-white">
+                  {brand.brand?.name}
+                </h3>
+                <p className="">{brand.brand?.category?.name}</p>
+              </div>
+            ))}
+          </div>
+
+
+
       </div>
     </DefaultLayout>
   );
