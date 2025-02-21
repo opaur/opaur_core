@@ -29,6 +29,14 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
+    if (!supabase) {
+      return new Response(JSON.stringify({ error: 'Supabase no está configurado correctamente' }), {
+        status: 500,
+      });
+    }
+    const { error_auth, user } = await authenticateRequest(request);
+    if (error_auth) return error; // Retorna el error directamente si falla la autenticación
+
     const body = await request.json();
     const { name, industry_id, brand_properties, user_id } = body;
 
