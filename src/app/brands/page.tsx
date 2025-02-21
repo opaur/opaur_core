@@ -12,13 +12,26 @@ export const metadata: Metadata = {
 const ResetPassword = async() => {  
   
   const supabase= createServerComponentClient({cookies})
-  const { data: { user },} = await supabase.auth.getUser();
+  // Obtener sesión
+  const { data: sessionData } = await supabase.auth.getSession();
+  const accessToken = sessionData?.session?.access_token;
 
-  if(!user){
-redirect('/auth/signin')
+  if (!accessToken) {
+    redirect("/auth/signin");
   }
-  return (    
-      <TablesPage userId={user.id}/>    
+
+  // Validar usuario contra el servidor de Supabase
+  const { data: userData, error } = await supabase.auth.getUser();
+
+  if (error || !userData?.user) {
+    redirect("/auth/signin");
+  }
+
+  return (
+    <TablesPage 
+      userId={userData.user.id} 
+      accessToken={accessToken} 
+    />
   );
 };
 

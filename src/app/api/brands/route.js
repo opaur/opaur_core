@@ -1,31 +1,30 @@
 import { supabase } from "@/utils/supabaseClient";
+import { authenticateRequest } from "@/utils/auth";
 
 export async function GET(request) {
   if (!supabase) {
-    return new Response(
-      JSON.stringify({ error: "Supabase no está configurado correctamente" }),
-      {
-        status: 500,
-      },
-    );
+    return new Response(JSON.stringify({ error: 'Supabase no está configurado correctamente' }), {
+      status: 500,
+    });
   }
+  const { error, user } = await authenticateRequest(request);
+  if (error) return error; // Retorna el error directamente si falla la autenticación
+
   const { searchParams } = new URL(request.url);
   const user_id = searchParams.get("user_id");
-  const { data, error } = await supabase
+
+  const { data, error: dbError } = await supabase
     .from("brands_users")
     .select("*, brand:brands(*,category:brands_industries(*))")
     .eq("user_id", user_id);
 
-  if (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
+  if (dbError) {
+    return new Response(JSON.stringify({ error: dbError.message }), {
       status: 500,
     });
   }
 
-  return new Response(JSON.stringify(data), {
-    status: 200,
-    
-  });
+  return new Response(JSON.stringify(data), { status: 200 });
 }
 
 export async function POST(request) {
