@@ -1,16 +1,16 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Footer from "@/components/Footer";
+
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 import {handleSignUp} from "../actions"
 import useColorMode from "@/hooks/useColorMode"; 
+import Image from "next/image";
 
 const SignUpClient: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -41,25 +41,36 @@ const SignUpClient: React.FC = () => {
   const colorMode = useColorMode(); 
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="p-4">
-        <ToastContainer />
-        <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
-        <Link href="/dashboard">
-  <picture>
-    {/* Imagen para modo oscuro */}
-    <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
-    {/* Imagen para modo claro */}
-    <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
-        width={100}
-        height={45} />
-  </picture>
-</Link>
-        </nav>
-      </header>
-      <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+      <div className="mx-auto my-15 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
-            <LogoAuth />
+            
+          <div className="px-26 py-45 text-center aurora_opacity">
+              <Link className="mb-5.5 inline-block" href="/">
+                <picture>
+                  {/* Imagen para modo oscuro */}
+                  <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+                  {/* Imagen para modo claro */}
+                  <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
+                      width={200}
+                      height={90} />
+                </picture>
+              </Link>
+
+              <p className="2xl:px-20">
+                Welcome to the new era of AI agents. At Opaur, we transform data into strategies that connect.
+              </p>
+
+              <span className="inline-block">
+                <Image
+                width={420}
+                height={150}
+                src={"/images/illustration/ilustration-login.svg"}
+                alt="Ilustration page opaur"
+                />
+              </span>
+            </div>
+
           </div>
 
           <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
@@ -323,7 +334,6 @@ const SignUpClient: React.FC = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

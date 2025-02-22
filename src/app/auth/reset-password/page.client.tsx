@@ -7,7 +7,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect, useSearchParams, useRouter} from 'next/navigation';
 import { useState } from "react";
-import LogoAuth from "@/app/components/logo-auth";
 import Swal from "sweetalert2";
 import {writeToastError,handleResetPassword} from "../actions"
 import useColorMode from "@/hooks/useColorMode"; 
@@ -44,16 +43,22 @@ redirect('/')
         <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
         </nav>
       </header>
-      <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+      <div className="mx-auto my-13 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
         <div className="flex flex-wrap items-center">
-          <div className="hidden w-full xl:block xl:w-1/2">
-            <LogoAuth />
-          </div>
 
-          <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
+          <div className="w-full border-stroke dark:border-strokedark xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
 
-                
+            <Link href="/dashboard">
+          <picture>
+            {/* Imagen para modo oscuro */}
+            <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+            {/* Imagen para modo claro */}
+            <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
+                width={100}
+                height={45} />
+          </picture>
+        </Link>
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 Reset password
               </h2>
@@ -161,7 +166,6 @@ redirect('/')
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

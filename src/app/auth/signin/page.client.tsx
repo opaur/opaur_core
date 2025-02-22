@@ -5,9 +5,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import LogoAuth from "@/app/components/logo-auth";
 import { handleSignIn,handleGoogleSignIn } from "../actions";
 import useColorMode from "@/hooks/useColorMode"; 
+import Image from "next/image";
 
 export default function SignInClient() {
   const [email, setEmail] = useState("");
@@ -26,17 +26,38 @@ export default function SignInClient() {
     <div className="p-8">
       <ToastContainer />
       <div className="flex min-h-screen flex-col">
-        <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+        <div className="mx-auto my-10 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
           <div className="flex flex-wrap items-center">
             <div className="hidden w-full xl:block xl:w-1/2">
-              <LogoAuth />
+            <div className="px-26 py-30 text-center aurora_opacity">
+              <Link className="mb-5.5 inline-block" href="/">
+                <picture>
+                  {/* Imagen para modo oscuro */}
+                  <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+                  {/* Imagen para modo claro */}
+                  <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
+                      width={200}
+                      height={90} />
+                </picture>
+              </Link>
+
+              <p className="2xl:px-20">
+                Welcome to the new era of AI agents. At Opaur, we transform data into strategies that connect.
+              </p>
+
+              <span className="inline-block">
+                <Image
+                width={420}
+                height={150}
+                src={"/images/illustration/ilustration-login.svg"}
+                alt="Ilustration page opaur"
+                />
+              </span>
+            </div>
             </div>
 
             <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
               <div className="w-full p-8 sm:p-12.5 xl:p-17.5">
-                <span className="mb-1.5 block font-medium">
-                  Access to take your brand to the next level with AI and Human Creativity.
-                </span>
                 <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                   Sign In to Opaur
                 </h2>
