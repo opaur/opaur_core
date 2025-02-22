@@ -6,9 +6,13 @@ export async function GET(request) {
       status: 500,
     });
   }
-  const { error_auth, user } = await authenticateRequest(request);
-  if (error_auth) return error; // Retorna el error directamente si falla la autenticación
-
+  // Corregido: Manejo correcto de `error_auth`
+  const { error: error_auth, user } = await authenticateRequest(request);
+  if (error_auth) {
+    return new Response(JSON.stringify({ error: error_auth.message }), {
+      status: 401, // 401 significa "Unauthorized"
+    });
+  }
 
   const { searchParams } = new URL(request.url);
   const default_property = searchParams.get('default_property');
