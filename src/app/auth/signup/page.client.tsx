@@ -41,7 +41,7 @@ const SignUpClient: React.FC = () => {
   const colorMode = useColorMode(); 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className=" my-15 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+      <div className="mx-auto my-15 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
             

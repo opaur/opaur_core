@@ -29,7 +29,7 @@ export default function ResetPasswordSendEmailClient() {
   const colorMode = useColorMode(); 
   return (
     <div className="flex min-h-screen flex-col">
-      <div className="my-13 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+      <div className="mx-auto my-13 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
         <div className="flex flex-wrap items-center">
           <div className="w-full border-stroke dark:border-strokedark xl:border-l-2">
             <div className="w-full p-4 sm:p-12.5 xl:p-17.5">

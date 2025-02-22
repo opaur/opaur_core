@@ -43,7 +43,7 @@ redirect('/')
         <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
         </nav>
       </header>
-      <div className=" my-13 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+      <div className="mx-auto my-13 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
         <div className="flex flex-wrap items-center">
 
           <div className="w-full border-stroke dark:border-strokedark xl:border-l-2">
