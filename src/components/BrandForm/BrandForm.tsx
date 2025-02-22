@@ -8,9 +8,10 @@ import Select from "react-select";
 
 interface BrandsUsersClientProps {
   userId: string;
+  accessToken: string;
 }
 
-const BrandForm = ({ userId }: BrandsUsersClientProps) => {
+const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
   const [industries, setIndustries] = useState<any[]>([]);
   const [countries, setCountries] = useState<{ [key: string]: string }>({});
   const [brandProperties, setBrandProperties] = useState<any[]>([]);
@@ -30,7 +31,12 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     const fetchIndustries = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`../api/brands_industries`);
+        const response = await fetch(`../api/brands_industries`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         if (!response.ok) {
           throw new Error("Error al cargar las industrias");
         }
@@ -53,6 +59,12 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
         setLoading(true);
         const response = await fetch(
           `../api/brands_properties?default_property=true`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          },
         );
         if (!response.ok) {
           throw new Error("Error al cargar las propiedades de la marca");
@@ -89,7 +101,12 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
     const fetchCountries = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`../api/countries`);
+        const response = await fetch(`../api/countries`, {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
         if (!response.ok) {
           throw new Error("Error al cargar los paises");
         }
@@ -163,6 +180,7 @@ const BrandForm = ({ userId }: BrandsUsersClientProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
         },
         body: raw,
       });

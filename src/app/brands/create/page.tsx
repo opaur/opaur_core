@@ -15,11 +15,19 @@ export const metadata: Metadata = {
 const Plans = async() => {
   
   const supabase= createServerComponentClient({cookies})
-  const { data: { user },} = await supabase.auth.getUser();
+  // Obtener sesión
+  const { data: sessionData } = await supabase.auth.getSession();
+  const accessToken = sessionData?.session?.access_token;
 
-  if(!user)
-  {
-    redirect('/auth/signin')
+  if (!accessToken) {
+    redirect("/auth/signin");
+  }
+
+  // Validar usuario contra el servidor de Supabase
+  const { data: userData, error } = await supabase.auth.getUser();
+
+  if (error || !userData?.user) {
+    redirect("/auth/signin");
   }
 
   return (
@@ -28,7 +36,9 @@ const Plans = async() => {
 
       <div className="flex flex-col gap-10">
         {/* <TablesPage userId={user.id}/>     */}
-        <BrandForm userId={user.id} />
+        <BrandForm 
+      userId={userData.user.id} 
+      accessToken={accessToken}  />
         {/* <BrandForm /> */}
       </div>
     </DefaultLayout>
