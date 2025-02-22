@@ -157,7 +157,6 @@ redirect('/')
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
