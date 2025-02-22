@@ -34,12 +34,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="border-t border-gray-100 dark:bg-boxdark-2 dark:text-bodydarkdark:border-gray-800">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="dark:bg-boxdark-2 dark:text-bodydark">
+      <div className=" container mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand section */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Opaur</h3>
+          <picture>
+            {/* Imagen para modo oscuro */}
+            <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
+            {/* Imagen para modo claro */}
+            <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
+                width={100}
+                height={45} />
+          </picture>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               Building the future of AI-powered solutions.
             </p>

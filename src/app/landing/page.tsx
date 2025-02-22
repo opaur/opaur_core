@@ -232,6 +232,35 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </div>
         </div>
       </section>
+      <section className="relative py-20 bg-gray-50 dark:bg-gray-900">
+  <div className="container mx-auto text-center px-4 md:px-6">
+    <h2 className="mb-6 text-3xl font-bold text-black dark:text-white md:text-4xl">
+      Powered by Cutting-Edge AI & Voice Technologies
+    </h2>
+    <p className="text-lg text-gray-700 dark:text-gray-300">
+      We leverage the most advanced AI and voice solutions to deliver natural, intelligent conversations.
+    </p>
+  </div>
+
+  <div className="relative mt-10 flex flex-col items-center gap-y-6">
+    {/* Top Row - Most Important */}
+    <div className="flex justify-center gap-x-12 items-center">
+      <img src="/images/logo/openai_logo.svg" alt="OpenAI" className="h-12 md:h-16 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80" />
+      <img src="/images/logo/twilio-logo.svg" alt="Twilio" className="h-12 md:h-16 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80 scale-[1.1]" />
+    </div>
+
+    {/* Bottom Row - Secondary */}
+    <div className="flex justify-center gap-x-12 items-center">
+      <img src="/images/logo/claude_logo.svg" alt="Claude AI" className="h-12 md:h-16 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80 scale-[1.05]" />
+      <img src="/images/logo/elevenLabs_logo.png" alt="ElevenLabs" className="h-10 md:h-14 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80 scale-[0.9]" />
+    </div>
+  </div>
+</section>
+
+
+
+
+
       <section className="bg-gray-100 py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="text-gray-800 mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
