@@ -26,7 +26,7 @@ export default function SignInClient() {
     <div className="p-8">
       <ToastContainer />
       <div className="flex min-h-screen flex-col">
-        <div className="mx-auto my-10 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+        <div className=" my-10 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
           <div className="flex flex-wrap items-center">
             <div className="hidden w-full xl:block xl:w-1/2">
             <div className="px-26 py-30 text-center aurora_opacity">
