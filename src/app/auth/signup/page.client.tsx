@@ -40,7 +40,7 @@ const SignUpClient: React.FC = () => {
   };
   const colorMode = useColorMode(); 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex min-h-screen flex-col py-10 items-center justify-center">
     <picture className="block xl:hidden">
       {/* Imagen para modo oscuro */}
       <source
@@ -61,7 +61,6 @@ const SignUpClient: React.FC = () => {
     <div className="mx-auto my-2 max-w-full rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
           <div className="hidden w-full xl:block xl:w-1/2">
-            
           <div className="px-26 py-45 text-center aurora_opacity">
               <Link className="mb-5.5 inline-block" href="/">
                 <picture>
