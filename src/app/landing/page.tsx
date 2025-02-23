@@ -232,34 +232,47 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </div>
         </div>
       </section>
-      <section className="relative py-20 bg-gray-50 dark:bg-gray-900">
-  <div className="container mx-auto text-center px-4 md:px-6">
-    <h2 className="mb-6 text-3xl font-bold text-black dark:text-white md:text-4xl">
-      Powered by Cutting-Edge AI & Voice Technologies
-    </h2>
-    <p className="text-lg text-gray-700 dark:text-gray-300">
-      We leverage the most advanced AI and voice solutions to deliver natural, intelligent conversations.
-    </p>
-  </div>
+      <section className="bg-gray-50 dark:bg-gray-900 relative py-20">
+        <div className="container mx-auto px-4 text-center md:px-6">
+          <h2 className="mb-6 text-3xl font-bold text-black dark:text-white md:text-4xl">
+            Powered by Cutting-Edge AI & Voice Technologies
+          </h2>
+          <p className="text-gray-700 dark:text-gray-300 text-lg">
+            We leverage the most advanced AI and voice solutions to deliver
+            natural, intelligent conversations.
+          </p>
+        </div>
 
-  <div className="relative mt-10 flex flex-col items-center gap-y-6">
-    {/* Top Row - Most Important */}
-    <div className="flex justify-center gap-x-12 items-center">
-      <img src="/images/logo/openai_logo.svg" alt="OpenAI" className="h-12 md:h-16 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80" />
-      <img src="/images/logo/twilio-logo.svg" alt="Twilio" className="h-12 md:h-16 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80 scale-[1.1]" />
-    </div>
+        <div className="relative mt-10 flex flex-col items-center gap-y-6">
+          {/* Top Row - Most Important */}
+          <div className="flex items-center justify-center gap-x-6">
+            <img
+              src="/images/logo/openai_logo.svg"
+              alt="OpenAI"
+              className="h-12 w-auto object-contain p-2 opacity-80 grayscale filter dark:brightness-90 dark:invert md:h-16"
+            />
+            <img
+              src="/images/logo/twilio-logo.svg"
+              alt="Twilio"
+              className="h-12 w-auto scale-[1.1] object-contain p-2 opacity-80 grayscale filter dark:brightness-90 dark:invert md:h-16"
+            />
+          </div>
 
-    {/* Bottom Row - Secondary */}
-    <div className="flex justify-center gap-x-12 items-center">
-      <img src="/images/logo/claude_logo.svg" alt="Claude AI" className="h-12 md:h-16 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80 scale-[1.05]" />
-      <img src="/images/logo/elevenLabs_logo.png" alt="ElevenLabs" className="h-10 md:h-14 w-auto p-2 object-contain filter grayscale dark:invert dark:brightness-90 opacity-80 scale-[0.9]" />
-    </div>
-  </div>
-</section>
-
-
-
-
+          {/* Bottom Row - Secondary */}
+          <div className="flex items-center justify-center gap-x-6">
+            <img
+              src="/images/logo/claude_logo.svg"
+              alt="Claude AI"
+              className="h-12 w-auto scale-[1.05] object-contain p-2 opacity-80 grayscale filter dark:brightness-90 dark:invert md:h-16"
+            />
+            <img
+              src="/images/logo/elevenLabs_logo.png"
+              alt="ElevenLabs"
+              className="h-10 w-auto scale-[0.9] object-contain p-2 opacity-80 grayscale filter dark:brightness-90 dark:invert md:h-14"
+            />
+          </div>
+        </div>
+      </section>
 
       <section className="bg-gray-100 py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
@@ -347,7 +360,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
         </div>
       </section>
 
-      <section className="bg-gray-100 dark:bg-gray-900 py-20 md:py-32 mb-5lg:py-40">
+      <section className="bg-gray-100 dark:bg-gray-900 mb-5 lg:py-40 py-20 md:py-32">
         <div className="container mx-auto max-w-5xl px-4 text-center md:px-6">
           <h2 className="mb-10 text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
             What Our Customers Say
