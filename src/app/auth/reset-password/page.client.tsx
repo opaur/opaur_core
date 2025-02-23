@@ -43,11 +43,11 @@ redirect('/')
         <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
         </nav>
       </header>
-      <div className="mx-auto my-13 max-w-screen-xl rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark ">
+      <div className="mx-auto my-14 max-w-full sm:max-w-lg rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4 sm:p-12">
         <div className="flex flex-wrap items-center">
 
           <div className="w-full border-stroke dark:border-strokedark xl:border-l-2">
-            <div className="w-full p-4 sm:p-12.5 xl:p-17.5">
+            <div className="w-full p-12 sm:p-12.5 xl:p-17.5">
 
             <Link href="/dashboard">
           <picture>
