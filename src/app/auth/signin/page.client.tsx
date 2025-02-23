@@ -43,6 +43,7 @@ export default function SignInClient() {
           Sign in
         </h2>
         <div className="mx-auto my-2 max-w-full rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+          
           <div className="flex flex-wrap items-center">
             <div className="hidden w-full xl:block xl:w-1/2">
               <div className="aurora_opacity px-26 py-30 text-center">
@@ -80,7 +81,7 @@ export default function SignInClient() {
             </div>
 
             <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
-              <div className="w-full p-12 sm:p-12.5 xl:p-17.5">
+              <div className="w-full p-12 sm:p-12.5 xl:p-13">
                 <h2 className="mb-9 hidden text-2xl font-bold text-black dark:text-white sm:text-title-xl2 xl:block">
                   Sign In
                 </h2>
@@ -221,12 +222,12 @@ export default function SignInClient() {
                 </div>
                 <div className="mt-6 text-center">
                   <p>
-                    Forgot your password?{" "}
+        
                     <Link
                       href="/auth/send-email-reset-password"
                       className="cursor-pointer text-primary hover:underline"
                     >
-                      Reset my password
+                      Forgot your password?{" "}
                     </Link>
                   </p>
                 </div>
