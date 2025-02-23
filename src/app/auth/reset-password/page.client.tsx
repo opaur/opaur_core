@@ -37,28 +37,31 @@ redirect('/')
   };
   const colorMode = useColorMode(); 
   return (
-    <div className="flex min-h-screen flex-col">
-      <header className="p-4">
-        <ToastContainer />
-        <nav className="container mx-auto flex max-w-screen-lg items-center justify-between text-black dark:text-white">
-        </nav>
-      </header>
-      <div className="mx-auto my-14 max-w-full sm:max-w-lg rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark p-4 sm:p-12">
+    <div className="flex min-h-screen flex-col items-center justify-center">
+      <ToastContainer />
+    <picture className="block xl:hidden">
+      {/* Imagen para modo oscuro */}
+      <source
+        srcSet="/images/logo/logo_opaur_blanco.svg"
+        media="(prefers-color-scheme: dark)"
+      />
+      {/* Imagen para modo claro */}
+      <img
+        src="/images/logo/logo_opaur_aurora.svg"
+        alt="Logo Opaur"
+        width={150}
+        className="mx-auto"
+      />
+    </picture>
+    <h2 className="mb-2 block text-center text-title-xl2 text-black dark:text-white sm:text-title-xl2 xl:hidden">
+      Sign in
+    </h2>
+    <div className="mx-auto my-2 max-w-full rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
 
           <div className="w-full border-stroke dark:border-strokedark xl:border-l-2">
             <div className="w-full p-12 sm:p-12.5 xl:p-17.5">
 
-            <Link href="/dashboard">
-          <picture>
-            {/* Imagen para modo oscuro */}
-            <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
-            {/* Imagen para modo claro */}
-            <img src="/images/logo/logo_opaur_aurora.svg" alt="Logo Opaur" 
-                width={100}
-                height={45} />
-          </picture>
-        </Link>
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
                 Reset password
               </h2>

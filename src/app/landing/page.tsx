@@ -360,7 +360,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
         </div>
       </section>
 
-      <section className="bg-gray-100 dark:bg-gray-900 mb-5lg:py-40 py-20 md:py-32">
+      <section className="bg-gray-100 dark:bg-gray-900 mb-5 lg:py-40 py-20 md:py-32">
         <div className="container mx-auto max-w-5xl px-4 text-center md:px-6">
           <h2 className="mb-10 text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
             What Our Customers Say
