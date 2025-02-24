@@ -9,6 +9,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import VoiceWave from "@/components/voice/VoiceWave";
 
 const testimonials = [
   {
@@ -156,13 +157,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
                 </button>
               </div>
             </div>
-            <Image
-              width={450}
-              height={300}
-              src={"/images/illustration/composition-6.svg"}
-              alt="Logo"
-              priority
-            />
+            <VoiceWave />
           </div>
         </div>
       </section>
@@ -232,6 +227,8 @@ const LandingPage = ({ user }: { user: User | null }) => {
           </div>
         </div>
       </section>
+    
+
       <section className="bg-gray-50 dark:bg-gray-900 relative py-20">
         <div className="container mx-auto px-4 text-center md:px-6">
           <h2 className="mb-6 text-3xl font-bold text-black dark:text-white md:text-4xl">
