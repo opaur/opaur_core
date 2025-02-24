@@ -162,6 +162,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
   const handleSubmit = async (e: React.FormEvent) => {
+    
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -183,6 +184,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": `Bearer ${accessToken}`,
         },
         body: raw,
       });
@@ -329,11 +331,6 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                           onChange={handleBusinessModelChange}
                           className="hidden"
                         />
-                        {/* <Image
-                          src={b2bImage}
-                          alt="B2B"
-                          className="mb-2 h-16 w-16 object-contain"
-                        /> */}
                         <picture>
                           {/* Imagen para modo oscuro */}
                           <source srcSet="/images/B2B-white.png" media="(prefers-color-scheme: dark)" />
@@ -356,11 +353,6 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                           onChange={handleBusinessModelChange}
                           className="hidden"
                         />
-                        {/* <Image
-                          src={b2cBlackImage}
-                          alt="B2C"
-                          className="mb-2 h-16 w-16 object-contain"
-                        /> */}
                         <picture>
                           {/* Imagen para modo oscuro */}
                           <source srcSet="/images/B2C-white.png" media="(prefers-color-scheme: dark)" />
