@@ -1,9 +1,6 @@
 "use client";
 import { Info } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import b2bImage from "../../../public/images/B2B.png";
-import b2cImage from "../../../public/images/B2C.png";
-import Image from "next/image";
 import Select from "react-select";
 
 interface BrandsUsersClientProps {
@@ -31,7 +28,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
     const fetchIndustries = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`../api/brands_industries`, {
+        const response = await fetch(`../api/brands_industries`,{
           method: "GET",
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -49,8 +46,12 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
       }
     };
 
-    fetchIndustries();
-  }, []);
+    if (accessToken) {
+      fetchIndustries();
+    } else {
+      setError("Access token not available");
+    }
+  }, [accessToken]);
 
   // Consultar Propiedades Marca
   useEffect(() => {
@@ -58,13 +59,12 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
       try {
         setLoading(true);
         const response = await fetch(
-          `../api/brands_properties?default_property=true`,
-          {
+          `../api/brands_properties?default_property=true`,{
             method: "GET",
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
-          },
+          }
         );
         if (!response.ok) {
           throw new Error("Error al cargar las propiedades de la marca");
@@ -85,7 +85,6 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
           countryProperty,
           ...result.filter((property: any) => property.name !== "country"),
         ]);
-        // setBrandProperties(result.filter((property: any) => property.name !== "country"));
       } catch (error: any) {
         setError(error.message || "Error desconocido");
       } finally {
@@ -93,15 +92,19 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
       }
     };
 
-    fetchProperties();
-  }, [countries]);
+    if (accessToken) {
+      fetchProperties();
+    } else {
+      setError("Token de acceso no disponible");
+    }
+  }, [accessToken, countries]);
 
   // Consultar Paises
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`../api/countries`, {
+        const response = await fetch(`../api/countries`,{
           method: "GET",
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -125,7 +128,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
     };
 
     fetchCountries();
-  }, []);
+  }, [accessToken]);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -180,7 +183,6 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
         },
         body: raw,
       });
@@ -219,28 +221,29 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
       label: "Tell us about your brand",
       content: (
         <>
-          <h3 className="mb-4 text-center text-xl font-semibold">
-            Tell us about your brand
-          </h3>
           <div className="mb-4">
-            <TooltipLabel text="Brand Name" tooltip="El nombre de tu marca" />
+            <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+              <TooltipLabel text="Brand Name" tooltip="Ingresa el nombre de tu marca. Este será el nombre que se mostrará en el sitio " />
+            </label>
             <input
               type="text"
               name="brandName"
               value={formData.brandName}
               onChange={handleChange}
-              className="w-full rounded-lg border px-6 py-4"
+              className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
               placeholder="Enter your brand name"
               required
             />
           </div>
           <div className="mb-4">
-            <TooltipLabel text="Industry" tooltip="El nombre de tu industria" />
+            <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+              <TooltipLabel text="Industry" tooltip="El nombre de tu industria" />
+            </label>
             <select
               name="industry"
               value={formData.industry}
               onChange={handleChange}
-              className="w-full rounded-lg border px-6 py-4"
+              className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
               required
             >
               <option value="" disabled>
@@ -255,7 +258,9 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
           </div>
           {brandProperties.find((property) => property.name === "country") && (
             <div className="mb-4">
-              <TooltipLabel text="Country" tooltip="País donde esta tu marca" />
+              <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                <TooltipLabel text="Country" tooltip="País donde esta tu marca" />
+              </label>
               {/* <Select
                   name={formData.name}
                   value={formData.name}
@@ -276,7 +281,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                 name="country"
                 value={formData.country || ""}
                 onChange={handleChange}
-                className="w-full rounded-lg border px-6 py-4"
+                className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                 required
               >
                 <option value="" disabled>
@@ -300,19 +305,15 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
       label: "Give your brand personality",
       content: (
         <>
-          <h3 className="mb-4 text-center text-xl font-semibold">
-            Give your brand personality
-          </h3>
           {brandProperties
             .filter((property) => property.name !== "country") // Excluir "País"
             .map((property) => (
               <div className="mb-4" key={property.name}>
                 {property.name === "business_model" ? (
                   <div className="flex flex-col gap-2">
-                    <TooltipLabel
-                      text={property.title}
-                      tooltip={property.description}
-                    />
+                    <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                      <TooltipLabel text={property.title} tooltip={property.description}/>
+                    </label>
                     <div className="flex space-x-4">
                       <label
                         className={`flex flex-grow cursor-pointer flex-col items-center rounded-lg border p-4 ${
@@ -328,12 +329,17 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                           onChange={handleBusinessModelChange}
                           className="hidden"
                         />
-                        <Image
+                        {/* <Image
                           src={b2bImage}
                           alt="B2B"
                           className="mb-2 h-16 w-16 object-contain"
-                        />
-                        {/* <span className="text-sm font-medium">B2B</span> */}
+                        /> */}
+                        <picture>
+                          {/* Imagen para modo oscuro */}
+                          <source srcSet="/images/B2B-white.png" media="(prefers-color-scheme: dark)" />
+                          {/* Imagen para modo claro */}
+                          <img src="/images/B2B-black.png" alt="Imagen B2B Black" width={100} height={45} />
+                        </picture>
                       </label>
 
                       <label
@@ -350,26 +356,31 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                           onChange={handleBusinessModelChange}
                           className="hidden"
                         />
-                        <Image
-                          src={b2cImage}
+                        {/* <Image
+                          src={b2cBlackImage}
                           alt="B2C"
                           className="mb-2 h-16 w-16 object-contain"
-                        />
-                        {/* <span className="text-sm font-medium">B2C</span> */}
+                        /> */}
+                        <picture>
+                          {/* Imagen para modo oscuro */}
+                          <source srcSet="/images/B2C-white.png" media="(prefers-color-scheme: dark)" />
+                          {/* Imagen para modo claro */}
+                          <img src="/images/B2C-black.png" alt="Imagen B2C Black" width={100} height={45} />
+                        </picture>
                       </label>
                     </div>
                   </div>
                 ) : property.name === "description" ? (
                   <>
-                    <TooltipLabel
-                      text={property.title}
-                      tooltip={property.description}
-                    />
+                    <label className="mb-3 block text-sm font-medium text-black dark:text-white">
+                      <TooltipLabel text={property.title} tooltip={property.description}
+                      />
+                    </label>
                     <textarea
                       name={property.name}
                       value={formData[property.name] || ""}
                       onChange={handleChange}
-                      className="w-full rounded-lg border px-6 py-4"
+                      className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                       placeholder={property.placeholder}
                     />
                   </>
@@ -398,8 +409,10 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
 
   return (
     <div className="flex min-h-screen flex-col items-center">
-      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
-        <h2 className="mb-4 text-2xl font-bold">Create your brand</h2>
+      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg dark:border-strokedark dark:bg-boxdark">
+        <h2 className="mb-4 text-2xl font-bold text-center text-black dark:text-white">
+          {steps[step - 1].label}
+        </h2>
         <p className="text-gray-600 mb-6">
           Step {step} of {steps.length}
         </p>
@@ -412,9 +425,6 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
 
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label className="text-gray-700 mb-2 block font-medium">
-              {steps[step - 1].label}
-            </label>
             {steps[step - 1].content}
           </div>
 
