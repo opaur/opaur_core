@@ -28,17 +28,17 @@ export default function TermsAndConditions({ user }: { user: User | null }) {
             For the purposes of these Terms and Conditions:
           </p>
           <ul className="mb-6 text-gray-600 dark:text-gray-300 list-disc list-inside space-y-2">
-            <li>Affiliate means an entity that controls, is controlled by or is under common control with a party, where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
+            <li>Affiliate means an entity that controls, is controlled by or is under common control with a party, where control means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
             <li>Account means a unique account created for You to access our Service or parts of our Service.</li>
             <li>Country refers to: Florida, United States</li>
-            <li>Company (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to Opaur Av Calle 116 #21-38, Bogotá, Bogotá D.C.</li>
+            <li>Company (referred to as either the Company, We, Us or Our in this Agreement) refers to Opaur Av Calle 116 #21-38, Bogotá, Bogotá D.C.</li>
             <li>Device means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>
             <li>Feedback means feedback, innovations or suggestions sent by You regarding the attributes, performance or features of our Service.</li>
             <li>Free Trial refers to a limited period of time that may be free when purchasing a Subscription.</li>
             <li>Promotions refer to contests, sweepstakes or other promotions offered through the Service.</li>
             <li>Service refers to the Website.</li>
             <li>Subscriptions refer to the services or access to the Service offered on a subscription basis by the Company to You.</li>
-            <li>Terms and Conditions (also referred as "Terms") mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.</li>
+            <li>Terms and Conditions (also referred as Terms) mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service.</li>
             <li>Third-party Social Media Service means any services or content provided by a third-party that may be displayed, included or made available by the Service.</li>
             <li>Website refers to Opaur, accessible from opaur.com</li>
             <li>You means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</li>

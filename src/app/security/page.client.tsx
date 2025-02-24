@@ -17,7 +17,7 @@ export default function SecurityPolicy({ user }: { user: User | null }) {
             Last Updated: February 2025
           </p>
           <p className="mb-6 text-base text-gray-600 dark:text-gray-300">
-            At Opaur (we, our, us), we prioritize the security of our users' (you, your) data. This Security Policy outlines the measures we implement to protect your information when you use our website and services.
+            At Opaur (we, our, us), we prioritize the security of our users (you, your) data. This Security Policy outlines the measures we implement to protect your information when you use our website and services.
           </p>
 
           <h3 className="mb-4 text-xl font-bold text-black dark:text-white">Data Encryption</h3>
