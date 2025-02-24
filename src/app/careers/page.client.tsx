@@ -3,11 +3,9 @@ import HeaderComp from "@/components/Headerc";
 import Footer from "@/components/Footer/index";
 import Link from "next/link";
 import useColorMode from "@/hooks/useColorMode"; // Color mode hook
-import { useState } from "react"; // Import useState to handle selected topic
 import { type User } from "@supabase/auth-helpers-nextjs";
 
 const CareersClient = ({ user }: { user: User | null }) => {
-  const [selectedRole, setSelectedRole] = useState<string | null>(null);
 
   const positions = [
     {
@@ -122,12 +120,7 @@ const CareersClient = ({ user }: { user: User | null }) => {
             {positions.map((position) => (
               <div
                 key={position.id}
-                className={`cursor-pointer rounded-lg border p-6 transition-all duration-300 ${
-                  selectedRole === position.id
-                    ? "border-primary bg-primary bg-opacity-10"
-                    : "border-gray-300 hover:border-primary dark:border-strokedark"
-                }`}
-                onClick={() => setSelectedRole(position.id)}
+                className={`cursor-pointer rounded-lg border p-6 transition-all duration-300`}
               >
                 <h3 className="mb-2 text-xl font-bold text-black dark:text-white">
                   {position.title}
