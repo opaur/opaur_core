@@ -1,8 +1,6 @@
 "use client";
 import HeaderComp from "@/components/Headerc";
 import Footer from "@/components/Footer/index";
-import Link from "next/link";
-import useColorMode from "@/hooks/useColorMode"; // Color mode hook
 import { useState } from "react"; // Import useState to handle selected topic
 import { type User } from "@supabase/auth-helpers-nextjs";
 
@@ -128,32 +126,6 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
               </button>
             </div>
           </form>
-
-       
-
-          <div className="mt-12">
-            <h3 className="mb-4 text-xl font-bold text-black dark:text-white">
-              Discover more.
-            </h3>
-            <p className="mb-4 text-gray-600 dark:text-gray-300">
-              From branding to marketing, learn how Opaur works from top to
-              bottom.
-            </p>
-            <Link
-              href="/guides"
-              className="flex items-center justify-center w-full gap-3.5 rounded-lg border border-gray-300 bg-gray-100 p-4 transition-all duration-300 hover:bg-opacity-50 dark:border-strokedark dark:bg-gray-700"
-            >
-              Explore guides
-            </Link>
-            <div className="mt-6 text-center">
-  <Link
-    href="/privacy-policy"
-    className="inline-block px-4 py-2 text-primary bg-gray-100 rounded-lg transition hover:bg-gray-200 dark:bg-gray-700 dark:border-strokedark dark:text-white dark:hover:bg-gray-600"
-  >
-    Privacy Policy
-  </Link>
-</div>
-          </div>
         </div>
       </main>
       <Footer />
