@@ -1,139 +1,158 @@
-import React from 'react';
+"use client";
 import HeaderComp from "@/components/Headerc";
 import Footer from "@/components/Footer/index";
+import Link from "next/link";
+import useColorMode from "@/hooks/useColorMode"; // Color mode hook
+import { useState } from "react"; // Import useState to handle selected topic
 import { type User } from "@supabase/auth-helpers-nextjs";
-import { useState } from "react";
 
-const CareersClient = ({ user }: { user: User | null }) => {
-  const [selectedRole, setSelectedRole] = useState<string | null>(null);
+export default function ContactUsClient ({ user }: { user: User | null }) {
+  const [selectedTopic, setSelectedTopic] = useState<string | null>(null); // State for selected topic
 
-  const positions = [
-    {
-      id: "tech-lead",
-      title: "Tech Lead",
-      location: "Bogotá, Colombia",
-      type: "Full-time",
-      department: "Engineering"
-    },
-    {
-      id: "senior-dev",
-      title: "Senior Developer",
-      location: "Bogotá, Colombia",
-      type: "Full-time",
-      department: "Development"
-    },
-    {
-      id: "business-dev",
-      title: "Business Development Manager",
-      location: "Bogotá, Colombia",
-      type: "Full-time",
-      department: "Business"
-    }
+  const topics = [
+    { value: "general", label: "General Inquiry" },
+    { value: "support", label: "Support" },
+    { value: "feedback", label: "Feedback" },
+    { value: "partnership", label: "Partnership" },
+    { value: "billing", label: "Billing Questions" },
+    { value: "technical", label: "Technical Support" },
+    { value: "features", label: "Feature Requests" },
+    { value: "complaints", label: "Complaints" },
   ];
 
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderComp user={user} />
       <main className="flex-grow mx-auto w-full max-w-screen-lg p-6 md:p-10">
-        {/* Hero Section */}
-        <div className="mb-10 text-center">
-          <h1 className="text-4xl font-bold text-black dark:text-white mb-4">
-            Join Our Growth in Colombia
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
-            Be part of the tech revolution in Latin America
-          </p>
-        </div>
-
-        {/* About Us Section */}
-        <div className="mx-auto max-w-screen-xl px-8 py-8 mb-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-          <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
-            Investment Opportunity
+        <div className="mx-auto max-w-screen-xl px-10 py-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+          <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
+            Contact Us:
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            We're a growing technology company based in Bogotá, Colombia, seeking strategic investors to join our mission of revolutionizing software development in Latin America. Our location in one of South America's leading tech hubs positions us perfectly for regional expansion.
+          <p className="mb-6 text-base text-gray-600 dark:text-gray-300">
+            Questions, bug reports, feedback — we are here for it all.
           </p>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Why invest with us:
-          </p>
-          <ul className="list-disc pl-6 mb-6 text-gray-600 dark:text-gray-300">
-            <li className="mb-2">Strategic location in Bogotá's thriving tech ecosystem</li>
-            <li className="mb-2">Access to top Latin American talent</li>
-            <li className="mb-2">Growing market with significant expansion potential</li>
-            <li className="mb-2">Strong existing partnerships in the region</li>
-          </ul>
-        </div>
 
-        {/* Open Positions */}
-        <div className="mx-auto max-w-screen-xl px-8 py-8 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
-          <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
-            Current Opportunities
-          </h2>
-
-          {/* Role Cards */}
-          <div className="grid grid-cols-1 gap-6 mb-8">
-            {positions.map((position) => (
-              <div
-                key={position.id}
-                className={`cursor-pointer rounded-lg border p-6 transition-all duration-300 ${
-                  selectedRole === position.id
-                    ? "border-primary bg-primary bg-opacity-10"
-                    : "border-gray-300 hover:border-primary dark:border-strokedark"
-                }`}
-                onClick={() => setSelectedRole(position.id)}
-              >
-                <h3 className="text-xl font-bold text-black dark:text-white mb-2">
-                  {position.title}
-                </h3>
-                <div className="flex flex-wrap gap-3 mb-4">
-                  <span className="px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                    {position.location}
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                    {position.type}
-                  </span>
-                  <span className="px-3 py-1 rounded-full bg-gray-100 text-sm text-gray-600 dark:bg-gray-700 dark:text-gray-300">
-                    {position.department}
-                  </span>
+          {/* Topic Field as Non-Selectable Cards */}
+          <div className="mb-6">
+            <label className="block font-medium text-black dark:text-white mb-2.5">
+              Topic:
+            </label>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              {topics.map((topic) => (
+                <div
+                  key={topic.value}
+                  className={`cursor-pointer rounded-lg border p-4 text-center transition-all duration-300 ${
+                    selectedTopic === topic.value
+                      ? "border-primary bg-primary text-white"
+                      : "border-gray-300 bg-gray-100 text-black hover:bg-opacity-50 dark:border-strokedark dark:bg-gray-700 dark:text-white dark:hover:bg-opacity-50"
+                  }`}
+                  onClick={() => setSelectedTopic(topic.value)} // Set selected topic on click
+                >
+                  {topic.label}
                 </div>
-                
-                <div className="mb-6">
-                  <h4 className="font-semibold text-black dark:text-white mb-2">Role</h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Join our team in Bogotá as we build the next generation of developer tools. We're looking for passionate individuals who want to make an impact in the Latin American tech scene while working on cutting-edge projects.
-                  </p>
-                </div>
-
-                <button className="inline-flex items-center px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-colors">
-                  Learn More
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
 
-          {/* Investment Contact */}
-          <div className="mt-10">
-            <h2 className="text-2xl font-bold text-black dark:text-white mb-6">
-              Connect With Us
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Interested in investing or learning more about our opportunities? Contact us at:
-            </p>
-            <div className="inline-block px-4 py-2 bg-gray-100 rounded-lg text-gray-800 dark:bg-gray-700 dark:text-gray-200 font-mono">
-              info@opaur.com
+          <form className="space-y-6">
+            {/* Name Field */}
+            <div>
+              <label className="block font-medium text-black dark:text-white mb-2.5">
+                Your Name:
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  name="name"
+                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  placeholder="John Doe"
+                  required
+                />
+              </div>
             </div>
-            <p className="mt-4 text-gray-600 dark:text-gray-300">
-              What to include in your message:
+
+            {/* Email Field */}
+            <div>
+              <label className="block font-medium text-black dark:text-white mb-2.5">
+                Your Email:
+              </label>
+              <div className="relative">
+                <input
+                  type="email"
+                  name="email"
+                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  placeholder="you@example.com"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Subject Field */}
+            <div>
+              <label className="block font-medium text-black dark:text-white mb-2.5">
+                Subject:
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  name="subject"
+                  className="w-full rounded-lg border truncate border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  placeholder="What would you like to talk about?"
+                  required
+                />
+              </div>
+            </div>
+
+            {/* Message Field */}
+            <div>
+              <label className="block font-medium text-black dark:text-white mb-2.5">
+                Your Message:
+              </label>
+              <div className="relative">
+                <textarea
+                  name="message"
+                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  placeholder="Type your message here..."
+                  required
+                ></textarea>
+              </div>
+            </div>
+
+            {/* Submit Button */}
+            <div className="mb-5">
+              <button
+                type="submit"
+                className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90 dark:hover:bg-opacity-80"
+              >
+                SEND MESSAGE
+              </button>
+            </div>
+          </form>
+
+       
+
+          <div className="mt-12">
+            <h3 className="mb-4 text-xl font-bold text-black dark:text-white">
+              Discover more.
+            </h3>
+            <p className="mb-4 text-gray-600 dark:text-gray-300">
+              From branding to marketing, learn how Opaur works from top to
+              bottom.
             </p>
-            <ul className="list-disc pl-6 mt-2 text-gray-600 dark:text-gray-300">
-              <li className="mb-2">Investment interests and background</li>
-              <li className="mb-2">Preferred investment range</li>
-              <li className="mb-2">Previous experience in tech investments (if any)</li>
-              <li className="mb-2">Preferred method of contact for follow-up</li>
-            </ul>
+            <Link
+              href="/guides"
+              className="flex items-center justify-center w-full gap-3.5 rounded-lg border border-gray-300 bg-gray-100 p-4 transition-all duration-300 hover:bg-opacity-50 dark:border-strokedark dark:bg-gray-700"
+            >
+              Explore guides
+            </Link>
+            <div className="mt-6 text-center">
+  <Link
+    href="/privacy-policy"
+    className="inline-block px-4 py-2 text-primary bg-gray-100 rounded-lg transition hover:bg-gray-200 dark:bg-gray-700 dark:border-strokedark dark:text-white dark:hover:bg-gray-600"
+  >
+    Privacy Policy
+  </Link>
+</div>
           </div>
         </div>
       </main>
@@ -142,4 +161,4 @@ const CareersClient = ({ user }: { user: User | null }) => {
   );
 };
 
-export default CareersClient;
+
