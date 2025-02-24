@@ -17,7 +17,7 @@ export default function PrivacyPolicy({ user }: { user: User | null }) {
             Last Updated: January 2025
           </p>
           <p className="mb-6 text-base text-gray-600 dark:text-gray-300">
-            Opaur ("we," "our," "us") is committed to protecting the privacy of our users ("you," "your"). This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our website and services.
+            Opaur (we, our, us) is committed to protecting the privacy of our users (you, your). This Privacy Policy explains how we collect, use, disclose, and protect your information when you use our website and services.
           </p>
           
           <h3 className="mb-4 text-xl font-bold text-black dark:text-white">Information We Collect</h3>
