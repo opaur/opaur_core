@@ -1,8 +1,6 @@
 "use client";
 import HeaderComp from "@/components/Headerc";
 import Footer from "@/components/Footer/index";
-import Link from "next/link";
-import useColorMode from "@/hooks/useColorMode"; // Color mode hook
 import { useState } from "react"; // Import useState to handle selected topic
 import { type User } from "@supabase/auth-helpers-nextjs";
 
