@@ -120,9 +120,9 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
             <div className="mb-5">
               <button
                 type="submit"
-                className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90 dark:hover:bg-opacity-80"
+                className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition font-medium text-gray hover:bg-opacity-90 dark:hover:bg-opacity-80"
               >
-                SEND MESSAGE
+                Send Message
               </button>
             </div>
           </form>
