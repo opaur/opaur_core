@@ -10,6 +10,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+
 const testimonials = [
   {
     quote:
@@ -116,7 +117,6 @@ const LandingPage = ({ user }: { user: User | null }) => {
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderComp user={user} />
-
       <section className="py-18 md:py-26 lg:py-32">
         <div className="container mx-auto max-w-5xl px-4 text-center md:px-6">
           <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">

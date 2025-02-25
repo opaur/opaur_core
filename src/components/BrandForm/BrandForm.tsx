@@ -28,7 +28,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
     const fetchIndustries = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`../api/brands_industries`,{
+        const response = await fetch(`../api/brands_industries`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -59,12 +59,13 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
       try {
         setLoading(true);
         const response = await fetch(
-          `../api/brands_properties?default_property=true`,{
+          `../api/brands_properties?default_property=true`,
+          {
             method: "GET",
             headers: {
               Authorization: `Bearer ${accessToken}`,
             },
-          }
+          },
         );
         if (!response.ok) {
           throw new Error("Error al cargar las propiedades de la marca");
@@ -104,7 +105,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
     const fetchCountries = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`../api/countries`,{
+        const response = await fetch(`../api/countries`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -162,7 +163,6 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
   const handleSubmit = async (e: React.FormEvent) => {
-    
     e.preventDefault();
     setLoading(true);
     setError(null);
@@ -184,7 +184,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${accessToken}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: raw,
       });
@@ -225,27 +225,32 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
         <>
           <div className="mb-4">
             <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-              <TooltipLabel text="Brand Name" tooltip="Ingresa el nombre de tu marca. Este será el nombre que se mostrará en el sitio " />
+              <TooltipLabel
+                text="Brand Name"
+                tooltip="Ingresa el nombre de tu marca. Este será el nombre que se mostrará en el sitio "
+              />
             </label>
             <input
               type="text"
               name="brandName"
               value={formData.brandName}
               onChange={handleChange}
-              className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-              placeholder="Enter your brand name"
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
               required
             />
           </div>
           <div className="mb-4">
             <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-              <TooltipLabel text="Industry" tooltip="El nombre de tu industria" />
+              <TooltipLabel
+                text="Industry"
+                tooltip="El nombre de tu industria"
+              />
             </label>
             <select
               name="industry"
               value={formData.industry}
               onChange={handleChange}
-              className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+              className="w-full cursor-pointer  rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none  appearance-none  focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
               required
             >
               <option value="" disabled>
@@ -261,7 +266,10 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
           {brandProperties.find((property) => property.name === "country") && (
             <div className="mb-4">
               <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                <TooltipLabel text="Country" tooltip="País donde esta tu marca" />
+                <TooltipLabel
+                  text="Country"
+                  tooltip="País donde esta tu marca"
+                />
               </label>
               {/* <Select
                   name={formData.name}
@@ -283,13 +291,13 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                 name="country"
                 value={formData.country || ""}
                 onChange={handleChange}
-                className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
+                className="w-full rounded-lg cursor-pointer border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none  appearance-none  focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 required
               >
                 <option value="" disabled>
                   Select a country
                 </option>
-
+             
                 {brandProperties
                   .find((property) => property.name === "country")
                   ?.options.map((option: any) => (
@@ -298,7 +306,9 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                     </option>
                   ))}
               </select>
+              
             </div>
+            
           )}
         </>
       ),
@@ -314,66 +324,58 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                 {property.name === "business_model" ? (
                   <div className="flex flex-col gap-2">
                     <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                      <TooltipLabel text={property.title} tooltip={property.description}/>
+                      <TooltipLabel
+                        text={property.title}
+                        tooltip={property.description}
+                      />
                     </label>
-                    <div className="flex space-x-4">
-                      <label
-                        className={`flex flex-grow cursor-pointer flex-col items-center rounded-lg border p-4 ${
-                          formData.business_model.includes("B2B")
-                            ? "border-blue-500 bg-blue-100"
-                            : "border-gray-300"
-                        }`}
-                      >
-                        <input
-                          type="checkbox"
-                          value="B2B"
-                          checked={formData.business_model.includes("B2B")}
-                          onChange={handleBusinessModelChange}
-                          className="hidden"
-                        />
-                        <picture>
-                          {/* Imagen para modo oscuro */}
-                          <source srcSet="/images/B2B-white.png" media="(prefers-color-scheme: dark)" />
-                          {/* Imagen para modo claro */}
-                          <img src="/images/B2B-black.png" alt="Imagen B2B Black" width={100} height={45} />
-                        </picture>
-                      </label>
+                    <div className="flex gap-4">
+  {[
+    { type: "B2B", imgLight: "/images/B2B-black.png", imgDark: "/images/B2B-white.png" },
+    { type: "B2C", imgLight: "/images/B2C-black.png", imgDark: "/images/B2C-white.png" },
+  ].map(({ type, imgLight, imgDark }) => {
+    const isSelected = formData.business_model.includes(type);
 
-                      <label
-                        className={`flex flex-grow cursor-pointer flex-col items-center rounded-lg border p-4 ${
-                          formData.business_model.includes("B2C")
-                            ? "border-blue-500 bg-blue-100"
-                            : "border-gray-300"
-                        }`}
-                      >
-                        <input
-                          type="checkbox"
-                          value="B2C"
-                          checked={formData.business_model.includes("B2C")}
-                          onChange={handleBusinessModelChange}
-                          className="hidden"
-                        />
-                        <picture>
-                          {/* Imagen para modo oscuro */}
-                          <source srcSet="/images/B2C-white.png" media="(prefers-color-scheme: dark)" />
-                          {/* Imagen para modo claro */}
-                          <img src="/images/B2C-black.png" alt="Imagen B2C Black" width={100} height={45} />
-                        </picture>
-                      </label>
-                    </div>
+    return (
+      <label
+        key={type}
+        className={`flex flex-grow cursor-pointer flex-col items-center rounded-lg border p-4 transition-all ${
+          isSelected
+            ? "border-primary bg-primary/10 dark:bg-primary/20"
+            : "border-gray-300 dark:border-gray-600 hover:border-primary"
+        }`}
+      >
+        <input
+          type="checkbox"
+          value={type}
+          checked={isSelected}
+          onChange={handleBusinessModelChange}
+          className="hidden"
+          required
+        />
+        <picture>
+          <source srcSet={imgDark} media="(prefers-color-scheme: dark)" />
+          <img src={imgLight} alt={`Imagen ${type}`} className="w-[100px] h-[45px] object-contain" />
+        </picture>
+      </label>
+    );
+  })}
+</div>
+
                   </div>
                 ) : property.name === "description" ? (
                   <>
                     <label className="mb-3 block text-sm font-medium text-black dark:text-white">
-                      <TooltipLabel text={property.title} tooltip={property.description}
+                      <TooltipLabel
+                        text={property.title}
+                        tooltip={property.description}
                       />
                     </label>
                     <textarea
                       name={property.name}
                       value={formData[property.name] || ""}
                       onChange={handleChange}
-                      className="w-full rounded border border-stroke bg-gray py-3 pl-5 pr-4.5 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                      placeholder={property.placeholder}
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
                   </>
                 ) : (
@@ -389,6 +391,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                       onChange={handleChange}
                       className="w-full rounded-lg border px-6 py-4"
                       placeholder={property.placeholder}
+                      required
                     />
                   </>
                 )}
@@ -401,48 +404,47 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
 
   return (
     <div className="flex min-h-screen flex-col items-center">
-      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg dark:border-strokedark dark:bg-boxdark">
-        <h2 className="mb-4 text-2xl font-bold text-center text-black dark:text-white">
+      <div className="w-full max-w-md rounded-lg border border-stroke bg-white p-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+        <h2 className="mb-4 text-center text-2xl font-bold text-black dark:text-white">
           {steps[step - 1].label}
         </h2>
-        <p className="text-gray-600 mb-6">
+        <p className="text-gray-600 dark:text-gray-300 mb-6">
           Step {step} of {steps.length}
         </p>
-        <div className="bg-gray-300 mb-6 h-2 w-full rounded-full">
+        <div className="bg-gray-300 dark:bg-gray-700 mb-6 h-2 w-full rounded-full">
           <div
-            className="h-2 rounded-full bg-blue-600"
+            className="h-2 rounded-full bg-primary transition-all duration-300"
             style={{ width: `${(step / steps.length) * 100}%` }}
           />
         </div>
 
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            {steps[step - 1].content}
-          </div>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="mb-4">{steps[step - 1].content}</div>
 
           <div className="flex justify-between">
             {step > 1 && (
               <button
                 type="button"
                 onClick={prevStep}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-white"
+                className="font-medium cursor-pointer rounded-lg border border-primary dark:border-white dark:text-white text-primary px-6 py-2 transition hover:bg-opacity-90 dark:hover:bg-opacity-80"
               >
                 Back
               </button>
             )}
             {step < steps.length && (
-              <button
-                type="button"
-                onClick={nextStep}
-                className="rounded-lg bg-blue-600 px-4 py-2 text-white"
-              >
-                Next
-              </button>
+             <button
+             type="button"
+             onClick={nextStep}
+             className="w-full font-medium cursor-pointer rounded-lg border border-primary bg-primary px-6 py-2 text-white transition hover:bg-opacity-90 dark:hover:bg-opacity-80"
+           >
+             Next
+           </button>
+           
             )}
             {step === steps.length && (
               <button
                 type="submit"
-                className="rounded-lg bg-green-600 px-4 py-2 text-white"
+                className=" font-medium cursor-pointer rounded-lg border border-primary bg-primary px-6 py-2 text-white transition hover:bg-opacity-90 dark:hover:bg-opacity-80"
               >
                 {loading ? "Creating..." : "Create brand"}
               </button>
@@ -451,9 +453,13 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
         </form>
 
         {success && (
-          <p className="mt-4 text-green-500">Brand created successfully!</p>
+          <p className="mt-4 text-green-500 dark:text-green-400">
+            Brand created successfully!
+          </p>
         )}
-        {error && <p className="text-red-500 mt-4">Error: {error}</p>}
+        {error && (
+          <p className="text-red-500 dark:text-red-400 mt-4">Error: {error}</p>
+        )}
       </div>
     </div>
   );

@@ -5,14 +5,12 @@ import CheckboxFour from "@/components/Checkboxes/CheckboxFour";
 import CheckboxOne from "@/components/Checkboxes/CheckboxOne";
 import CheckboxThree from "@/components/Checkboxes/CheckboxThree";
 import CheckboxTwo from "@/components/Checkboxes/CheckboxTwo";
-import SwitcherFour from "@/components/Switchers/SwitcherFour";
-import SwitcherOne from "@/components/Switchers/SwitcherOne";
-import SwitcherThree from "@/components/Switchers/SwitcherThree";
-import SwitcherTwo from "@/components/Switchers/SwitcherTwo";
+import SwitcherTwo from "@/components/Switchers/Switcher";
 import DatePickerTwo from "@/components/FormElements/DatePicker/DatePickerTwo";
 import DatePickerOne from "@/components/FormElements/DatePicker/DatePickerOne";
 import MultiSelect from "@/components/FormElements/MultiSelect";
 import SelectGroupTwo from "@/components/SelectGroup/SelectGroupTwo";
+import DropdownDefault from "../Dropdowns/DropdownDefault";
 
 const FormElements = () => {
   return (
@@ -73,10 +71,7 @@ const FormElements = () => {
               </h3>
             </div>
             <div className="flex flex-col gap-5.5 p-6.5">
-              <SwitcherOne />
               <SwitcherTwo />
-              <SwitcherThree />
-              <SwitcherFour />
             </div>
           </div>
 
@@ -92,7 +87,7 @@ const FormElements = () => {
               <DatePickerTwo />
             </div>
           </div>
-
+<DropdownDefault/>
           {/* <!-- File upload --> */}
           <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
