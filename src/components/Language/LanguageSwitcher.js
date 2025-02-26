@@ -37,21 +37,21 @@ const LanguageSelector = () => {
         </div>
       ),
     },
-    // {
-    //   value: 'br',
-    //   label: (
-    //     <div style={{ display: 'flex', alignItems: 'center' }}>
-    //       <Image
-    //         src="/images/flags/bandera_br.png"
-    //         alt="Brazilian flag"
-    //         width={20}
-    //         height={12}
-    //         style={{ marginRight: 10 }}
-    //       />
-    //       BR
-    //     </div>
-    //   ),
-    // },
+    {
+      value: 'br',
+      label: (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <Image
+            src="/images/flags/bandera_br.png"
+            alt="Brazilian flag"
+            width={20}
+            height={12}
+            style={{ marginRight: 10 }}
+          />
+          BR
+        </div>
+      ),
+    },
   ];
 
   const handleChange = (selectedOption) => {

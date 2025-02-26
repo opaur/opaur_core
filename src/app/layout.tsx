@@ -11,7 +11,7 @@ import { I18nextProvider } from "react-i18next";
 import i18next from "i18next";
 import global_es from "../translations/es/global.json";
 import global_en from "../translations/en/global.json";
-// import global_br from "../translations/br/global.json";
+import global_br from "../translations/br/global.json";
 
 i18next.init({
   interpolation: { escapeValue: false },
@@ -23,9 +23,9 @@ i18next.init({
     en: {
       global: global_en,
     },
-    // br: {
-    //   global: global_br,
-    // }
+    br: {
+      global: global_br,
+    }
   },
 });
 

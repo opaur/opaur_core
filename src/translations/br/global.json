@@ -1,6 +1,72 @@
 {
     "header": {
         "title": "Agentes de IA que falam a linguagem da sua marca",
-        "description": "Esta es una descripcion"
-    }    
+        "description": "Nunca perca uma oportunidade novamente. Nossos agentes de IA gerenciam o contato com clientes, agendam demonstrações, confirmam presenças e fazem follow-up — assim como sua equipe de vendas faria. Mesmo tom, mesma profissionalidade, mas totalmente automatizado.",
+        "textWaitlist": "Entre na lista de espera",
+        "description2": "e seja um dos primeiros a experimentar conversas impulsionadas por IA que parecem humanas.",
+        "inputEmail": "Digite seu e-mail"
+    },
+    "Growth":{
+        "title": "Automatize Conversas, Acelere o Crescimento",
+        "description": "Nossos agentes de IA não apenas fazem chamadas — eles falam a linguagem da sua marca. Com",
+        "text1": "tom consistente",
+        "text2": "e",
+        "text3": "automação fluida",
+        "description2": "eles envolvem leads, confirmam compromissos e fazem follow-ups sem esforço. Liberte sua equipe de chamadas repetitivas e concentre-se em fechar negócios.",
+        "cardTitle1": "Tom de Marca Consistente",
+        "cardTitle2": "Engajamento Automático de Leads",
+        "cardTitle3": "Disponibilidade 24/7",
+        "cardTitle4": "Escalável e Personalizável",
+        "cardTitle5": "Seguro e Confiável",
+        "cardTitle6": "Insights e Análises Instantâneas",
+        "cardDescription1": "Agentes de IA que soam como sua equipe de vendas, garantindo uma experiência sem falhas.",
+        "cardDescription2": "Agende demonstrações, confirme presenças e faça follow-ups no piloto automático.",
+        "cardDescription3": "Nunca perca uma oportunidade — nossos agentes de IA trabalham 24/7.",
+        "cardDescription4": "Personalize conversas de IA para atender às necessidades do seu negócio, de pequenas equipes a grandes empresas.",
+        "cardDescription5": "Seus dados são criptografados e protegidos para uma automação segura e tranquila.",
+        "cardDescription6": "Acompanhe o desempenho, otimize chamadas e melhore taxas de conversão com facilidade."
+    },
+    "Technologies":{
+        "title": "Impulsionado por Tecnologias Avançadas de IA e Voz",
+        "subtitle": "Utilizamos as soluções mais avançadas de IA e voz para entregar conversas naturais e inteligentes."
+    },
+    "Pricing":{
+        "title": "Preços",
+        "cardPlan1": "Grátis",
+        "cardPlan2": "Pro",
+        "cardPlan3": "Empresarial",
+        "cardSubtitle1": "Comece com chamadas impulsionadas por IA sem custo.",
+        "cardSubtitle2": "Expanda seu negócio com vozes de IA personalizadas e automação.",
+        "cardSubtitle3": "Agentes de IA totalmente treináveis que combinam com a voz da sua equipe de vendas.",
+        "feacture1":{
+            "text1":"5.000 tokens de chamadas por mês",
+            "text2":"Scripts básicos de chamadas",
+            "text3":"Transcrição básica de chamadas",
+            "text4":"Voz padrão"
+        },
+        "feacture2":{
+            "text1":"30.000 tokens de chamadas por mês",
+            "text2":"Vozes de IA personalizadas e ajustes de tom",
+            "text3":"Transcrição avançada de chamadas e resumos",
+            "text4":"Integrações com CRM e calendário",
+            "text5":"Suporte prioritário por e-mail"
+        },
+        "feacture3":{
+            "text1":"80.000 tokens de chamadas por mês",
+            "text2":"Treine a IA para imitar a voz da sua equipe de vendas",
+            "text3":"Análises e insights de chamadas em tempo real",
+            "text4":"Acesso a API e fluxos de trabalho personalizados",
+            "text5":"Gerente de conta dedicado"
+        },
+        "textButton": "Comece Agora"
+    },
+    "Customers":{
+        "title": "O Que Nossos Clientes Dizem",
+        "textQuote1": "Eu estava cético no início, mas esta plataforma mudou completamente a forma como lidamos com chamadas de clientes. O recurso de transcrição economiza horas de trabalho toda semana!",
+        "textQuote2": "A capacidade de personalizar scripts de chamadas fez uma grande diferença para nossa equipe. Parece que contratamos um assistente extra, mas sem os custos adicionais!",
+        "textQuote3": "Antes, tínhamos dificuldades com o alto volume de chamadas, mas agora nossos clientes recebem respostas rápidas e claras — sem sobrecarregar nossos agentes. Uma verdadeira revolução!",
+        "textQuote4": "No começo, pensei que as vozes geradas por IA soariam robóticas, mas fiquei impressionado. A opção de voz personalizada nos permite combinar com nossa marca perfeitamente.",
+        "textQuote5": "Precisávamos de uma forma escalável para gerenciar lembretes de compromissos, e esta plataforma atendeu às nossas necessidades.",
+        "textQuote6": "Os resumos gerados por IA nos ajudam a revisar rapidamente as chamadas sem precisar ouvir a gravação completa. Nossa equipe está muito mais eficiente agora!"
+    }
 }
