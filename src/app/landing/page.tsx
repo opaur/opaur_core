@@ -9,6 +9,7 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import FormElements from "@/components/FormElements";
 
 
 const testimonials = [
@@ -287,7 +288,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
                 description: "Get started with AI-powered calls at no cost.",
                 price: "$0",
                 features: [
-                  "5,000 call tokens per month",
+                  "1,000 call tokens",
                   "Basic call scripts",
                   "Basic call transcription",
                   "Standard AI voice",
