@@ -5,6 +5,7 @@ import Image from "next/image";
 import { type User } from "@supabase/auth-helpers-nextjs";
 import useColorMode from "@/hooks/useColorMode"; // Adjust based on your actual pathi
 import Link from "next/link";
+import LanguageSwitcher from "../Language/LanguageSwitcher";
 
 
 const HeaderComp = ({ user }: { user: User | null }) => {
@@ -58,6 +59,7 @@ const HeaderComp = ({ user }: { user: User | null }) => {
             </a>
           )}
         </div>
+        <LanguageSwitcher />
       </nav>
     </header>
   );

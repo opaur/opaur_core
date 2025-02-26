@@ -10,6 +10,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+import { useTranslation } from "react-i18next";
+
 const testimonials = [
   {
     quote:
@@ -58,6 +60,8 @@ const testimonials = [
 const LandingPage = ({ user }: { user: User | null }) => {
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+
+  const { t, i18n } = useTranslation("global");
 
   const getIPAddress = async () => {
     try {
@@ -122,27 +126,24 @@ const LandingPage = ({ user }: { user: User | null }) => {
           <div className="flex flex-col items-center md:flex-row md:items-center md:justify-between">
             <div className="text-center md:w-1/2 md:text-left">
               <h1 className="mb-4 text-4xl font-bold text-black dark:text-white md:text-5xl lg:text-6xl">
-                AI Agents That Speak Your Brand Language
+                {t("header.title")}
               </h1>
               <p className="mb-8 py-3 text-xl md:text-xl lg:text-xl">
-                Never miss an opportunity again. Our AI-powered agents handle
-                outreach, schedule demos, confirm attendance, and follow up—just
-                like your sales team would. Same tone, same professionalism, but
-                fully automated.
+                {t("header.description")}
                 <strong className="text-black dark:text-white">
                   {" "}
-                  Join the waitlist
+                  {t("header.textWaitlist")}
                 </strong>{" "}
-                to be among the first to experience AI-driven conversations that
-                feel human.
+                {t("header.description2")}
               </p>
               <div className="flex flex-col items-center justify-center gap-4 md:flex-row">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t("header.inputEmail")}
                   value={email}
                   onChange={handleInputChange}
                   className="border-gray-300 text-gray-800 placeholder-gray-500 w-full max-w-md rounded-md border px-4 py-3 text-sm transition duration-200 ease-in-out focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
+                  
                 />
                 <button
                   onClick={sendMetadata}
@@ -151,7 +152,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
                     loading ? "cursor-not-allowed opacity-50" : ""
                   }`}
                 >
-                  {loading ? "Submitting..." : "Join the Waitlist"}
+                  {loading ? "Submitting..." : t("header.textWaitlist")}
                   <span className="ml-2 text-lg">&#8594;</span>
                 </button>
               </div>
@@ -170,53 +171,45 @@ const LandingPage = ({ user }: { user: User | null }) => {
       <section className="py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
-            Automate Conversations, Accelerate Growth
+            {t("Growth.title")}
           </h2>
           <p className="mb-8 text-lg md:text-xl lg:text-2xl">
-            Our AI agents do not just make calls—they speak your brand language.
-            With{" "}
+            {t("Growth.description")}
+            {" "}
             <strong className="text-black dark:text-white">
-              consistent tone
+            {t("Growth.text1")}
             </strong>{" "}
-            and{" "}
+            {t("Growth.text2")}{" "}
             <strong className="text-black dark:text-white">
-              seamless automation
+            {t("Growth.text3")}
             </strong>
-            , they engage leads, confirm appointments, and follow up
-            effortlessly. Free your team from repetitive calls and focus on
-            closing deals.
+            , {t("Growth.description2")}
           </p>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
-                title: "Consistent Brand Voice",
-                description:
-                  "AI agents sound just like your sales team, ensuring a seamless experience.",
+                title: t("Growth.cardTitle1"),
+                description: t("Growth.cardDescription1"),
               },
               {
-                title: "Automated Lead Engagement",
-                description:
-                  "Effortlessly schedule demos, confirm attendance, and follow up on autopilot.",
+                title: t("Growth.cardTitle2"),
+                description:t("Growth.cardDescription2"),
               },
               {
-                title: "24/7 Availability",
-                description:
-                  "Never miss an opportunity—our AI agents work around the clock.",
+                title: t("Growth.cardTitle3"),
+                description: t("Growth.cardDescription3"),
               },
               {
-                title: "Scalable & Customizable",
-                description:
-                  "Tailor AI conversations to your business needs, from small teams to enterprises.",
+                title: t("Growth.cardTitle4"),
+                description: t("Growth.cardDescription4"),
               },
               {
-                title: "Secure & Reliable",
-                description:
-                  "Your data is encrypted and protected for seamless, worry-free automation.",
+                title: t("Growth.cardTitle5"),
+                description: t("Growth.cardDescription5"),
               },
               {
-                title: "Instant Insights & Analytics",
-                description:
-                  "Track performance, optimize calls, and improve conversion rates effortlessly.",
+                title: t("Growth.cardTitle6"),
+                description: t("Growth.cardDescription6")
               },
             ].map((feature, index) => (
               <div
@@ -235,11 +228,10 @@ const LandingPage = ({ user }: { user: User | null }) => {
       <section className="bg-gray-50 dark:bg-gray-900 relative py-20">
         <div className="container mx-auto px-4 text-center md:px-6">
           <h2 className="mb-6 text-3xl font-bold text-black dark:text-white md:text-4xl">
-            Powered by Cutting-Edge AI & Voice Technologies
+            {t("Technologies.title")}
           </h2>
           <p className="text-gray-700 dark:text-gray-300 text-lg">
-            We leverage the most advanced AI and voice solutions to deliver
-            natural, intelligent conversations.
+            {t("Technologies.subtitle")} 
           </p>
         </div>
 
@@ -277,46 +269,44 @@ const LandingPage = ({ user }: { user: User | null }) => {
       <section className="bg-gray-100 py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="text-gray-800 mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
-            Pricing
+            {t("Pricing.title")} 
           </h2>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
             {[
               {
-                title: "Free",
-                description: "Get started with AI-powered calls at no cost.",
+                title: t("Pricing.cardPlan1"),
+                description: t("Pricing.cardSubtitle1"),
                 price: "$0",
                 features: [
-                  "5,000 call tokens per month",
-                  "Basic call scripts",
-                  "Basic call transcription",
-                  "Standard AI voice",
+                  t("Pricing.feacture1.text1"),
+                  t("Pricing.feacture1.text2"), 
+                  t("Pricing.feacture1.text3"),       
+                  t("Pricing.feacture1.text4"),
                 ],
               },
               {
-                title: "Pro",
-                description:
-                  "Scale your business with custom AI voices and automation.",
+                title: t("Pricing.cardPlan2"),
+                description: t("Pricing.cardSubtitle2"),
                 price: "$49",
                 features: [
-                  "30,000 call tokens per month",
-                  "Custom AI voices & tone settings",
-                  "Advanced call transcription & summaries",
-                  "CRM & calendar integrations",
-                  "Priority email support",
+                  t("Pricing.feacture2.text1"),
+                  t("Pricing.feacture2.text2"), 
+                  t("Pricing.feacture2.text3"),       
+                  t("Pricing.feacture2.text4"),
+                  t("Pricing.feacture2.text5"),
                 ],
               },
               {
-                title: "Business",
-                description:
-                  "Fully trainable AI agents that match your brand’s voice.",
+                title: t("Pricing.cardPlan3"),
+                description: t("Pricing.cardSubtitle3"),
                 price: "$99",
                 features: [
-                  "80,000 call tokens per month",
-                  "Train AI to mimic your sales team’s voice",
-                  "Real-time call analytics & insights",
-                  "API access & custom workflows",
-                  "Dedicated account manager",
+                  t("Pricing.feacture3.text1"),
+                  t("Pricing.feacture3.text2"), 
+                  t("Pricing.feacture3.text3"),       
+                  t("Pricing.feacture3.text4"),
+                  t("Pricing.feacture3.text5"),
                 ],
               },
             ].map((plan, index) => (
@@ -351,7 +341,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
                   }
                   className="mt-auto inline-flex items-center justify-center whitespace-nowrap rounded-md bg-primary px-6 py-2 text-center text-sm font-medium text-white hover:bg-opacity-90 lg:px-8 xl:px-10"
                 >
-                  Get Started
+                  {t("Pricing.textButton")}
                   <span className="ml-2 text-lg">&#8594;</span>
                 </button>
               </div>
@@ -363,7 +353,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
       <section className="bg-gray-100 dark:bg-gray-900 mb-5 lg:py-40 py-20 md:py-32">
         <div className="container mx-auto max-w-5xl px-4 text-center md:px-6">
           <h2 className="mb-10 text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">
-            What Our Customers Say
+            {t("Customers.title")}
           </h2>
           <Swiper
             modules={[Autoplay]}

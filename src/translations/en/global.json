@@ -1,0 +1,72 @@
+{
+    "header": {
+        "title": "AI Agents That Speak Your Brand Language",
+        "description": "Never miss an opportunity again. Our AI-powered agents handle outreach, schedule demos, confirm attendance, and follow up—just like your sales team would. Same tone, same professionalism, but fully automated. ",
+        "textWaitlist": "Join the waitlist",
+        "description2": "to be among the first to experience AI-driven conversations that feel human.",
+        "inputEmail": "Enter your email"
+    },
+    "Growth":{
+        "title": "Automate Conversations, Accelerate Growth",
+        "description": "Our AI agents do not just make calls—they speak your brand language. With",
+        "text1": "consistent tone",
+        "text2": "and",
+        "text3": "seamless automation",
+        "description2": "they engage leads, confirm appointments, and follow up effortlessly. Free your team from repetitive calls and focus on closing deals.",
+        "cardTitle1": "Consistent Brand Voice",
+        "cardTitle2": "Automated Lead Engagement",
+        "cardTitle3": "24/7 Availability",
+        "cardTitle4": "Scalable & Customizable",
+        "cardTitle5": "Secure & Reliablee",
+        "cardTitle6": "Instant Insights & Analytics",
+        "cardDescription1": "AI agents sound just like your sales team, ensuring a seamless experience.",
+        "cardDescription2": "Effortlessly schedule demos, confirm attendance, and follow up on autopilot.",
+        "cardDescription3": "Never miss an opportunity—our AI agents work around the clock.",
+        "cardDescription4": "Tailor AI conversations to your business needs, from small teams to enterprises.",
+        "cardDescription5": "Your data is encrypted and protected for seamless, worry-free automation.",
+        "cardDescription6": "Track performance, optimize calls, and improve conversion rates effortlessly."
+    },
+    "Technologies":{
+        "title": "Powered by Cutting-Edge AI & Voice Technologies",
+        "subtitle": "We leverage the most advanced AI and voice solutions to deliver natural, intelligent conversations."
+    },    
+    "Pricing":{
+        "title": "Pricing",
+        "cardPlan1": "Free",
+        "cardPlan2": "Pro",
+        "cardPlan3": "Business",
+        "cardSubtitle1": "Get started with AI-powered calls at no cost.",
+        "cardSubtitle2": "Scale your business with custom AI voices and automation.",
+        "cardSubtitle3": "Fully trainable AI agents that match your brand’s voice.",
+        "feacture1":{
+            "text1":"5,000 call tokens per month",
+            "text2":"Basic call scripts",
+            "text3":"Basic call transcription",
+            "text4":"Standard voice"
+        },
+        "feacture2":{
+            "text1":"30,000 call tokens per month",
+            "text2":"Custom AI voices & tone settings",
+            "text3":"Advanced call transcription & summaries",
+            "text4":"CRM & calendar integrations",
+            "text5":"Priority email support"
+        },
+        "feacture3":{
+            "text1":"80,000 call tokens per month",
+            "text2":"Train AI to mimic your sales team’s voice",
+            "text3":"TranReal-time call analytics & insights",
+            "text4":"API access & custom workflows",
+            "text5":"Dedicated account manager"
+        },
+        "textButton": "Get Started"
+    },
+    "Customers":{
+        "title": "What Our Customers Say",
+        "textQuote1": "I was skeptical at first, but this platform has completely changed the way we handle customer calls. The call transcription feature alone saves us hours every week!",
+        "textQuote2": "The ability to customize call scripts has made a huge difference for our team. It feels like we've hired an extra assistant, but without the overhead!",
+        "textQuote3": "We used to struggle with handling high call volumes, but now our customers get quick, clear responses—without tying up our agents. Total game-changer!",
+        "textQuote4": "At first, I thought AI-generated voices would sound robotic, but I was blown away. The custom voice option lets us match our brand perfectly.",
+        "textQuote5": "We needed a scalable way to handle appointment reminders, and this platform delivered.",
+        "textQuote6": "The AI-generated summaries help us quickly review calls without listening to full recordings. Our team is so much more efficient now!"
+    }
+}
