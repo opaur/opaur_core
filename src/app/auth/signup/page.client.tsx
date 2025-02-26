@@ -103,7 +103,6 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="text"
-                      placeholder="Enter your first name"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="first_name"
                       value={first_name}
@@ -141,7 +140,6 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="text"
-                      placeholder="Enter your last name"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="last_name"
                       value={last_name}
@@ -180,7 +178,6 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="email"
-                      placeholder="Enter your email"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="email"
                       value={email}
@@ -215,7 +212,6 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="password"
-                      placeholder="Enter your password"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="password"
                       value={password}
@@ -254,7 +250,6 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="password"
-                      placeholder="Re-enter your password"
                       className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="re_type_password"
                       value={re_type_password}
@@ -290,8 +285,7 @@ const SignUpClient: React.FC = () => {
                   <button
                     type="submit"
                     value="Create account"
-                    className="w-full cursor-pointer rounded-lg border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
-                    //onClick={handleSignUp}
+                    className="w-full cursor-pointer rounded-lg font-medium border border-primary bg-primary p-4 text-white transition hover:bg-opacity-90"
                   >
                     Sign up
                   </button>
