@@ -32,9 +32,9 @@
     },
     "Pricing":{
         "title": "Preços",
-        "cardPlan1": "Grátis",
+        "cardPlan1": "Free",
         "cardPlan2": "Pro",
-        "cardPlan3": "Empresarial",
+        "cardPlan3": "Business",
         "cardSubtitle1": "Comece com chamadas impulsionadas por IA sem custo.",
         "cardSubtitle2": "Expanda seu negócio com vozes de IA personalizadas e automação.",
         "cardSubtitle3": "Agentes de IA totalmente treináveis que combinam com a voz da sua equipe de vendas.",
