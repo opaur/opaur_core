@@ -8,8 +8,6 @@ import WebSocket from 'ws';
 // Load environment variables from .env file
 dotenv.config({ path: '.env.local' }); // Cargar el archivo .env.local
 
-// Verifica que las variables de entorno estén disponibles
-console.log(process.env); 
 
 // Check for required environment variables
 const {
