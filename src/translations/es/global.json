@@ -62,11 +62,27 @@
     },
     "Customers":{
         "title": "Lo que dicen nuestros clientes",
-        "textQuote1": "Al principio era escéptico, pero esta plataforma ha cambiado por completo la forma en que manejamos las llamadas de los clientes. ¡La función de transcripción de llamadas por sí sola nos ahorra horas cada semana!",
-        "textQuote2": "La capacidad de personalizar los guiones de llamadas ha marcado una gran diferencia para nuestro equipo. ¡Se siente como si hubiéramos contratado a un asistente extra, pero sin los costos adicionales!",
-        "textQuote3": "Antes teníamos dificultades para manejar un alto volumen de llamadas, pero ahora nuestros clientes obtienen respuestas rápidas y claras, sin ocupar a nuestros agentes. ¡Un cambio total!",
-        "textQuote4": "Al principio pensé que las voces generadas por IA sonarían robóticas, pero me sorprendieron. La opción de voz personalizada nos permite alinearnos perfectamente con nuestra marca.",
-        "textQuote5": "Necesitábamos una forma escalable de gestionar los recordatorios de citas, y esta plataforma cumplió.",
-        "textQuote6": "Los resúmenes generados por IA nos ayudan a revisar rápidamente las llamadas sin tener que escuchar las grabaciones completas. ¡Nuestro equipo es mucho más eficiente ahora!"
+        "quote1": "Al principio era escéptico, pero esta plataforma ha cambiado por completo la forma en que manejamos las llamadas de los clientes. ¡La función de transcripción de llamadas por sí sola nos ahorra horas cada semana!",
+        "quote2": "La capacidad de personalizar los guiones de llamadas ha marcado una gran diferencia para nuestro equipo. ¡Se siente como si hubiéramos contratado a un asistente extra, pero sin los costos adicionales!",
+        "quote3": "Antes teníamos dificultades para manejar un alto volumen de llamadas, pero ahora nuestros clientes obtienen respuestas rápidas y claras, sin ocupar a nuestros agentes. ¡Un cambio total!",
+        "quote4": "Al principio pensé que las voces generadas por IA sonarían robóticas, pero me sorprendieron. La opción de voz personalizada nos permite alinearnos perfectamente con nuestra marca.",
+        "quote5": "Necesitábamos una forma escalable de gestionar los recordatorios de citas, y esta plataforma cumplió.",
+        "quote6": "Los resúmenes generados por IA nos ayudan a revisar rápidamente las llamadas sin tener que escuchar las grabaciones completas. ¡Nuestro equipo es mucho más eficiente ahora!"
+    },
+    "Footer":{
+        "text1": "Construyendo el futuro de las soluciones impulsadas por IA.",
+        "text2": "© {{currentYear}} Opaur. Todos los derechos reservados.",
+        "titleProduct": "Producto",
+        "titleCompany": "Empresa",
+        "titleLegal": "Legal",
+        "textProduct1": "Características",
+        "textProduct2": "Precios",
+        "textProduct3": "Estudios de caso",
+        "textProduct4": "Documentación",
+        "textCompany1": "Carreras",
+        "textCompany2": "Contacto",
+        "textLegal1": "Privacidad",
+        "textLegal2": "Términos",
+        "textLegal3": "Seguridad"   
     }
 }

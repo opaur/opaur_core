@@ -9,50 +9,42 @@ import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import FormElements from "@/components/FormElements";
-
-
+// import FormElements from "@/components/FormElements";
 import { useTranslation } from "react-i18next";
 
 const testimonials = [
   {
-    quote:
-      "I was skeptical at first, but this platform has completely changed the way we handle customer calls. The call transcription feature alone saves us hours every week!",
+    quote: "quote1",
     name: "John Carter",
     title: "OP Manager, Swift Solutions",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
   },
   {
-    quote:
-      "The ability to customize call scripts has made a huge difference for our team. It feels like we've hired an extra assistant, but without the overhead!",
+    quote: "quote2",
     name: "Samantha Lee",
     title: "Founder, Bloom Marketing",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
   },
   {
-    quote:
-      "We used to struggle with handling high call volumes, but now our customers get quick, clear responses—without tying up our agents. Total game-changer!",
+    quote: "quote3",
     name: "Carlos Mendoza",
     title: "Support Lead, NexaTech",
     image: "https://randomuser.me/api/portraits/men/45.jpg",
   },
   {
-    quote:
-      "At first, I thought AI-generated voices would sound robotic, but I was blown away. The custom voice option lets us match our brand perfectly.",
+    quote: "quote4",
     name: "Jessica Tan",
     title: "Support Manager, Urban Connect",
     image: "https://randomuser.me/api/portraits/women/68.jpg",
   },
   {
-    quote:
-      "We needed a scalable way to handle appointment reminders, and this platform delivered.",
+    quote: "quote5",
     name: "Mike Rodriguez",
     title: "Clinic Owner, Wellness First",
     image: "https://randomuser.me/api/portraits/men/50.jpg",
   },
   {
-    quote:
-      "The AI-generated summaries help us quickly review calls without listening to full recordings. Our team is so much more efficient now!",
+    quote: "quote6",
     name: "Emma Brooks",
     title: "Sales Manager, LeadPro",
     image: "https://randomuser.me/api/portraits/women/31.jpg",
@@ -373,7 +365,7 @@ const LandingPage = ({ user }: { user: User | null }) => {
                 <div className="relative flex h-60 flex-col justify-between overflow-hidden rounded-lg bg-white p-4  dark:border-strokedark dark:bg-boxdark md:h-64 lg:h-72">
                   <blockquote className="text-gray-700 dark:text-gray-300 flex-1">
                     <p className="lg:text-l text-base leading-relaxed md:text-lg">
-                      &quot;{testimonial.quote}&quot;
+                      &quot;{t(`Customers.${testimonial.quote}`)}&quot;
                     </p>
                   </blockquote>
                   <div className="mt-2 flex items-center">
