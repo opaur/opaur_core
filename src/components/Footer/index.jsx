@@ -1,32 +1,36 @@
 import React from 'react';
 import Link from "next/link";
 
+import { useTranslation } from "react-i18next";
+
 const Footer = () => {
+
+  const { t, i18n } = useTranslation("global");
   const currentYear = new Date().getFullYear();
   
   const footerLinks = [
     {
-      title: "Product",
+      title: t("Footer.titleProduct"),
       links: [
-        { name: "Features", href: "/features" },
-        { name: "Pricing", href: "/pricing" },
-        { name: "Case Studies", href: "/case-studies" },
-        { name: "Documentation", href: "/docs" }
+        { name: t("Footer.textProduct1"), href: "/features" },
+        { name: t("Footer.textProduct2"), href: "/pricing" },
+        { name: t("Footer.textProduct3"), href: "/case-studies" },
+        { name: t("Footer.textProduct4"), href: "/docs" }
       ]
     },
     {
-      title: "Company",
+      title: t("Footer.titleCompany"),
       links: [
-        { name: "Careers", href: "/careers" },
-        { name: "Contact", href: "/contact" }
+        { name: t("Footer.textCompany1"), href: "/careers" },
+        { name: t("Footer.textCompany2"), href: "/contact" }
       ]
     },
     {
-      title: "Legal",
+      title: t("Footer.titleLegal"),
       links: [
-        { name: "Privacy", href: "/privacy" },
-        { name: "Terms", href: "/terms" },
-        { name: "Security", href: "/security" }
+        { name: t("Footer.textLegal1"), href: "/privacy" },
+        { name: t("Footer.textLegal2"), href: "/terms" },
+        { name: t("Footer.textLegal3"), href: "/security" }
       ]
     }
   ];
@@ -46,7 +50,7 @@ const Footer = () => {
                 height={45} />
           </picture>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Building the future of AI-powered solutions.
+              {t("Footer.text1")}
             </p>
             <div className="flex space-x-4">
               <a
@@ -99,7 +103,7 @@ const Footer = () => {
         {/* Bottom section */}
         <div className="mt-12 border-t border-gray-200 dark:border-gray-800 pt-8">
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            © {currentYear} Opaur. All rights reserved.
+            {t("Footer.text2", { currentYear: currentYear })}
           </p>
         </div>
       </div>

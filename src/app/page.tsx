@@ -4,8 +4,7 @@ import {createServerComponentClient} from '@supabase/auth-helpers-nextjs'
 import LandingPage from "./landing/page";
 
 export const metadata: Metadata = {
-  title:
-    "Opaur - Build Your Brand Aura",
+  title: "Opaur - Build Your Brand Aura",
   description: "Opaur - Build Your Brand Aura",
 };
 
