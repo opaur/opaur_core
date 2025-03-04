@@ -62,11 +62,27 @@
     },
     "Customers":{
         "title": "O Que Nossos Clientes Dizem",
-        "textQuote1": "Eu estava cético no início, mas esta plataforma mudou completamente a forma como lidamos com chamadas de clientes. O recurso de transcrição economiza horas de trabalho toda semana!",
-        "textQuote2": "A capacidade de personalizar scripts de chamadas fez uma grande diferença para nossa equipe. Parece que contratamos um assistente extra, mas sem os custos adicionais!",
-        "textQuote3": "Antes, tínhamos dificuldades com o alto volume de chamadas, mas agora nossos clientes recebem respostas rápidas e claras — sem sobrecarregar nossos agentes. Uma verdadeira revolução!",
-        "textQuote4": "No começo, pensei que as vozes geradas por IA soariam robóticas, mas fiquei impressionado. A opção de voz personalizada nos permite combinar com nossa marca perfeitamente.",
-        "textQuote5": "Precisávamos de uma forma escalável para gerenciar lembretes de compromissos, e esta plataforma atendeu às nossas necessidades.",
-        "textQuote6": "Os resumos gerados por IA nos ajudam a revisar rapidamente as chamadas sem precisar ouvir a gravação completa. Nossa equipe está muito mais eficiente agora!"
+        "quote1": "Eu estava cético no início, mas esta plataforma mudou completamente a forma como lidamos com chamadas de clientes. O recurso de transcrição economiza horas de trabalho toda semana!",
+        "quote2": "A capacidade de personalizar scripts de chamadas fez uma grande diferença para nossa equipe. Parece que contratamos um assistente extra, mas sem os custos adicionais!",
+        "quote3": "Antes, tínhamos dificuldades com o alto volume de chamadas, mas agora nossos clientes recebem respostas rápidas e claras — sem sobrecarregar nossos agentes. Uma verdadeira revolução!",
+        "quote4": "No começo, pensei que as vozes geradas por IA soariam robóticas, mas fiquei impressionado. A opção de voz personalizada nos permite combinar com nossa marca perfeitamente.",
+        "quote5": "Precisávamos de uma forma escalável para gerenciar lembretes de compromissos, e esta plataforma atendeu às nossas necessidades.",
+        "quote6": "Os resumos gerados por IA nos ajudam a revisar rapidamente as chamadas sem precisar ouvir a gravação completa. Nossa equipe está muito mais eficiente agora!"
+    },
+    "Footer":{
+        "text1": "Building the future of AI-powered solutions.",
+        "text2": "© {{currentYear}} Opaur. All rights reserved.",
+        "titleProduct": "Product",
+        "titleCompany": "Company",
+        "titleLegal": "Legal",
+        "textProduct1": "Features",
+        "textProduct2": "Pricing",
+        "textProduct3": "Case Studies",
+        "textProduct4": "Documentation",
+        "textCompany1": "Careers",
+        "textCompany2": "Contact",
+        "textLegal1": "Privacy",
+        "textLegal2": "Terms",
+        "textLegal3": "Security"   
     }
 }
