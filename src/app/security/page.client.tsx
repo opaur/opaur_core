@@ -8,8 +8,8 @@ export default function SecurityPolicy({ user }: { user: User | null }) {
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderComp user={user} />
-      <main className="flex-grow mx-auto w-full max-w-screen-lg p-6 md:p-10">
-        <div className="mx-auto max-w-screen-xl px-10 py-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+      <main className="grow mx-auto w-full max-w-(--breakpoint-lg) p-6 md:p-10">
+        <div className="mx-auto max-w-(--breakpoint-xl) px-10 py-10 rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
             Security Policy
           </h2>

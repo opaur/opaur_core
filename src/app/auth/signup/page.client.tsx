@@ -1,13 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import Swal from "sweetalert2";
 import {handleSignUp} from "../actions"
 import useColorMode from "@/hooks/useColorMode"; 
 import Image from "next/image";
@@ -89,7 +86,7 @@ const SignUpClient: React.FC = () => {
 
           </div>
 
-          <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
+          <div className="w-full xl:w-1/2">
             <div className="w-full p-12 sm:p-12.5 xl:p-13">
             <h2 className="mb-9 hidden text-2xl font-bold text-black dark:text-white sm:text-title-xl2 xl:block">
                   Sign Up
@@ -103,7 +100,7 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="text"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="first_name"
                       value={first_name}
                       onChange={(e) => setFirstName(e.target.value)}
@@ -140,7 +137,7 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="text"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="last_name"
                       value={last_name}
                       onChange={(e) => setLastName(e.target.value)}
@@ -178,7 +175,7 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="email"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -212,7 +209,7 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="password"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -250,7 +247,7 @@ const SignUpClient: React.FC = () => {
                   <div className="relative">
                     <input
                       type="password"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="re_type_password"
                       value={re_type_password}
                       onChange={(e) => setReTypePassword(e.target.value)}

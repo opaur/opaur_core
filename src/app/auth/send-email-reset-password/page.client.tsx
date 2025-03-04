@@ -1,14 +1,10 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Footer from "@/components/Footer";
-import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import Swal from "sweetalert2";
 import { hndleSendEmailResetPassword } from "../actions";
 import useColorMode from "@/hooks/useColorMode";
 export default function ResetPasswordSendEmailClient() {
@@ -49,7 +45,7 @@ export default function ResetPasswordSendEmailClient() {
       </h2>
       <div className="mx-auto my-2 max-w-full rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
-          <div className="w-full border-stroke dark:border-strokedark xl:border-l-2">
+          <div className="w-full">
             <div className="w-full p-12 sm:p-12.5 xl:p-17.5">
               <picture className="hidden xl:block">
                 {/* Imagen para modo oscuro */}
@@ -78,7 +74,7 @@ export default function ResetPasswordSendEmailClient() {
                       name="email"
                       onChange={(e) => setEmail(e.target.value)}
                       value={email}
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
 
                     <span className="absolute right-4 top-4">

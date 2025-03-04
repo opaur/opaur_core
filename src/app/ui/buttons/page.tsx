@@ -17,7 +17,7 @@ const Buttons = () => {
     <DefaultLayout>
       <Breadcrumb pageName="Buttons" />
 <FormElements/>
-  <div className="mb-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+  <div className="mb-10 rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
           <h3 className="font-medium text-black dark:text-white">
             Normal Button
@@ -118,7 +118,7 @@ const Buttons = () => {
       </div>
 
       {/* <!-- Button With Icon Items --> */}
-      <div className="mb-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+      <div className="mb-10 rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
           <h3 className="font-medium text-black dark:text-white">
             Button With Icon
@@ -474,7 +474,7 @@ const Buttons = () => {
         </div>
       </div>
       {/* <!-- Normal Button Items --> */}
-      <div className="mb-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+      <div className="mb-10 rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
           <h3 className="font-medium text-black dark:text-white">
             Normal Button
@@ -575,7 +575,7 @@ const Buttons = () => {
       </div>
 
       {/* <!-- Button With Icon Items --> */}
-      <div className="mb-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+      <div className="mb-10 rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="border-b border-stroke px-7 py-4 dark:border-strokedark">
           <h3 className="font-medium text-black dark:text-white">
             Button With Icon
@@ -933,7 +933,7 @@ const Buttons = () => {
       <div className="grid grid-cols-1 gap-9 sm:grid-cols-2">
         <div className="flex flex-col gap-9">
           {/* <!-- Contact Form --> */}
-          <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+          <div className="rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
               <h3 className="font-medium text-black dark:text-white">
                 Contact Form
@@ -949,7 +949,7 @@ const Buttons = () => {
                     <input
                       type="text"
                       placeholder="Enter your first name"
-                      className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
                   </div>
 
@@ -960,7 +960,7 @@ const Buttons = () => {
                     <input
                       type="text"
                       placeholder="Enter your last name"
-                      className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
                   </div>
                 </div>
@@ -972,7 +972,7 @@ const Buttons = () => {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
@@ -983,7 +983,7 @@ const Buttons = () => {
                   <input
                     type="text"
                     placeholder="Select subject"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
@@ -996,11 +996,11 @@ const Buttons = () => {
                   <textarea
                     rows={6}
                     placeholder="Type your message"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   ></textarea>
                 </div>
 
-                <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                <button className="flex w-full justify-center rounded-sm bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                   Send Message
                 </button>
               </div>
@@ -1010,7 +1010,7 @@ const Buttons = () => {
 
         <div className="flex flex-col gap-9">
           {/* <!-- Sign In Form --> */}
-          <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+          <div className="rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
               <h3 className="font-medium text-black dark:text-white">
                 Sign In Form
@@ -1025,7 +1025,7 @@ const Buttons = () => {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
@@ -1036,7 +1036,7 @@ const Buttons = () => {
                   <input
                     type="password"
                     placeholder="Enter password"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
@@ -1048,7 +1048,7 @@ const Buttons = () => {
                         id="formCheckbox"
                         className="taskCheckbox sr-only"
                       />
-                      <div className="box mr-3 flex h-5 w-5 items-center justify-center rounded border border-stroke dark:border-strokedark">
+                      <div className="box mr-3 flex h-5 w-5 items-center justify-center rounded-sm border border-stroke dark:border-strokedark">
                         <span className="text-white opacity-0">
                           <svg
                             className="fill-current"
@@ -1079,7 +1079,7 @@ const Buttons = () => {
                   </Link>
                 </div>
 
-                <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                <button className="flex w-full justify-center rounded-sm bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                   Sign In
                 </button>
               </div>
@@ -1087,7 +1087,7 @@ const Buttons = () => {
           </div>
 
           {/* <!-- Sign Up Form --> */}
-          <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+          <div className="rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
             <div className="border-b border-stroke px-6.5 py-4 dark:border-strokedark">
               <h3 className="font-medium text-black dark:text-white">
                 Sign Up Form
@@ -1102,7 +1102,7 @@ const Buttons = () => {
                   <input
                     type="text"
                     placeholder="Enter your full name"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
@@ -1113,7 +1113,7 @@ const Buttons = () => {
                   <input
                     type="email"
                     placeholder="Enter your email address"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
@@ -1124,7 +1124,7 @@ const Buttons = () => {
                   <input
                     type="password"
                     placeholder="Enter password"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
@@ -1135,11 +1135,11 @@ const Buttons = () => {
                   <input
                     type="password"
                     placeholder="Re-enter password"
-                    className="w-full rounded border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                    className="w-full rounded-sm border-[1.5px] border-stroke bg-transparent px-5 py-3 text-black outline-hidden transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   />
                 </div>
 
-                <button className="flex w-full justify-center rounded bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
+                <button className="flex w-full justify-center rounded-sm bg-primary p-3 font-medium text-gray hover:bg-opacity-90">
                   Sign Up
                 </button>
               </div>
@@ -1147,7 +1147,7 @@ const Buttons = () => {
           </div>
         </div>
       </div>
-      <div className="rounded-sm border border-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
+      <div className="rounded-xs border border-stroke bg-white p-4 shadow-default dark:border-strokedark dark:bg-boxdark md:p-6 xl:p-9">
         <div className="flex flex-col gap-7.5">
           {/* <!-- Alerts Item --> */}
           <div className="flex w-full border-l-6 border-warning bg-warning bg-opacity-[15%] px-7 py-8 shadow-md dark:bg-[#1B1B24] dark:bg-opacity-30 md:p-9">

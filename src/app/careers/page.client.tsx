@@ -40,7 +40,7 @@ const CareersClient = ({ user }: { user: User | null }) => {
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderComp user={user} />
-      <main className="mx-auto w-full max-w-screen-lg flex-grow p-6 md:p-10">
+      <main className="mx-auto w-full max-w-(--breakpoint-lg) grow p-6 md:p-10">
         {/* Hero Section */}
         <div className="mb-10 text-center">
           <h1 className="mb-4 text-4xl font-bold text-black dark:text-white">
@@ -52,7 +52,7 @@ const CareersClient = ({ user }: { user: User | null }) => {
         </div>
 
         {/* About Us Section */}
-        <div className="mx-auto mb-10 max-w-screen-xl rounded-sm border border-stroke bg-white px-8 py-8 shadow-default dark:border-strokedark dark:bg-boxdark">
+        <div className="mx-auto mb-10 max-w-(--breakpoint-xl) rounded-xs border border-stroke bg-white px-8 py-8 shadow-default dark:border-strokedark dark:bg-boxdark">
           <h2 className="mb-6 text-2xl font-bold text-black dark:text-white">
             Invest in the Next Global Tech Powerhouse
           </h2>
@@ -110,7 +110,7 @@ const CareersClient = ({ user }: { user: User | null }) => {
        
 
         {/* Open Positions */}
-        <div className="mx-auto max-w-screen-xl rounded-sm border border-stroke bg-white px-8 py-8 shadow-default dark:border-strokedark dark:bg-boxdark">
+        <div className="mx-auto max-w-(--breakpoint-xl) rounded-xs border border-stroke bg-white px-8 py-8 shadow-default dark:border-strokedark dark:bg-boxdark">
           <h2 className="mb-6 text-2xl font-bold text-black dark:text-white">
             Current Opportunities
           </h2>

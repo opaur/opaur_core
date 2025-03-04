@@ -235,7 +235,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
               name="brandName"
               value={formData.brandName}
               onChange={handleChange}
-              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
               required
             />
           </div>
@@ -250,7 +250,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
               name="industry"
               value={formData.industry}
               onChange={handleChange}
-              className="w-full cursor-pointer  rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none  appearance-none  focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+              className="w-full cursor-pointer  rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden  appearance-none  focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
               required
             >
               <option value="" disabled>
@@ -291,7 +291,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                 name="country"
                 value={formData.country || ""}
                 onChange={handleChange}
-                className="w-full rounded-lg cursor-pointer border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none  appearance-none  focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                className="w-full rounded-lg cursor-pointer border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden  appearance-none  focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                 required
               >
                 <option value="" disabled>
@@ -339,7 +339,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
     return (
       <label
         key={type}
-        className={`flex flex-grow cursor-pointer flex-col items-center rounded-lg border p-4 transition-all ${
+        className={`flex grow cursor-pointer flex-col items-center rounded-lg border p-4 transition-all ${
           isSelected
             ? "border-primary bg-primary/10 dark:bg-primary/20"
             : "border-gray-300 dark:border-gray-600 hover:border-primary"
@@ -375,7 +375,7 @@ const BrandForm = ({ userId, accessToken }: BrandsUsersClientProps) => {
                       name={property.name}
                       value={formData[property.name] || ""}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                     />
                   </>
                 ) : (
