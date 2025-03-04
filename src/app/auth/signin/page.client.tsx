@@ -80,7 +80,7 @@ export default function SignInClient() {
               </div>
             </div>
 
-            <div className="w-full border-stroke dark:border-strokedark xl:w-1/2 xl:border-l-2">
+            <div className="w-full xl:w-1/2">
               <div className="w-full p-12 sm:p-12.5 xl:p-13">
                 <h2 className="mb-9 hidden text-2xl font-bold text-black dark:text-white sm:text-title-xl2 xl:block">
                   Sign In
@@ -97,7 +97,7 @@ export default function SignInClient() {
                         name="email"
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
-                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
 
                       <span className="absolute right-4 top-4">
@@ -131,7 +131,7 @@ export default function SignInClient() {
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
 
-                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       />
 
                       <span className="absolute right-4 top-4">

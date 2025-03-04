@@ -8,7 +8,7 @@ export default function PrivacyPolicy({ user }: { user: User | null }) {
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderComp user={user} />
-      <main className="flex-grow mx-auto w-full max-w-screen-lg p-6 md:p-10">
+      <main className="grow mx-auto w-full max-w-(--breakpoint-lg) p-6 md:p-10">
       <section className="bg-gray-100 py-10 md:py-15 lg:py-20">
         <div className="container mx-auto max-w-5xl px-4 md:px-6">
           <h2 className="text-gray-800 mb-12 text-center text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl">

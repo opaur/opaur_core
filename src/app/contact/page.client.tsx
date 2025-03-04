@@ -21,8 +21,8 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
   return (
     <div className="flex min-h-screen flex-col">
       <HeaderComp user={user} />
-      <main className="flex-grow mx-auto w-full max-w-screen-lg p-6 md:p-10">
-        <div className="mx-auto max-w-screen-xl px-10 py-10 rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+      <main className="grow mx-auto w-full max-w-(--breakpoint-lg) p-6 md:p-10">
+        <div className="mx-auto max-w-(--breakpoint-xl) px-10 py-10 rounded-xs border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
           <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
             Contact Us:
           </h2>
@@ -62,7 +62,7 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
                 <input
                   type="text"
                   name="name"
-                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   placeholder="John Doe"
                   required
                 />
@@ -78,7 +78,7 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
                 <input
                   type="email"
                   name="email"
-                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   placeholder="you@example.com"
                   required
                 />
@@ -94,7 +94,7 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
                 <input
                   type="text"
                   name="subject"
-                  className="w-full rounded-lg border truncate border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  className="w-full rounded-lg border truncate border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   placeholder="What would you like to talk about?"
                   required
                 />
@@ -109,7 +109,7 @@ export default function ContactUsClient ({ user }: { user: User | null }) {
               <div className="relative">
                 <textarea
                   name="message"
-                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary dark:border-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                  className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary dark:border-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                   placeholder="Type your message here..."
                   required
                 ></textarea>

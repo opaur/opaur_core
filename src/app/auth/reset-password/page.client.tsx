@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import Footer from "@/components/Footer";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { redirect, useSearchParams, useRouter} from 'next/navigation';
 import { useState } from "react";
-import Swal from "sweetalert2";
 import {writeToastError,handleResetPassword} from "../actions"
 import useColorMode from "@/hooks/useColorMode"; 
 export default function ResetPasswordClient() {
@@ -59,7 +57,7 @@ redirect('/')
     <div className="mx-auto my-2 max-w-full rounded-lg border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
         <div className="flex flex-wrap items-center">
 
-          <div className="w-full border-stroke dark:border-strokedark xl:border-l-2">
+          <div className="w-full">
             <div className="w-full p-12 sm:p-12.5 xl:p-17.5">
 
               <h2 className="mb-9 text-2xl font-bold text-black dark:text-white sm:text-title-xl2">
@@ -74,7 +72,7 @@ redirect('/')
                     <input
                       type="password"
                       placeholder="Enter your password"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -113,7 +111,7 @@ redirect('/')
                     <input
                       type="password"
                       placeholder="Re-enter your password"
-                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-none focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                      className="w-full rounded-lg border border-stroke bg-transparent py-4 pl-6 pr-10 text-black outline-hidden focus:border-primary focus-visible:shadow-none dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
                       name="re_type_password"
                       value={re_type_password}
                       onChange={(e) => setReTypePassword(e.target.value)}
