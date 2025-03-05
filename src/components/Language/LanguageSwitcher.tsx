@@ -59,25 +59,22 @@ const languageOptions: LanguageOption[] = [
   },
 ];
 
-const initialLanguage = getBrowserLanguage();
-
 const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation();
-  const initialLanguage = getBrowserLanguage();
-  const [defaultLanguage, setDefaultLanguage] = useState<LanguageOption | undefined>(
-    languageOptions.find((option) => option.value === initialLanguage)
-  );
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption | undefined>(undefined);
 
   useEffect(() => {
-    if (defaultLanguage) {
-      i18n.changeLanguage(defaultLanguage.value);
-    }
-  }, [defaultLanguage, i18n]);
+    const initialLang = getBrowserLanguage();
+    i18n.changeLanguage(initialLang); // Set the language immediately on mount
+
+    // Set selected language in state
+    setSelectedLanguage(languageOptions.find((option) => option.value === initialLang));
+  }, [i18n]);
 
   const handleChange = (selectedOption: SingleValue<LanguageOption>) => {
     if (selectedOption) {
       i18n.changeLanguage(selectedOption.value);
-      setDefaultLanguage(selectedOption);
+      setSelectedLanguage(selectedOption);
     }
   };
 
@@ -87,7 +84,7 @@ const LanguageSelector: React.FC = () => {
         options={languageOptions}
         onChange={handleChange}
         isSearchable={false}
-        value={defaultLanguage}
+        value={selectedLanguage}
         components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
         formatOptionLabel={(option, { context }) =>
           context === 'value' ? option.shortLabel : option.label
