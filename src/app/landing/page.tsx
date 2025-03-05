@@ -16,7 +16,7 @@ const testimonials = [
     quote: "quote1",
     name: "John Carter",
     title: "OP Manager, Swift Solutions",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "https://randomuser.me/api/portraits/men/44.jpg",
   },
   {
     quote: "quote2",
@@ -374,13 +374,13 @@ const LandingPage = ({ user }: { user: User | null }) => {
                     </p>
                   </blockquote>
                   <div className="mt-2 flex items-center">
-                  <Image
-  src={testimonial.image}
-  alt={testimonial.name}
-  width={40} // Ajusta según el tamaño real
-  height={40} // Ajusta según el tamaño real
-  className="h-10 w-10 rounded-full"
-/>
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      width={40} // Ajusta según el tamaño real
+                      height={40} // Ajusta según el tamaño real
+                      className="h-10 w-10 rounded-full"
+                    />
                     <div className="ml-3 text-left">
                       <h4 className="text-base font-semibold text-black md:text-lg dark:text-white">
                         {testimonial.name}
