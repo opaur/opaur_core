@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Select, { SingleValue } from 'react-select';
 import Image from 'next/image';
@@ -7,11 +7,12 @@ import Image from 'next/image';
 interface LanguageOption {
   value: string;
   label: JSX.Element;
-  shortLabel: string; // Short label for display when closed
+  shortLabel: JSX.Element; // Short label for display when closed
 }
 
 const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation();
+  const [defaultLanguage, setDefaultLanguage] = useState<LanguageOption | undefined>();
 
   const languageOptions: LanguageOption[] = [
     {
@@ -22,7 +23,12 @@ const LanguageSelector: React.FC = () => {
           English
         </div>
       ),
-      shortLabel: 'English',
+      shortLabel: (
+        <div className="flex items-center gap-1">
+          <Image src="/images/flags/bandera_en.png" alt="English flag" width={16} height={10} />
+          EN
+        </div>
+      ),
     },
     {
       value: 'es',
@@ -32,7 +38,12 @@ const LanguageSelector: React.FC = () => {
           Español
         </div>
       ),
-      shortLabel: 'Español',
+      shortLabel: (
+        <div className="flex items-center gap-1">
+          <Image src="/images/flags/bandera_es.png" alt="Spanish flag" width={16} height={10} />
+          ES
+        </div>
+      ),
     },
     {
       value: 'br',
@@ -42,23 +53,43 @@ const LanguageSelector: React.FC = () => {
           Português
         </div>
       ),
-      shortLabel: 'Português',
+      shortLabel: (
+        <div className="flex items-center gap-1">
+          <Image src="/images/flags/bandera_br.png" alt="Brazilian flag" width={16} height={10} />
+          PT
+        </div>
+      ),
     },
   ];
+
+  useEffect(() => {
+    const browserLang = navigator.language.split('-')[0]; // Extract primary language (e.g., "en-US" -> "en")
+    const matchedLang = languageOptions.find(option => option.value === browserLang);
+    
+    if (matchedLang) {
+      setDefaultLanguage(matchedLang);
+      i18n.changeLanguage(matchedLang.value);
+    } else {
+      // Fallback to default language if no match
+      setDefaultLanguage(languageOptions[0]);
+      i18n.changeLanguage(languageOptions[0].value);
+    }
+  }, [i18n]);
 
   const handleChange = (selectedOption: SingleValue<LanguageOption>) => {
     if (selectedOption) {
       i18n.changeLanguage(selectedOption.value);
+      setDefaultLanguage(selectedOption);
     }
   };
 
   return (
-    <div className="text-black dark:text-white w-16"> {/* Small width for closed state */}
+    <div className="text-black dark:text-white w-16">
       <Select
         options={languageOptions}
         onChange={handleChange}
         isSearchable={false}
-        defaultValue={languageOptions.find(option => option.value === i18n.language)}
+        value={defaultLanguage}
         components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
         formatOptionLabel={(option, { context }) =>
           context === 'value' ? option.shortLabel : option.label
@@ -67,31 +98,30 @@ const LanguageSelector: React.FC = () => {
         styles={{
           control: (base, { isFocused }) => ({
             ...base,
-            width: isFocused ? 'auto' : '4rem', // Expands when focused
-            minWidth: '6rem',
-            padding: '0px',
+            width: isFocused ? 'auto' : '4rem',
+            padding: '0',
+            minWidth: '0',
             cursor: 'pointer',
             border: 'none',
             boxShadow: 'none',
             backgroundColor: 'transparent',
-      
           }),
           singleValue: (base) => ({
             ...base,
             fontWeight: 'bold',
             fontSize: '14px',
             textAlign: 'left',
+            margin: '0px',
             color: typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
               ? '#f2f2f2'
               : '#1c2434',
-        
           }),
           menu: (base) => ({
             ...base,
-            minWidth: '10rem', // Ensures menu expands
+            minWidth: '10rem',
             borderRadius: '6px',
             backgroundColor: typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
-              ? 'rgb(36, 48, 63)' // Dark mode bg-gray-700
+              ? 'rgb(36, 48, 63)'
               : '#f2f2f2',
           }),
           option: (base, { isFocused, isSelected }) => ({
@@ -111,7 +141,6 @@ const LanguageSelector: React.FC = () => {
             cursor: 'pointer',
           }),
         }}
-        
       />
     </div>
   );

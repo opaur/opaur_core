@@ -5,7 +5,6 @@ import Image from "next/image";
 import { type User } from "@supabase/auth-helpers-nextjs";
 import useColorMode from "@/hooks/useColorMode"; // Adjust based on your actual pathi
 import Link from "next/link";
-import LanguageSwitcher from "../Language/LanguageSwitcher";
 
 
 const HeaderComp = ({ user }: { user: User | null }) => {
@@ -27,7 +26,6 @@ const HeaderComp = ({ user }: { user: User | null }) => {
           </picture>
         </Link>
         </div>
-
         <div className="flex items-center gap-3 2xsm:gap-7">
           <ul className="flex items-center gap-2 2xsm:gap-4">
             {isLoggedIn && (
@@ -58,8 +56,9 @@ const HeaderComp = ({ user }: { user: User | null }) => {
               <span className="ml-1 text-lg">&#8594;</span>
             </a>
           )}
+
         </div>
-        <LanguageSwitcher />
+    
       </nav>
     </header>
   );

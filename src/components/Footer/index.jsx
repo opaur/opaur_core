@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from "next/link";
+import LanguageSwitcher from "../Language/LanguageSwitcher";
 
 import { useTranslation } from "react-i18next";
 
@@ -41,6 +42,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand section */}
           <div className="space-y-4">
+            <div className='flex'>
           <picture>
             {/* Imagen para modo oscuro */}
             <source srcSet="/images/logo/logo_opaur_blanco.svg" media="(prefers-color-scheme: dark)" />
@@ -49,6 +51,9 @@ const Footer = () => {
                 width={100}
                 height={45} />
           </picture>
+          <LanguageSwitcher />
+         
+          </div>
             <p className="text-sm text-gray-600 dark:text-gray-400">
               {t("Footer.text1")}
             </p>
@@ -76,6 +81,7 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
+          
           </div>
 
           {/* Links sections */}
