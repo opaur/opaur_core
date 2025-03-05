@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { hndleSendEmailResetPassword } from "../actions";
 import useColorMode from "@/hooks/useColorMode";
+import Image from 'next/image';
 export default function ResetPasswordSendEmailClient() {
   const [email, setEmail] = useState("");
   const router = useRouter();
@@ -33,12 +34,13 @@ export default function ResetPasswordSendEmailClient() {
           media="(prefers-color-scheme: dark)"
         />
         {/* Imagen para modo claro */}
-        <img
-          src="/images/logo/logo_opaur_aurora.svg"
-          alt="Logo Opaur"
-          width={150}
-          className="mx-auto"
-        />
+        <Image
+  src="/images/logo/logo_opaur_aurora.svg"
+  alt="Logo Opaur"
+  width={150}
+  height={100} // Next.js requiere un valor, pero puedes ajustar según la imagen
+  className="mx-auto"
+/>
       </picture>
       <h2 className="mb-2 block text-center text-title-xl2 text-black dark:text-white sm:text-title-xl2 xl:hidden">
         Reset password
