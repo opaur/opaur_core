@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic"; 
 import { Metadata } from "next";
 import ContactUsClient from "./page.client"; 
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'

@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic"; 
+
 import { Metadata } from "next";
 import TablesPage from "./page.client";
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
