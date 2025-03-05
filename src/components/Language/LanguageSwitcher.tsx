@@ -59,25 +59,45 @@ const languageOptions: LanguageOption[] = [
   },
 ];
 
-const initialLanguage = getBrowserLanguage();
-
 const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation();
-  const initialLanguage = getBrowserLanguage();
-  const [defaultLanguage, setDefaultLanguage] = useState<LanguageOption | undefined>(
-    languageOptions.find((option) => option.value === initialLanguage)
-  );
+  const [selectedLanguage, setSelectedLanguage] = useState<LanguageOption | undefined>(undefined);
 
+  // Cargar idiomas antes de cambiar el idioma
   useEffect(() => {
-    if (defaultLanguage) {
-      i18n.changeLanguage(defaultLanguage.value);
-    }
-  }, [defaultLanguage, i18n]);
+    const initialLang = getBrowserLanguage();
+
+    i18n.loadLanguages(['en', 'es', 'br']).then(() => {
+      i18n.changeLanguage(initialLang);
+    });
+
+    setSelectedLanguage(languageOptions.find((option) => option.value === initialLang));
+  }, [i18n]);
+
+  // Inicializar idioma en el primer render
+  useEffect(() => {
+    const initialLang = getBrowserLanguage() || 'en'; // Fallback a inglés si es undefined
+    i18n.changeLanguage(initialLang);
+    setSelectedLanguage(languageOptions.find((option) => option.value === initialLang));
+  }, [i18n]);
+
+  // Escuchar cambios de idioma y actualizar el estado
+  useEffect(() => {
+    const handleLanguageChange = () => {
+      setSelectedLanguage(languageOptions.find((option) => option.value === i18n.language));
+    };
+
+    i18n.on('languageChanged', handleLanguageChange);
+
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   const handleChange = (selectedOption: SingleValue<LanguageOption>) => {
     if (selectedOption) {
       i18n.changeLanguage(selectedOption.value);
-      setDefaultLanguage(selectedOption);
+      setSelectedLanguage(selectedOption);
     }
   };
 
@@ -87,7 +107,7 @@ const LanguageSelector: React.FC = () => {
         options={languageOptions}
         onChange={handleChange}
         isSearchable={false}
-        value={defaultLanguage}
+        value={selectedLanguage}
         components={{ DropdownIndicator: () => null, IndicatorSeparator: () => null }}
         formatOptionLabel={(option, { context }) =>
           context === 'value' ? option.shortLabel : option.label
