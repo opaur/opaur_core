@@ -236,8 +236,8 @@ const menuGroups = [
             </defs>
           </svg>
         ),
-        label: "Tables",
-        route: "/tables",
+        label: "Campaing",
+        route: "/campaing",
       }, 
       {
         icon: (
