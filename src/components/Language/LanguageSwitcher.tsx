@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Select, { SingleValue } from 'react-select';
 import Image from 'next/image';
+import { getBrowserLanguage } from '@/utils/getBrowserLanguage';
 
 // Define the shape of a language option
 interface LanguageOption {
@@ -58,13 +59,7 @@ const languageOptions: LanguageOption[] = [
   },
 ];
 
-const getBrowserLanguage = (): string => {
-  const lang = navigator.language;
-  if (lang.startsWith('en')) return 'en';
-  if (lang.startsWith('es')) return 'es';
-  if (lang.startsWith('pt')) return 'br'; // Match 'pt-BR' or 'pt' to 'br'
-  return 'en'; // Default fallback
-};
+const initialLanguage = getBrowserLanguage();
 
 const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation();
