@@ -7,74 +7,77 @@ import Image from 'next/image';
 interface LanguageOption {
   value: string;
   label: JSX.Element;
-  shortLabel: JSX.Element; // Short label for display when closed
+  shortLabel: JSX.Element;
 }
+
+const languageOptions: LanguageOption[] = [
+  {
+    value: 'en',
+    label: (
+      <div className="flex items-center gap-2">
+        <Image src="/images/flags/bandera_en.png" alt="English flag" width={20} height={12} />
+        English
+      </div>
+    ),
+    shortLabel: (
+      <div className="flex items-center gap-1">
+        <Image src="/images/flags/bandera_en.png" alt="English flag" width={16} height={10} />
+        EN
+      </div>
+    ),
+  },
+  {
+    value: 'es',
+    label: (
+      <div className="flex items-center gap-2">
+        <Image src="/images/flags/bandera_es.png" alt="Spanish flag" width={20} height={12} />
+        Español
+      </div>
+    ),
+    shortLabel: (
+      <div className="flex items-center gap-1">
+        <Image src="/images/flags/bandera_es.png" alt="Spanish flag" width={16} height={10} />
+        ES
+      </div>
+    ),
+  },
+  {
+    value: 'br',
+    label: (
+      <div className="flex items-center gap-2">
+        <Image src="/images/flags/bandera_br.png" alt="Brazilian flag" width={20} height={12} />
+        Português
+      </div>
+    ),
+    shortLabel: (
+      <div className="flex items-center gap-1">
+        <Image src="/images/flags/bandera_br.png" alt="Brazilian flag" width={16} height={10} />
+        PT
+      </div>
+    ),
+  },
+];
+
+const getBrowserLanguage = (): string => {
+  const lang = navigator.language;
+  if (lang.startsWith('en')) return 'en';
+  if (lang.startsWith('es')) return 'es';
+  if (lang.startsWith('pt')) return 'br'; // Match 'pt-BR' or 'pt' to 'br'
+  return 'en'; // Default fallback
+};
 
 const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation();
-  const [defaultLanguage, setDefaultLanguage] = useState<LanguageOption | undefined>();
-
-  const languageOptions: LanguageOption[] = [
-    {
-      value: 'en',
-      label: (
-        <div className="flex items-center gap-2">
-          <Image src="/images/flags/bandera_en.png" alt="English flag" width={20} height={12} />
-          English
-        </div>
-      ),
-      shortLabel: (
-        <div className="flex items-center gap-1">
-          <Image src="/images/flags/bandera_en.png" alt="English flag" width={16} height={10} />
-          EN
-        </div>
-      ),
-    },
-    {
-      value: 'es',
-      label: (
-        <div className="flex items-center gap-2">
-          <Image src="/images/flags/bandera_es.png" alt="Spanish flag" width={20} height={12} />
-          Español
-        </div>
-      ),
-      shortLabel: (
-        <div className="flex items-center gap-1">
-          <Image src="/images/flags/bandera_es.png" alt="Spanish flag" width={16} height={10} />
-          ES
-        </div>
-      ),
-    },
-    {
-      value: 'br',
-      label: (
-        <div className="flex items-center gap-2">
-          <Image src="/images/flags/bandera_br.png" alt="Brazilian flag" width={20} height={12} />
-          Português
-        </div>
-      ),
-      shortLabel: (
-        <div className="flex items-center gap-1">
-          <Image src="/images/flags/bandera_br.png" alt="Brazilian flag" width={16} height={10} />
-          PT
-        </div>
-      ),
-    },
-  ];
+  const initialLanguage = getBrowserLanguage();
+  const [defaultLanguage, setDefaultLanguage] = useState<LanguageOption | undefined>(
+    languageOptions.find((option) => option.value === initialLanguage)
+  );
 
   useEffect(() => {
-    const browserLang = navigator.language.split('-')[0]; // Extract primary language (e.g., "en-US" -> "en")
-    const matchedLang = languageOptions.find(option => option.value === browserLang);
-    
-    if (matchedLang) {
-      setDefaultLanguage(matchedLang);
-      i18n.changeLanguage(matchedLang.value);
-    } else {
-      // Fallback to default language if no match
-      setDefaultLanguage(languageOptions[0]);
-      i18n.changeLanguage(languageOptions[0].value);
+    if (defaultLanguage) {
+      i18n.changeLanguage(defaultLanguage.value);
     }
-  }, [i18n]);
+  }, [defaultLanguage, i18n]);
 
   const handleChange = (selectedOption: SingleValue<LanguageOption>) => {
     if (selectedOption) {
@@ -112,30 +115,32 @@ const LanguageSelector: React.FC = () => {
             fontSize: '14px',
             textAlign: 'left',
             margin: '0px',
-            color: typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
-              ? '#f2f2f2'
-              : '#1c2434',
+            color:
+              typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? '#f2f2f2'
+                : '#1c2434',
           }),
           menu: (base) => ({
             ...base,
             minWidth: '10rem',
             borderRadius: '6px',
-            backgroundColor: typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
-              ? 'rgb(36, 48, 63)'
-              : '#f2f2f2',
+            backgroundColor:
+              typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'rgb(36, 48, 63)'
+                : '#f2f2f2',
           }),
           option: (base, { isFocused, isSelected }) => ({
             ...base,
             backgroundColor: isSelected
               ? '#695cff'
               : isFocused
-                ? 'rgba(79, 70, 229, 0.1)'
-                : 'transparent',
+              ? 'rgba(79, 70, 229, 0.1)'
+              : 'transparent',
             color: isSelected
               ? '#f2f2f2'
               : typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)').matches
-                ? '#f2f2f2'
-                : '#1c2434',
+              ? '#f2f2f2'
+              : '#1c2434',
             padding: '10px',
             borderRadius: '6px',
             cursor: 'pointer',
